@@ -1,0 +1,19 @@
+/* alaways start with ost genrally application and then get more specific as you 
+go down the cascade */
+
+html,
+body{
+    margin: 0;
+}
+
+div{
+    border: 1px solid rgb(232, 53, 53);
+    background-color: rgb(228, 106, 106);
+}
+
+
+
+
+
+
+

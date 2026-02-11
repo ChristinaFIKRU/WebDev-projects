@@ -1,0 +1,52 @@
+/* always load depencencies first,fonts, css variables, other stle sheets */
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+/* generic to specific with out styles */
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+html{
+      font-family: "Kaushan Script", cursive;
+/*  this is where we would declare and use size image bg */
+    background: url('../img/bg.jpg') no-repeat center center fixed;
+
+}
+
+.container{
+    width: 900px;
+    margin: 0 auto;
+    /* remeber to 0 out the font size of fthe container
+    dont fgt to beting that font size back in front */
+    /* font-size: 0; */
+
+}
+
+.polaroid{
+    width: 260px;
+    margin: 20px;
+    display: inline-block;
+    position: relative;
+    
+}
+.polaroid img{
+    /* common design patterns is to never size image
+    themselves instead we make the imagew with 100%  */
+    width: 100%;
+height: auto;
+boarder: 10px solid#705656
+boarder-bottom-width: 50px;
+}
+
+.polaroid p{
+    font-size: 1 rem;
+    color: #7b2d2d;
+    position: absolute;
+    bottom: 14px;
+    width: 280px;
+    text-align: center;
+}
+
