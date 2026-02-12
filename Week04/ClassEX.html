@@ -6,23 +6,26 @@
     <title>Positioning Basics</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-
   <body>
     <header>
-        <h1>Positioning Basics and nav basis</h1>
-
+      <h1>Maybe this could be where a fixed navigation could live.</h1>
     </header>
 
-    <div class ="abs-no-parent-pos">
-        <p> this div has no parent element with no </p>
+    <div class="abs-no-parent-pos">
+      <p>
+        This div has no parent element with a set position property. This div is
+        absolutely positioned.
+      </p>
     </div>
 
-    <div class ="rel-parent-pos">
-        <p> this div has no parent element with no </p>
-
-        <div class ="abs-pos">
-        <p> this div has no parent element with no </p>
-    </div>
+    <div class="rel-parent-pos">
+      <p>This is a relatively positioned parent div.</p>
+      <div class="abs-rel-parent-pos">
+        <p>
+          This div is absolutely positioned inside of a realtively positioned
+          parent div.
+        </p>
+      </div>
     </div>
   </body>
 </html>
