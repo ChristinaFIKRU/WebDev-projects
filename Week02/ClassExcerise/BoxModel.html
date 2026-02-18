@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
   <head>
@@ -76,4 +77,84 @@ li a:hover{
       </nav>
     </header>
   </body>
+=======
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Simple Navbar | Inline-Block</title>
+
+    <style type="text/CSS">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: "Times New Roman", Times, serif;
+
+        }
+        ul{
+           /* remove all of the bullets points*/
+           list-style-type: none;
+           overflow: hidden;
+              background-color: rgb(217, 70, 151); 
+        }/* in line block workaround for stacking boxes 
+        zeor out the font size of the paret element of the inline 
+        inline block elemnts to get rid of the inherent tiny space between letters*/
+
+        li{
+           /* li display block by default,, wenwant them to share hortizontal space so they can stack
+           we do this wotj changing it to the INLINE-BLOCK*/
+           
+           display: inline-block;
+           font-size: 1.5rem;
+           /* width: 200px; */
+
+        }   
+
+        /* decedant selector */
+
+        li{ displau: block;
+        text-align: center;
+    /* /* lets make our anchor tags big and chunky with block and box model props} */
+                width: 100;
+                padding: 10px;
+                text-decoration: none;
+}
+ .active{
+    background-color: rgb(123, 12, 145);
+
+ } 
+
+  /* hover is a pseudo class selcetor,  */
+  /* its a prticular state of our anchor tags */
+li a:hover{
+    background-color: rgb(123, 12, 145);
+}
+    </style>
+  </head>
+  <body>
+    <header>
+        
+      <nav>
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li>
+            <a
+              class="active"
+              href="#"
+              >Link 2</a
+            >
+          </li>
+          <li><a href="#">Link 3</a></li>
+          <li><a href="#">Link 4</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+>>>>>>> b7a7a4c ( WebDev TER)
 </html>
