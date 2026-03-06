@@ -1,0 +1,83 @@
+/* Global Styles */
+
+
+/* take into account borders and padding in our set dimensions of any box*/
+
+*{
+    box-sizing: border-box;
+}
+
+/* zero out annoying margins */
+
+html, 
+body{
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Scale img to fit their parent container element */
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+/* desktop for styling */
+/* Jumbotron   */
+
+div.hero{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 4rem;
+
+}
+
+.hero article{
+    position: absolute;
+    bottom: 15%;
+    right: 0;
+    width: 50%;
+    padding: 2rem;
+    background-color: linear-gradient(to right, rgba(255, 0, 0, 75) 0%, rgba(255, 0, 255, 0) 100%);
+
+
+}
+button, 
+a.info{
+    padding: 0.75rem 2rem;
+    border: 3px solid #AAA;
+    background-color: transparent;
+    color: #af1f1f;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    /* transtions defined Here at the starting state */
+    transition: all 0.3s ease;
+    min-width: 10rem;
+}
+
+button:hover,
+a.info:hover{
+    background-color: #78cce8;
+    color: #c61352;
+}
+
+/* Gallery styles */
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.thumb{
+    position: relative;
+    flex: 0 0 32%;
+    
+}
+
+
+
