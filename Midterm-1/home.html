@@ -4,29 +4,218 @@
 <head>
     <meta charset="utf-8"/>
    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title> Through my lens - wireframe</title>
+<title> Through my lens </title>
 
 </head>
 <body> 
     <style>
-        .mybox{
-            width: 600px;
-            height: 45px;
-            background-color: pink;
-            border: 4px darkblue;
-            padding: 15px;
-            margin: 16px auto;
-            text-align: center;
-            box-shadow: 4px 5px 10px red;
-            border-radius: 15px;
-        }
-        .head{
-            margin: 0;
-            padding: 0;
-        }
+       /* Global Styles */
+       /* head/nav */
+    .main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgb(22, 27, 34);
+    }
+    nav a {
+        display: flex;
+        justify-content: center;
+        gap: auto;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+
+/* take into account borders and padding in our set dimensions of any box*/
+
+* {
+    box-sizing: border-box;
+}
+
+/* Zero out the annoying default margins */
+html,
+body {
+    margin: 0;
+}
+
+/* scale the images to fit their parent container */
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* Desktop First Styling */
+
+/* JUMBOTRON */
+div.hero {
+    width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.hero article {
+    position: absolute;
+    bottom: 20%;
+    right: 0;
+    width: 50%;
+    padding: 2%;
+    background: linear-gradient(to right,  rgb(9, 67, 46) 0%,rgba(192, 132, 252, 0.8) 100%);
+}
+
+button,
+a.info {
+    padding: 10px 20px;
+    border: 2px rgb(212, 168, 67) solid;
+    border-radius: 10px;
+    color: rgb(36, 4, 43);
+    background-color:rgba(13, 17, 23);
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    /* Transitions get applies here at the base state of an element (base = what the default style is when you load the page */
+    transition: all 1s ease;
+    width: 10rem;
+}
+
+button:hover,
+a.info:hover {
+    background-color: rgb(20, 184, 166);
+    color: rgb(139, 148, 158);
+    /* text-transform: lowercase; */
+    
+}
+
+/* GALLERY */
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.thumb {
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 30%;
+    /*
+    flex-grow: 0; don't get any bigger, stay at basis size
+    flex-grow: 1; yes grow at the normal rate
+    flex-grow: 2; yes grow at 2x the normal rate
+
+    flex-basis: size and unit; think of it like setting the default width
+    */
+    margin: 1.5rem auto;
+}
+
+/* prepare the img initial state for transforms */
+.thumb img{
+    transform: scale(1);
+    transform: rotate(0deg);
+    transition: all 1s ease;
+}
+
+/* Image transforms on hover */
+.thumb:hover img {
+    transform: scale(1.5) rotate(-20deg);
+}
+
+.mask {
+    /* position/stretch each edge to its parents edges */
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* quick way to center in both axis */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease;
+    opacity: 0;
+    pointer-events: all;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.mask h2 {
+    margin: 0;
+}
+
+.mask p {
+    font-style: italic;
+}
+
+.thumb:hover .mask {
+    opacity: 1;
+}
+
+.thumb .mask h2,
+.thumb .mask p,
+.thumb .mask a {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1s ease-in-out;
+}
+
+.thumb:hover .mask h2,
+.thumb:hover .mask p,
+.thumb:hover .mask a {
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet Landscape */
+@media screen and (width <= 1024px) {
+    .hero article{
+        width: 80%;
+    }
+
+    .thumb {
+        flex-basis: 45%;
+    }
+}
+
+/* Smaller than an Ipad Classic AKA Phone */
+@media screen and (width < 768px) {
+
+    .hero article {
+        width: 100%;
+        bottom: 1%;
+        padding: 1.5rem;
+    }
+    .container {
+        flex-direction: column;
+        padding: 0.75rem;
+    }
+
+
+}
+footer {
+  min-height: 100px;
+  background-color: rgb(13, 148, 136);
+}
+
+footer h6 {
+  margin: 0;
+}
+
+
     </style>
-    <header> 
-        <h4> Through my lens - Photography site</h4>
+    
+   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+<header> 
+        <h4> Throug my lens - Photography site</h4>
         <nav>
             <a href='#'> Home</a>
               <a href='#'>About</a>
@@ -36,34 +225,90 @@
             <a href='#'> Gallery</a>
             <a href='#'> Contact</a>
         </nav>
-
     </header>
-    <div class ="container">
-
-        <main>
-        <section class="hero-section">
-       <h1>Welcome to Through My Lens</h1>
-        </section>
-
-        <div class="intro-image">
-            [Image Placeholder 800x400px]
-        </div>
-        <section class="destination-card">
-            <h2> Featured Destinations</h2>
-            <div class="destination-image">
-                [Image Placeholder 400x300px]
-            </div>
-            <div class="destination-image">
-                [Image Placeholder 400x300px]
-            </div>
-             <div class="destination-image">
-                [Image Placeholder 400x300px]
-            </div>
-        </section>
-
-
-        </main>
+  <body>
+    <!-- FULL SCREEN JUMBOTRON  -->
+    <div class="hero">
+      <img src="./img/M1.jpeg" />
+      <article>
+        <h1>Welcome to My Photography Portfolio</h1>
+        <p>Let's travel through the lens of my camera and explore the world from a unique perspective!</p>
+        <a href ="#" class ="info">Learn About Me</a>
+      </article>
     </div>
-</body>
 
+    <!-- END FULL SCREEN JUMBOTRON  -->
+    <!-- BEGIN GALLERY -->
+     <h1> Destinations</h1>
+    <div class="container">
+    <div class="thumb">
+      <img src="./img/A1.jpeg" alt="Super Amazing Portfolio Item" />
+      <article class="mask">
+        <h2>Destination Site</h2>
+        <p>This is a description of a portfolio item!</p>
+        <a class="info" href="#">Click to See More</a>
+      </article>
+    </div>
+
+    <div class="thumb">
+    <img src="./img/A2.jpeg" alt="Super Amazing Portfolio Item" />
+    <article class="mask">
+      <h2>Destination Site</h2>
+      <p>This is a description of a portfolio item!</p>
+      <a class="info" href="#">Click to See More</a>
+    </article>
+  </div>
+
+    <div class="thumb">
+    <img src="./img/A3.jpeg" alt="Super Amazing Portfolio Item" />
+    <article class="mask">
+      <h2>Destination Site</h2>
+      <p>This is a description of a portfolio item!</p>
+      <a class="info" href="#">Click to See More</a>
+    </article>
+  </div>
+
+    <div class="thumb">
+    <img src="./img/A4.jpeg" alt="Super Amazing Portfolio Item" />
+    <article class="mask">
+      <h2>Destination Site</h2>
+      <p>This is a description of a portfolio item!</p>
+      <a class="info" href="#">Click to See More</a>
+    </article>
+  </div>
+
+    <div class="thumb">
+    <img src="./img/A5.jpeg" alt="Super Amazing Portfolio Item" />
+    <article class="mask">
+      <h2>Destination Site</h2>
+      <p>This is a description of a portfolio item!</p>
+      <a class="info" href="#">Click to See More</a>
+    </article>
+  </div>
+
+    <div class="thumb">
+    <img src="./img/A6.jpeg" alt="Super Amazing Portfolio Item" />
+    <article class="mask">
+      <h2>Destination Site</h2>
+      <p>This is a description of a portfolio item!</p>
+      <a class="info" href="#">Click to See More</a>
+    </article>
+  </div>
+
+
+
+
+    </div>
+
+    <!-- END GALLERY -->
+     <!-- FOOTER -->
+     <footer>
+         <h4>Follow me on social media!</h4>
+         <h4>Instagram | Facebook | Twitter</h4>
+         <h4>Designed by Chris</h4>
+         <h4>Contact: info@throughmylens.com</h4>
+      <h6>&copy; 2026 Through my lens. All rights reserved.</h6>
+     </footer>
+  </body>
 </html>
+
