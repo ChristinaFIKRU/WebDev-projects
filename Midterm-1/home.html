@@ -10,21 +10,7 @@
 <body> 
     <style>
        /* Global Styles */
-       /* head/nav */
-    .main-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: rgb(22, 27, 34);
-    }
-    nav a {
-        display: flex;
-        justify-content: center;
-        gap: auto;
-        text-decoration: none;
-        color: rgb(255, 255, 255);
-    }
+
 
 /* take into account borders and padding in our set dimensions of any box*/
 
@@ -32,16 +18,48 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    background-color: rgb(10, 27, 25);
+}
+   /* head/nav */
+    .main-header{
+    display: flex;
+    color: rgb(204, 156, 224);
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    }
+    .main-header h4 {
+        font-size: 1rem;
+        transition: all;
+    }
+    nav {
+        display: flex;
+        gap: 20px;
+    }
+    nav a {
+        color: rgb(201, 134, 225);
+        /* text-decoration: none; */
+        font-size: 1rem;
+        transition: all 0.5s ease;
+    }
 /* Zero out the annoying default margins */
 html,
 body {
     margin: 0;
 }
-
+.dest h1 {
+    color: rgb(201, 134, 225);
+    padding: 1rem;
+}
 /* scale the images to fit their parent container */
 img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+
+    padding: 30px rgb(20, 184, 166);
 }
 
 /* Desktop First Styling */
@@ -61,16 +79,16 @@ div.hero {
     right: 0;
     width: 50%;
     padding: 2%;
-    background: linear-gradient(to right,  rgb(9, 67, 46) 0%,rgba(192, 132, 252, 0.8) 100%);
+    background: linear-gradient(to right,  rgb(9, 67, 46) 0%,rgba(201, 134, 225, 0.8) 100%);
 }
 
 button,
 a.info {
     padding: 10px 20px;
-    border: 2px rgb(212, 168, 67) solid;
+    border: 2px rgb(2, 48, 45) solid;
     border-radius: 10px;
-    color: rgb(36, 4, 43);
-    background-color:rgba(13, 17, 23);
+    color: rgb(245, 245, 245);
+    background-color:rgb(13, 17, 23);
     text-transform: uppercase;
     text-align: center;
     cursor: pointer;
@@ -83,7 +101,7 @@ a.info {
 button:hover,
 a.info:hover {
     background-color: rgb(20, 184, 166);
-    color: rgb(139, 148, 158);
+    color: rgb(26, 26, 26);
     /* text-transform: lowercase; */
     
 }
@@ -95,6 +113,7 @@ a.info:hover {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    /* padding: 0 20px; */
 }
 
 .thumb {
@@ -105,10 +124,11 @@ a.info:hover {
     flex-grow: 0; don't get any bigger, stay at basis size
     flex-grow: 1; yes grow at the normal rate
     flex-grow: 2; yes grow at 2x the normal rate
-
-    flex-basis: size and unit; think of it like setting the default width
-    */
-    margin: 1.5rem auto;
+*/
+     /* flex-basis: auto; */ /*think of it like setting the default width */
+    
+    margin:1.5rem  auto;
+    border: 4px solid rgb(20, 184, 166);
 }
 
 /* prepare the img initial state for transforms */
@@ -122,6 +142,7 @@ a.info:hover {
 .thumb:hover img {
     transform: scale(1.5) rotate(-20deg);
 }
+
 
 .mask {
     /* position/stretch each edge to its parents edges */
@@ -198,12 +219,14 @@ a.info:hover {
 }
 footer {
   min-height: 100px;
-  background-color: rgb(13, 148, 136);
+  background-color: rgb(204, 156, 224);
+  padding: 20px;
+  text-align: center;
+  border: 2px rgb (212, 168, 67);
+   margin-top: 20px;
 }
 
-footer h6 {
-  margin: 0;
-}
+
 
 
     </style>
@@ -211,11 +234,11 @@ footer h6 {
    <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Through My Lens</title>
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
   </head>
-<header> 
-        <h4> Throug my lens - Photography site</h4>
+<header class ="main-header"> 
+        <h4> Through my lens - Photography site</h4>
         <nav>
             <a href='#'> Home</a>
               <a href='#'>About</a>
@@ -239,7 +262,8 @@ footer h6 {
 
     <!-- END FULL SCREEN JUMBOTRON  -->
     <!-- BEGIN GALLERY -->
-     <h1> Destinations</h1>
+    <a href="#destinations" class="dest"> <h1> Featured Destinations</h1></a>
+    <!-- <h1> Destinations</h1> -->
     <div class="container">
     <div class="thumb">
       <img src="./img/A1.jpeg" alt="Super Amazing Portfolio Item" />
@@ -260,7 +284,7 @@ footer h6 {
   </div>
 
     <div class="thumb">
-    <img src="./img/A3.jpeg" alt="Super Amazing Portfolio Item" />
+    <img src="./img/p4.jpeg" alt="Super Amazing Portfolio Item" />
     <article class="mask">
       <h2>Destination Site</h2>
       <p>This is a description of a portfolio item!</p>
@@ -269,7 +293,7 @@ footer h6 {
   </div>
 
     <div class="thumb">
-    <img src="./img/A4.jpeg" alt="Super Amazing Portfolio Item" />
+    <img src="./img/p3.jpg" alt="Super Amazing Portfolio Item" />
     <article class="mask">
       <h2>Destination Site</h2>
       <p>This is a description of a portfolio item!</p>
@@ -278,7 +302,7 @@ footer h6 {
   </div>
 
     <div class="thumb">
-    <img src="./img/A5.jpeg" alt="Super Amazing Portfolio Item" />
+    <img src="./img/pl2.jpg" alt="Super Amazing Portfolio Item" />
     <article class="mask">
       <h2>Destination Site</h2>
       <p>This is a description of a portfolio item!</p>
@@ -287,7 +311,7 @@ footer h6 {
   </div>
 
     <div class="thumb">
-    <img src="./img/A6.jpeg" alt="Super Amazing Portfolio Item" />
+    <img src="./img/pl-1.jpg" alt="Super Amazing Portfolio Item" />
     <article class="mask">
       <h2>Destination Site</h2>
       <p>This is a description of a portfolio item!</p>
@@ -303,11 +327,10 @@ footer h6 {
     <!-- END GALLERY -->
      <!-- FOOTER -->
      <footer>
-         <h4>Follow me on social media!</h4>
-         <h4>Instagram | Facebook | Twitter</h4>
          <h4>Designed by Chris</h4>
+         <h4>Follow me on social media! Instagram | Facebook | Twitter</h4>
          <h4>Contact: info@throughmylens.com</h4>
-      <h6>&copy; 2026 Through my lens. All rights reserved.</h6>
+      <h5>&copy; 2026 Through my lens. All rights reserved.</h5>
      </footer>
   </body>
 </html>
