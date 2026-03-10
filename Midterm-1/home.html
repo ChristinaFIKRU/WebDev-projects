@@ -5,6 +5,7 @@
     <meta charset="utf-8"/>
    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title> Through my lens </title>
+        <link rel="stylesheet" href="./css/styles.css" />
 
 </head>
 <body> 
@@ -13,7 +14,7 @@
 
 
 /* take into account borders and padding in our set dimensions of any box*/
-
+/* 
 * {
     box-sizing: border-box;
 }
@@ -25,23 +26,28 @@ body{
    /* head/nav */
     .main-header{
     display: flex;
-    color: rgb(204, 156, 224);
+    color: rgb(21, 19, 22);
     justify-content: space-between;
     align-items: center;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
     padding: 1rem;
+    border-color : red 0.75rem;
     }
     .main-header h4 {
-        font-size: 1rem;
-        transition: all;
+        font-size: 3 rem;
+        transition: all 0.5s ease;
     }
     nav {
         display: flex;
         gap: 20px;
     }
     nav a {
-        color: rgb(201, 134, 225);
+        color: rgb(11, 11, 11);
         /* text-decoration: none; */
-        font-size: 1rem;
+        font-size: 5 rem;
         transition: all 0.5s ease;
     }
 /* Zero out the annoying default margins */
@@ -225,7 +231,7 @@ footer {
   border: 2px rgb (212, 168, 67);
    margin-top: 20px;
 }
-
+ */
 
     </style>
     
@@ -234,7 +240,7 @@ footer {
         <nav>
             <a href='home.html'> Home</a>
               <a href='about.html'>About</a>
-            <a href='destinations.html'> Destinations</a>
+            <a href='#destinations.html'> Destinations</a>
             <!-- under this dfgt to link the specific ids of destinations
              under the gal page -->
             <a href='gallery.html '> Gallery</a>
