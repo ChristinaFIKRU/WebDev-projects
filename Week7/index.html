@@ -1,25 +1,109 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, shrink-to-fit=no" />
-    <title>CSS Vars | Contact US</title>
-    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>CSS Vars | Contact Us</title>
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      .container {
+        width: 50%;
+        margin: 10% auto;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        color: #333;
+        background-color: chartreuse;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .label-lg {
+        font-size: 2rem;
+
+      }
+
+      .input-lg {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid gray;
+        margin-right: 2rem;
+      }
+
+      .message-area {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        font-size: 2rem;
+      }
+
+      .message {
+        height: 16rem;
+        border-radius: 0.25rem;
+        padding: 1rem;
+      }
+
+      .button-bar {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      .btn-dark {
+        width: 100%;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+        padding: 1rem;
+        border-color: white;
+        color: white;
+        background-color: blueviolet;
+      }
+
+      .btn-dark:hover {
+        background-color: blue;
+      }
+    </style>
+
+
+
   </head>
   <body>
-    <div Class = "container">
-        <h1>Contact Us</h1>
-        <form action="" method="POST">
-            <div class="row">
-                <lable for ="name" class ="lable-lg">Name: </lable>
-                <input type="text" name="name" class="input-lg" required>
 
+    <div class="container">
+      <h1>Get in Touch!</h1>
+      <form action="https://formspree.io/f/xeeraneb" method="POST">
+        <div class="row">
+          <label for="name" class="label-lg">Name: </label>
+          <input type="text" name="name" class="input-lg" required/>
 
-                <lable for ="name" class ="lable-lg">Name: </lable>
-                <input type="text" name="name" class="input-lg" required>
-            </div>
-            <
-        </form>
+          <label for="email" class="label-lg">Email: </label>
+          <input type="text" name="email" class="input-lg" required/>
+        </div>
+        <div class="message-area">
+          <label for="message">Leave us a Message!</label>
+          <textarea name="message" class="message" placeholder="Drop us a question or comment!" required></textarea>
+        </div>
+        <div class="button-bar">
+          <button class="btn-dark" type="submit">Send</button>
+        </div>
+        <input type="hidden" name="subject" value="New submission from {{name}}" />
+      </form>
     </div>
-    <header>
+  </body>
+</html>
     
