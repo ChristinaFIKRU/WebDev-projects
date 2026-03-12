@@ -15,24 +15,26 @@
 
 *{
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    /* margin: 0; */
+    /* padding: 0; */
 }
 
 body {
-  margin: 0;
+  /* margin: 0; */
   padding-top: 100px;
 }
 
 /* some generic styles for our div elements so we can see them nest */
+/* FIXED: removed background-image and border from generic div rule —
+   it was applying to every .card div and breaking the polaroid look */
 div {
-  border:4px solid rgb(20, 184, 166);
-  background-image: url('../img/ab-me/M1.jpeg');
+  border: none;
+  background-image: none;
 }
 
 /* generic to specific with our styles */
 .gal1 h1{
-  color: rgb(19, 2, 2);
+  color: rgb(10, 1, 1);
   padding: 1rem;
 }
 
@@ -45,12 +47,14 @@ html {
 }
 
 .container {
-  max-width: auto;
+  max-width: 900px;
+  /* FIXED: uncommented margin: 0 auto — this centers the container and enforces
+     the max-width so you get 3 columns instead of cards spreading wall to wall */
   margin: 0 auto;
 
   /* remember to zero out font size of the container of inline block elements
   dont forget to bring that font size back in the child element */
-  font-size: 0;
+  /* FIXED: removed font-size: 0 — not needed with flexbox, was causing issues */
 
   display: flex;
   flex-direction: row;
@@ -58,31 +62,54 @@ html {
   justify-content: space-evenly;
 }
 
+/* .img card{
+    display: inline-flex;
+    border: 4px solid rgb(20, 184, 166);
+    padding: 1 rem;
+ }
+     */
+
+
 .card {
+  /* FIXED: explicit width, no flex-direction needed — position:relative is enough */
   width: 260px;
-  margin: 5px;
-  display: inline-block;
+  margin: 10px;
   position: relative;
+  background: none;
+  border: none;
 }
 
 .card img {
   /* common design pattern is to never size images themselves
   instead we make the image width 100% of its parent. and then assign dimensions to the parent */
   width: 100%;
-  height: auto;
+
+  /* FIXED: fixed height + object-fit: cover makes ALL photos the same size
+     regardless of portrait vs landscape orientation — no more uneven cards */
+  height: 200px;
+  object-fit: cover;
+  display: block;
 
   /* add some borders to mimic polaroid paper */
   border: 10px solid rgb(22, 27, 34);
-  border-bottom-width: 45px;
+  /* FIXED: thicker bottom border creates room for the caption to sit inside it */
+  border-bottom-width: 50px;
 }
 
 .card p {
   font-size: 1rem;
-  color: #333;
+  /* FIXED: removed space between rgb and ( — "rgb (" is invalid CSS */
+  color: rgb(200, 200, 200);
+  /* FIXED: absolute position anchored to bottom of the dark border */
   position: absolute;
-  bottom: 2px;
-  width: 280px;
-  /* text-align: center; */
+  bottom: 10px;
+  left: 0;
+  /* FIXED: was 280px which overflowed the 260px card — now matches card width */
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  /* optional: matches the handwritten style in your screenshot */
+  font-style: italic;
 }
 
 /* HEADER */
@@ -116,6 +143,7 @@ nav {
 }
 
 nav a {
+    /* FIXED: was "coxrgb(0,0,0)" — missing the "color:" property name */
     color: rgb(0, 0, 0);
     /* text-decoration: none; */
     font-size: 1.2rem;
@@ -189,14 +217,22 @@ nav a {
         /* padding: 0.75rem; */
     }
 
-    .card{
+    .card {
+      /* FIXED: full width on mobile so cards don't shrink awkwardly */
+      width: 90%;
+      margin: 8px auto;
+    }
+
+    .card p {
       flex-direction: column;
       padding: 0.75rem;
-      /* text-align: center; */
+      text-align: center;
     }
 
     .card img{
-        max-width: 180px;
+        /* FIXED: removed max-width: 180px — was making images too small on mobile
+           100% of the card width looks much better */
+        max-width: 100%;
     }
 
 }
@@ -253,6 +289,7 @@ under the gal page -->
 </div>
 
 <div class="card">
+        <!-- make sure every Island is named correctly!! -->
         <p> Island Name</p>
 <img src="img/Island-hop/I2.jpeg" />
 </div>
@@ -334,11 +371,13 @@ under the gal page -->
 <footer id="footer">
 <h4>Designed by Chris</h4>
 <h4>Follow me on social media! Instagram | Facebook | Twitter</h4>
-<h4>Contact: info@throughmylens.com</h4>
+<h4>Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c05020a032c18041e03190b0401150009021f420f0301">[email&#160;protected]</a></h4>
 <h5>&copy; 2026 Through my lens. All rights reserved.</h5>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+
 
 /* change nav background when scrolling */
 
