@@ -19,37 +19,36 @@
 }
 
 body {
-  margin: 0;
   padding-top: 100px;
+
+  /* page background image */
+  background: url("img/Christiansted/c3.jpeg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* some generic styles for our div elements so we can see them nest */
+/* FIXED: removed background-image and border from generic div rule —
+   it was applying to every .card div and breaking the polaroid look */
 div {
-  border:4px solid rgb(20, 184, 166);
-  background-image: url('../img/ab-me/M1.jpeg');
+  border: none;
+  background-image: none;
 }
 
 /* generic to specific with our styles */
 .gal1 h1{
-  color: rgb(19, 2, 2);
+  color: rgb(10, 1, 1);
   padding: 1rem;
 }
 
 html {
-  font-family: ' Times Roman', serif, sans-serif;
-
-  /* this is where we would declare and use a full size image background */
-  background: url('../img/ab-me/M1.jpeg') no-repeat center center fixed;
-  background-size: cover;
+  font-family: 'Times New Roman', serif, sans-serif;
 }
 
 .container {
-  max-width: auto;
-  margin: 0 auto;
+  max-width: 900px;
 
-  /* remember to zero out font size of the container of inline block elements
-  dont forget to bring that font size back in the child element */
-  font-size: 0;
+  /* centers the container */
+  margin: 0 auto;
 
   display: flex;
   flex-direction: row;
@@ -57,31 +56,52 @@ html {
   justify-content: space-evenly;
 }
 
+/* .img card{
+    display: inline-flex;
+    border: 4px solid rgb(20, 184, 166);
+    padding: 1 rem;
+ }
+     */
+
+
 .card {
   width: 260px;
-  margin: 5px;
-  display: inline-block;
+  margin: 10px;
   position: relative;
+  background: none;
+  border: none;
 }
 
 .card img {
-  /* common design pattern is to never size images themselves
-  instead we make the image width 100% of its parent. and then assign dimensions to the parent */
-  width: 100%;
-  height: auto;
 
-  /* add some borders to mimic polaroid paper */
+  /* images fill the card width */
+  width: 100%;
+
+  /* equal image size */
+  height: 200px;
+  object-fit: cover;
+  display: block;
+
+  /* polaroid border */
   border: 10px solid rgb(22, 27, 34);
-  border-bottom-width: 45px;
+
+  /* space for caption */
+  border-bottom-width: 50px;
 }
 
 .card p {
   font-size: 1rem;
-  color: #333;
+  color: rgb(200, 200, 200);
+
   position: absolute;
-  bottom: 2px;
-  width: 280px;
-  /* text-align: center; */
+  bottom: 10px;
+  left: 0;
+
+  width: 100%;
+  text-align: center;
+  margin: 0;
+
+  font-style: italic;
 }
 
 /* HEADER */
@@ -116,7 +136,6 @@ nav {
 
 nav a {
     color: rgb(0, 0, 0);
-    /* text-decoration: none; */
     font-size: 1.2rem;
 }
 
@@ -145,6 +164,7 @@ nav a {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 .dropdown-content{
     background: rgba(17, 180, 191, 0.8);
 }
@@ -157,7 +177,7 @@ nav a {
 /* change nav background when scrolling */
 
 .main-header.scrolled{
-  background-image: url('img/front-page/M1.jpeg');
+  background-image: url('img/Christiansted/c3.jpeg');
   background-size: cover;
   background-position: center;
 }
@@ -170,9 +190,9 @@ nav a {
     width: 80%;
   }
 
-    .card{
-      flex-basis: 45%;
-    }
+  .card{
+    flex-basis: 45%;
+  }
 
 }
 
@@ -183,19 +203,21 @@ nav a {
       width: 100%;
       bottom: 1%;
       padding: 1.5rem;
-
-        /* align-items: center; */
-        /* padding: 0.75rem; */
     }
 
-    .card{
+    .card {
+      width: 90%;
+      margin: 8px auto;
+    }
+
+    .card p {
       flex-direction: column;
       padding: 0.75rem;
-      /* text-align: center; */
+      text-align: center;
     }
 
     .card img{
-        max-width: 180px;
+        max-width: 100%;
     }
 
 }
@@ -216,7 +238,8 @@ footer {
 
 <header class="main-header">
  <h4> Through my lens - Photography site</h4>
-      <nav>
+
+<nav>
 <a href='home.html'> Home</a>
 <a href='#about-text'>About</a>
 <a href='#dest'> Destinations</a>
@@ -232,74 +255,49 @@ under the gal page -->
   <div class="dropdown-content">
     <a href="island.html">Island </a>
     <a href="sted.html">Christansted </a>
-        <a href="east.html"> East Side</a>
-</div>
+    <a href="east.html"> East Side</a>
   </div>
-  <a href="#footer"> Contact</a>
+</div>
 
+<a href="#footer"> Contact</a>
 
-
-
+</nav>
 </header>
 
-<h1 id="gal1">Christiansted Monument </h1>
+<h1 id="gal1">Christansted Monument </h1>
 
 <div class="container">
 
 <div class="card">
-<img src="img/East-vilage/EA1.jpeg" />
+<img src="img/Christiansted/c1.jpeg" />
 </div>
 
 <div class="card">
-<img src="img/East-vilage/EA2.jpeg" />
+<img src="img/Christiansted/c2.jpeg" />
 </div>
 
 <div class="card">
-<img src="img/East-vilage/EA3.jpeg" />
+<img src="img/Christiansted/c3.jpeg" />
 </div>
 
 <div class="card">
-<img src="img/East-vilage/EA4.jpeg" />
+<img src="img/Christiansted/c4.jpeg" />
 </div>
 
 <div class="card">
-<img src="img/East-vilage/EA5.jpeg" />
+<img src="img/Christiansted/c5.jpeg" />
 </div>
 
 <div class="card">
-<img src="img/East-vilage/EA6.jpeg" />
+<img src="img/Christiansted/c6.jpeg" />
 </div>
 
 <div class="card">
-<img src="img/East-vilage/EA7.jpeg" />
+<img src="img/Christiansted/c7.jpeg" />
 </div>
 
 <div class="card">
-<img src="img/East-vilage/EA8.jpeg" />
-</div>
-
-<div class="card">
-<img src="img/East-vilage/EA9.jpeg" />
-</div>
-
-<div class="card">
-<img src="img/East-vilage/EA10.jpeg" />
-</div>
-
-<div class="card">
-<img src="img/East-vilage/EA11.jpeg" />
-</div>
-
-<div class="card">
-<img src="img/East-vilage/EA12.jpeg" />
-</div>
-
-<div class="card">
-<img src="img/East-vilage/EA13.jpeg" />
-</div>
-
-<div class="card">
-<img src="img/East-vilage/EA15.jpeg" />
+<img src="img/Christiansted/c8.jpeg" />
 </div>
 
 </div>

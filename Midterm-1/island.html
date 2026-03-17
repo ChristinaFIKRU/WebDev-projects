@@ -1,12 +1,12 @@
 <!-- UVI Island landing page
- make sure every Island is named correctly!! -->
+make sure every Island is named correctly!! -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Island Hop </title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Island Hop</title>
 
 <style>
 
@@ -14,236 +14,186 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap'); */
 
 *{
-    box-sizing: border-box;
-    /* margin: 0; */
-    /* padding: 0; */
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-body {
-  /* margin: 0; */
-  padding-top: 100px;
+body{
+padding-top:100px;
+
+background: url("img/Island-hop/I8.jpeg") no-repeat center center fixed;
+  background-size: cover;
+
 }
 
 /* some generic styles for our div elements so we can see them nest */
 /* FIXED: removed background-image and border from generic div rule —
    it was applying to every .card div and breaking the polaroid look */
-div {
-  border: none;
-  background-image: none;
+div{
+border:none;
+background-image:none;
 }
 
 /* generic to specific with our styles */
 .gal1 h1{
-  color: rgb(10, 1, 1);
-  padding: 1rem;
+color:rgb(10,1,1);
+padding:1rem;
 }
 
-html {
-  font-family: ' Times Roman', serif, sans-serif;
+html{
+font-family:'Times Roman',serif,sans-serif;
 
-  /* this is where we would declare and use a full size image background */
-  background: url('../img/ab-me/M1.jpeg') no-repeat center center fixed;
-  background-size: cover;
+/* this is where we would declare and use a full size image background */
+background:url('../img/Island-hop/I7.jpeg') no-repeat center center fixed;
+background-size:cover;
 }
 
-.container {
-  max-width: 900px;
-  /* FIXED: uncommented margin: 0 auto — this centers the container and enforces
-     the max-width so you get 3 columns instead of cards spreading wall to wall */
-  margin: 0 auto;
+/* MASONRY GALLERY */
 
-  /* remember to zero out font size of the container of inline block elements
-  dont forget to bring that font size back in the child element */
-  /* FIXED: removed font-size: 0 — not needed with flexbox, was causing issues */
+.container{
+max-width:1100px;
+margin:0 auto;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+/* images stack based on their natural height */
+column-count:3;
+column-gap:20px;
 }
 
-/* .img card{
-    display: inline-flex;
-    border: 4px solid rgb(20, 184, 166);
-    padding: 1 rem;
- }
-     */
-
-
-.card {
-  /* FIXED: explicit width, no flex-direction needed — position:relative is enough */
-  width: 260px;
-  margin: 10px;
-  position: relative;
-  background: none;
-  border: none;
+.card{
+break-inside:avoid;
+margin-bottom:20px;
+position:relative;
 }
 
-.card img {
-  /* common design pattern is to never size images themselves
-  instead we make the image width 100% of its parent. and then assign dimensions to the parent */
-  width: 100%;
+.card img{
+width:100%;
+height:auto;
+display:block;
 
-  /* FIXED: fixed height + object-fit: cover makes ALL photos the same size
-     regardless of portrait vs landscape orientation — no more uneven cards */
-  height: 200px;
-  object-fit: cover;
-  display: block;
+/* polaroid border */
+border:10px solid rgb(22,27,34);
 
-  /* add some borders to mimic polaroid paper */
-  border: 10px solid rgb(22, 27, 34);
-  /* FIXED: thicker bottom border creates room for the caption to sit inside it */
-  border-bottom-width: 50px;
+/* thicker bottom for caption */
+border-bottom-width:50px;
 }
 
-.card p {
-  font-size: 1rem;
-  /* FIXED: removed space between rgb and ( — "rgb (" is invalid CSS */
-  color: rgb(200, 200, 200);
-  /* FIXED: absolute position anchored to bottom of the dark border */
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  /* FIXED: was 280px which overflowed the 260px card — now matches card width */
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  /* optional: matches the handwritten style in your screenshot */
-  font-style: italic;
+.card p{
+font-size:1rem;
+color:rgb(200,200,200);
+
+position:absolute;
+bottom:10px;
+left:0;
+
+width:100%;
+text-align:center;
+margin:0;
+
+font-style:italic;
 }
 
 /* HEADER */
 
-.main-header {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+.main-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-   position: fixed;
-   top: 0;
-   left: 0;
-   height: 100px;
-   width: 100%;
+position:fixed;
+top:0;
+left:0;
+height:100px;
+width:100%;
 
-   padding: 1rem;
-   z-index: 1000;
+padding:1rem;
+z-index:1000;
 
-   background: rgba(0,0,0,0.3);
-   backdrop-filter: blur(6px);
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(6px);
 }
 
-.main-header h4 {
-    font-size: 1.2rem;
-    color: rgb(8, 1, 1);
+.main-header h4{
+font-size:1.2rem;
+color:rgb(8,1,1);
 }
 
-nav {
-    display: flex;
-    gap: 20px;
+nav{
+display:flex;
+gap:20px;
 }
 
-nav a {
-    /* FIXED: was "coxrgb(0,0,0)" — missing the "color:" property name */
-    color: rgb(0, 0, 0);
-    /* text-decoration: none; */
-    font-size: 1.2rem;
+nav a{
+color:rgb(0,0,0);
+font-size:1.2rem;
 }
 
 /* gal dropped down menu */
-.dropdown {
-    position: relative;
-    display: inline-block;
+
+.dropdown{
+position:relative;
+display:inline-block;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 .dropdown-content{
-    background: rgba(17, 180, 191, 0.8);
+display:none;
+position:absolute;
+background-color:#f9f9f9;
+min-width:160px;
+box-shadow:0px 8px 16px rgba(0,0,0,0.2);
+z-index:1;
 }
 
 .dropdown-content a{
-    color:rgb(22, 27, 34);
+color:black;
+padding:12px 16px;
+text-decoration:none;
+display:block;
 }
 
+.dropdown:hover .dropdown-content{
+display:block;
+}
+
+.dropdown-content{
+background:rgba(17,180,191,0.8);
+}
+
+.dropdown-content a{
+color:rgb(22,27,34);
+}
 
 /* change nav background when scrolling */
 
 .main-header.scrolled{
-  background-image: url('img/front-page/M1.jpeg');
-  background-size: cover;
-  background-position: center;
+background-image:url('img/Island-hop/I8.jpeg');
+background-size:cover;
+background-position:center;
 }
 
 /* MEDIA QUERIES */
 
-/* Tablet Landscape */
-@media screen and (width <= 1024px) {
-  .container {
-    width: 80%;
-  }
-
-    .card{
-      flex-basis: 45%;
-    }
-
+/* Tablet */
+@media (max-width:1000px){
+.container{
+column-count:2;
+}
 }
 
-/* Smaller than an Ipad Classic AKA Phone */
-@media screen and (width < 768px) {
-
-    .container {
-      width: 100%;
-      bottom: 1%;
-      padding: 1.5rem;
-
-        /* align-items: center; */
-        /* padding: 0.75rem; */
-    }
-
-    .card {
-      /* FIXED: full width on mobile so cards don't shrink awkwardly */
-      width: 90%;
-      margin: 8px auto;
-    }
-
-    .card p {
-      flex-direction: column;
-      padding: 0.75rem;
-      text-align: center;
-    }
-
-    .card img{
-        /* FIXED: removed max-width: 180px — was making images too small on mobile
-           100% of the card width looks much better */
-        max-width: 100%;
-    }
-
+/* Phone */
+@media (max-width:600px){
+.container{
+column-count:1;
+}
 }
 
-footer {
-  min-height: 100px;
-  background-color: rgb(204, 156, 224);
-  padding: 20px;
-  text-align: center;
-  border: 2px solid rgb(212, 168, 67);
-  margin-top: 20px;
+footer{
+min-height:100px;
+background-color:rgb(204,156,224);
+padding:20px;
+text-align:center;
+border:2px solid rgb(212,168,67);
+margin-top:20px;
 }
 
 </style>
@@ -252,142 +202,136 @@ footer {
 <body>
 
 <header class="main-header">
- <h4> Through my lens - Photography site</h4>
-      <nav>
-<a href='home.html'> Home</a>
-<a href='#about-text'>About</a>
-<a href='#dest'> Destinations</a>
 
-<!-- under this dfgt to link the specific ids of destinations
-under the gal page -->
+<h4>Through my lens - Photography site</h4>
 
+<nav>
+
+<a href="home.html">Home</a>
+<a href="#about-text">About</a>
+<a href="#dest">Destinations</a>
 
 <!-- dropdown gallery menu -->
 <div class="dropdown">
-  <a href="#">Gallery</a>
+<a href="#">Gallery</a>
 
-  <div class="dropdown-content">
-    <a href="island.html">Island </a>
-    <a href="sted.html">Christansted </a>
-        <a href="east.html"> East Side</a>
+<div class="dropdown-content">
+<a href="island.html">Island</a>
+<a href="sted.html">Christansted</a>
+<a href="east.html">East Side</a>
 </div>
-  </div>
-  <a href="#footer"> Contact</a>
+</div>
 
+<a href="#footer">Contact</a>
 
-
-
+</nav>
 </header>
 
-<h1 id="gal1">Island Hop </h1>
+<h1 id="gal1">Island Hop</h1>
 
 <div class="container">
 
 <div class="card">
-    <p> Buck Island </p>
-<img src="img/Island-hop/I1.jpeg" />
+<p>Buck Island</p>
+<img src="img/Island-hop/I1.jpeg"/>
 </div>
 
 <div class="card">
-        <!-- make sure every Island is named correctly!! -->
-        <p> Island Name</p>
-<img src="img/Island-hop/I2.jpeg" />
+<!-- make sure every Island is named correctly!! -->
+<p>Island Name</p>
+<img src="img/Island-hop/I2.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I3.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I3.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I4.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I4.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I5.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I5.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I6.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I6.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I8.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I8.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I9.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I9.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I10.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I10.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I11.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I11.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I12.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I12.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I13.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I13.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I14.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I14.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p> 
-<img src="img/Island-hop/I15.jpeg" />
-</div>
-
-
-<div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I16.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I15.jpeg"/>
 </div>
 
 <div class="card">
-            <p> Island Name</p>
-<img src="img/Island-hop/I17.jpeg" />
+<p>Island Name</p>
+<img src="img/Island-hop/I16.jpeg"/>
+</div>
+
+<div class="card">
+<p>Island Name</p>
+<img src="img/Island-hop/I17.jpeg"/>
 </div>
 
 </div>
 
-<!-- Footer  -->
 <footer id="footer">
 <h4>Designed by Chris</h4>
 <h4>Follow me on social media! Instagram | Facebook | Twitter</h4>
-<h4>Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c05020a032c18041e03190b0401150009021f420f0301">[email&#160;protected]</a></h4>
+<h4>Contact: info@throughmylens.com</h4>
 <h5>&copy; 2026 Through my lens. All rights reserved.</h5>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-
-
+<script>
 
 /* change nav background when scrolling */
 
-window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function(){
 
-const header = document.querySelector(".main-header");
+const header=document.querySelector(".main-header");
 
-if (window.scrollY > 50) {
+if(window.scrollY>50){
 header.classList.add("scrolled");
-} else {
+}else{
 header.classList.remove("scrolled");
 }
 
