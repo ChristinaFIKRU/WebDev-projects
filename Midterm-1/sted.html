@@ -35,27 +35,78 @@ div {
 }
 
 /* generic to specific with our styles */
+html {
+  font-family: 'Times New Roman', serif, sans-serif;
+}
+
+
 .gal1 h1{
   color: rgb(10, 1, 1);
   padding: 1rem;
 }
 
-html {
-  font-family: 'Times New Roman', serif, sans-serif;
+img {
+  display: block;
+  max-width: 100%;
 }
 
+.wrapper {
+  overflow: hidden;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-gap: 10px;
+}
+
+.card {
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.card img {
+  scroll-snap-align: start;
+  margin-bottom: 10px;
+  min-height: 100vh;
+  object-fit: cover;
+}
+
+/* .lil-nav {
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  a {
+    height: 200px;
+    display: flex;
+    margin-bottom: 10px;
+  }
+} */
+
+/* .lil-nav__img {
+  object-fit: cover;
+  filter: saturate(0);
+  transition: 0.3s ease all;
+
+  &:hover {
+    transform: scale(1.05);
+    filter: saturate(1);
+  }
+} */
+
+
+
+/* 
 .container {
   max-width: 900px;
 
   /* centers the container */
-  margin: 0 auto;
+  /* margin: 0 auto;
 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-}
-
+} */ 
 /* .img card{
     display: inline-flex;
     border: 4px solid rgb(20, 184, 166);
@@ -63,38 +114,38 @@ html {
  }
      */
 
-
+/* 
 .card {
   width: 260px;
   margin: 10px;
   position: relative;
   background: none;
   border: none;
-}
+} */
 
-.card img {
+/* .card img { */
 
   /* images fill the card width */
   width: 100%;
 
   /* equal image size */
-  height: 200px;
+  /* height: 200px;
   object-fit: cover;
-  display: block;
+  display: block; */
 
   /* polaroid border */
-  border: 10px solid rgb(22, 27, 34);
+  /* border: 10px solid rgb(22, 27, 34); */
 
   /* space for caption */
-  border-bottom-width: 50px;
-}
+  /* border-bottom-width: 10px; */
+/* } */
 
-.card p {
+/* .card p {
   font-size: 1rem;
   color: rgb(200, 200, 200);
 
   position: absolute;
-  bottom: 10px;
+  bottom: 5px;
   left: 0;
 
   width: 100%;
@@ -102,7 +153,7 @@ html {
   margin: 0;
 
   font-style: italic;
-}
+} */
 
 /* HEADER */
 
