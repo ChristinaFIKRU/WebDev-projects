@@ -76,7 +76,7 @@ border-bottom-width:45px;
 font-size:1rem;
 color:#333;
 position:absolute;
-bottom:5px;
+bottom:2px;
 left:0;
 width:100%;
 text-align:center;
@@ -98,7 +98,7 @@ width:100%;
 padding:1rem;
 z-index:1000;
 
-background:rgba(0,0,0,0.3);
+background:rgba(242, 235, 235, 0.3);
 backdrop-filter:blur(6px);
 }
 
@@ -259,17 +259,17 @@ margin-top:20px;
 
 /* change nav background when scrolling */
 
-// window.addEventListener("scroll",function(){
+window.addEventListener("scroll",function(){
 
-// const header=document.querySelector(".main-header");
+const header=document.querySelector(".main-header");
 
-// if(window.scrollY>50){
-// header.classList.add("scrolled");
-// }else{
-// header.classList.remove("scrolled");
-// }
+if(window.scrollY>50){
+header.classList.add("scrolled");
+}else{
+header.classList.remove("scrolled");
+}
 
-// });
+});
 
 </script>
 
