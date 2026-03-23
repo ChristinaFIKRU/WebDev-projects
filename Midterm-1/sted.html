@@ -10,8 +10,6 @@
 <style>
 
 /* Global Styles */
-/* @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap'); */
-
 *{
     box-sizing: border-box;
     margin: 0;
@@ -26,137 +24,36 @@ body {
   background-size: cover;
 }
 
-/* some generic styles for our div elements so we can see them nest */
-/* FIXED: removed background-image and border from generic div rule —
-   it was applying to every .card div and breaking the polaroid look */
-div {
-  border: none;
-  background-image: none;
-}
-
-/* generic to specific with our styles */
 html {
   font-family: 'Times New Roman', serif, sans-serif;
 }
 
-
-.gal1 h1{
-  color: rgb(10, 1, 1);
-  padding: 1rem;
-}
-
 img {
   display: block;
-  max-width: 100%;
 }
 
-.wrapper {
-  overflow: hidden;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-gap: 10px;
-}
-
-.card {
-  overflow: scroll;
+/* ✅ SLIDER CONTAINER */
+.container {
+  display: flex;
+  overflow-x: scroll;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
 
-.card img {
+/* ✅ EACH SLIDE */
+.card {
+  flex: 0 0 100%;
   scroll-snap-align: start;
-  margin-bottom: 10px;
-  min-height: 100vh;
+}
+
+/* ✅ SAME SIZE IMAGES */
+.card img {
+  width: 100%;
+  height: 100vh;
   object-fit: cover;
 }
 
-/* .lil-nav {
-  overflow-y: scroll;
-  overflow-x: hidden;
-
-  a {
-    height: 200px;
-    display: flex;
-    margin-bottom: 10px;
-  }
-} */
-
-/* .lil-nav__img {
-  object-fit: cover;
-  filter: saturate(0);
-  transition: 0.3s ease all;
-
-  &:hover {
-    transform: scale(1.05);
-    filter: saturate(1);
-  }
-} */
-
-
-
-/* 
-.container {
-  max-width: 900px;
-
-  /* centers the container */
-  /* margin: 0 auto;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-} */ 
-/* .img card{
-    display: inline-flex;
-    border: 4px solid rgb(20, 184, 166);
-    padding: 1 rem;
- }
-     */
-
-/* 
-.card {
-  width: 260px;
-  margin: 10px;
-  position: relative;
-  background: none;
-  border: none;
-} */
-
-/* .card img { */
-
-  /* images fill the card width */
-  width: 100%;
-
-  /* equal image size */
-  /* height: 200px;
-  object-fit: cover;
-  display: block; */
-
-  /* polaroid border */
-  /* border: 10px solid rgb(22, 27, 34); */
-
-  /* space for caption */
-  /* border-bottom-width: 10px; */
-/* } */
-
-/* .card p {
-  font-size: 1rem;
-  color: rgb(200, 200, 200);
-
-  position: absolute;
-  bottom: 5px;
-  left: 0;
-
-  width: 100%;
-  text-align: center;
-  margin: 0;
-
-  font-style: italic;
-} */
-
 /* HEADER */
-
 .main-header {
    display: flex;
    justify-content: space-between;
@@ -190,7 +87,7 @@ nav a {
     font-size: 1.2rem;
 }
 
-/* gal dropped down menu */
+/* dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -199,16 +96,14 @@ nav a {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    background: rgba(17, 180, 191, 0.8);
 }
 
 .dropdown-content a {
-    color: black;
+    color: rgb(22, 27, 34);
     padding: 12px 16px;
-    text-decoration: none;
     display: block;
 }
 
@@ -216,63 +111,14 @@ nav a {
     display: block;
 }
 
-.dropdown-content{
-    background: rgba(17, 180, 191, 0.8);
-}
-
-.dropdown-content a{
-    color:rgb(22, 27, 34);
-}
-
-
-/* change nav background when scrolling */
-
+/* scroll header effect */
 .main-header.scrolled{
   background-image: url('img/Christiansted/c3.jpeg');
   background-size: cover;
   background-position: center;
 }
 
-/* MEDIA QUERIES */
-
-/* Tablet Landscape */
-@media screen and (width <= 1024px) {
-  .container {
-    width: 80%;
-  }
-
-  .card{
-    flex-basis: 45%;
-  }
-
-}
-
-/* Smaller than an Ipad Classic AKA Phone */
-@media screen and (width < 768px) {
-
-    .container {
-      width: 100%;
-      bottom: 1%;
-      padding: 1.5rem;
-    }
-
-    .card {
-      width: 90%;
-      margin: 8px auto;
-    }
-
-    .card p {
-      flex-direction: column;
-      padding: 0.75rem;
-      text-align: center;
-    }
-
-    .card img{
-        max-width: 100%;
-    }
-
-}
-
+/* Footer */
 footer {
   min-height: 100px;
   background-color: rgb(204, 156, 224);
@@ -281,6 +127,23 @@ footer {
   border: 2px solid rgb(212, 168, 67);
   margin-top: 20px;
 }
+
+/* OPTIONAL BUTTONS */
+.slider-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
 
 </style>
 </head>
@@ -295,14 +158,8 @@ footer {
 <a href='#about-text'>About</a>
 <a href='#dest'> Destinations</a>
 
-<!-- under this dfgt to link the specific ids of destinations
-under the gal page -->
-
-
-<!-- dropdown gallery menu -->
 <div class="dropdown">
   <a href="#">Gallery</a>
-
   <div class="dropdown-content">
     <a href="island.html">Island </a>
     <a href="sted.html">Christansted </a>
@@ -311,12 +168,16 @@ under the gal page -->
 </div>
 
 <a href="#footer"> Contact</a>
-
 </nav>
 </header>
 
 <h1 id="gal1">Christansted Monument </h1>
 
+<!-- ✅ SLIDER BUTTONS -->
+<button class="slider-btn prev" onclick="scrollSlider(-1)">⬅</button>
+<button class="slider-btn next" onclick="scrollSlider(1)">➡</button>
+
+<!-- ✅ SLIDER -->
 <div class="container">
 
 <div class="card">
@@ -364,18 +225,24 @@ under the gal page -->
 <script>
 
 /* change nav background when scrolling */
-
 window.addEventListener("scroll", function() {
+  const header = document.querySelector(".main-header");
 
-const header = document.querySelector(".main-header");
-
-if (window.scrollY > 50) {
-header.classList.add("scrolled");
-} else {
-header.classList.remove("scrolled");
-}
-
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
 });
+
+/* ✅ slider buttons */
+function scrollSlider(direction) {
+  const container = document.querySelector(".container");
+  container.scrollBy({
+    left: window.innerWidth * direction,
+    behavior: "smooth"
+  });
+}
 
 </script>
 
