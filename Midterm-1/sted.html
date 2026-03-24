@@ -32,7 +32,7 @@ img {
   display: block;
 }
 
-/* ✅ SLIDER CONTAINER */
+/* SLIDER CONTAINER */
 .container {
   display: flex;
   overflow-x: scroll;
@@ -40,13 +40,13 @@ img {
   scroll-behavior: smooth;
 }
 
-/* ✅ EACH SLIDE */
+/*  EACH SLIDE */
 .card {
   flex: 0 0 100%;
   scroll-snap-align: start;
 }
 
-/* ✅ SAME SIZE IMAGES */
+/*  SAME SIZE IMAGES */
 .card img {
   width: 100%;
   height: 100vh;
@@ -128,7 +128,7 @@ footer {
   margin-top: 20px;
 }
 
-/* OPTIONAL BUTTONS */
+/* BUTTONS */
 .slider-btn {
   position: fixed;
   top: 50%;
@@ -151,12 +151,12 @@ footer {
 <body>
 
 <header class="main-header">
- <h4> Through my lens - Photography site</h4>
+ <h4> Through my lens </h4>
 
 <nav>
 <a href='home.html'> Home</a>
-<a href='#about-text'>About</a>
-<a href='#dest'> Destinations</a>
+<a href="home.html#about-text">About</a>
+<a href="home.html#dest">Destinations</a>
 
 <div class="dropdown">
   <a href="#">Gallery</a>
@@ -173,11 +173,11 @@ footer {
 
 <h1 id="gal1">Christansted Monument </h1>
 
-<!-- ✅ SLIDER BUTTONS -->
+<!-- SLIDER BUTTONS -->
 <button class="slider-btn prev" onclick="scrollSlider(-1)">⬅</button>
 <button class="slider-btn next" onclick="scrollSlider(1)">➡</button>
 
-<!-- ✅ SLIDER -->
+<!--  SLIDER -->
 <div class="container">
 
 <div class="card">
@@ -235,7 +235,7 @@ window.addEventListener("scroll", function() {
   }
 });
 
-/* ✅ slider buttons */
+/* slider buttons */
 function scrollSlider(direction) {
   const container = document.querySelector(".container");
   container.scrollBy({
