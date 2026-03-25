@@ -40,9 +40,9 @@ Snippet code
 
 
 
-Comparasent from draft 
+Comparasent from draft and final drat
 
 
-![alt text](image.png)
+![alt text](image.png). 
 
 
