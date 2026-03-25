@@ -39,10 +39,16 @@ Snippet code
 }
 
 
+Link to Web Page [text](https://christinafikru.github.io/WebDev-Midterm1/)
+ 
+Link to Intial Propopsal: [text](../../Webdev_Midterm_Proposal-2.pdf) 
 
 Comparasent from draft and final drat
 
 
-![alt text](image.png). 
+![alt text](image.png).   ![alt text](<Screenshot 2026-03-25 at 1.32.09 PM.png>)
+
+
+
 
 
