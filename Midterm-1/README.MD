@@ -39,7 +39,7 @@ Snippet code
 }
 
 
-Link to Web Page [text](https://christinafikru.github.io/WebDev-Midterm1/)
+Link to Web Page [text](https://christinafikru.github.io/Web-dev-midterm1/index.html)
  
 Link to Intial Propopsal: [text](https://drive.google.com/file/d/1KPiyI4ig2VoUJaa3lp75txX0KTEnWd5r/view)
 
