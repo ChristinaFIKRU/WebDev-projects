@@ -41,7 +41,7 @@ Snippet code
 
 Link to Web Page [text](https://christinafikru.github.io/WebDev-Midterm1/)
  
-Link to Intial Propopsal: [text] (file:///Users/chris/Desktop/Webdev_Midterm_Proposal-2.pdf)
+Link to Intial Propopsal: [text](https://drive.google.com/file/d/1KPiyI4ig2VoUJaa3lp75txX0KTEnWd5r/view)
 
 
 Comparasent from draft and final drat
