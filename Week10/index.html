@@ -13,13 +13,127 @@
     <!-- java code beings here  -->
     <script>
 
-const person = {
-  name: "Alex",
-  age: 22,
-  isStudent: true,
+// const person = {
+//   name: "Alex",
+//   age: 22,
+//   isStudent: true,
+// };
+
+// console.log(person);
+
+const movie = {
+  title: "Inception",
+  year: 2010,
+  director: "Christopher Nolan",
 };
 
-console.log(person);
+// 1. Log the title using dot notation
+console.log(movie.title);
+
+// 2. Log the director using bracket notation
+console.log(movie["director"]);
+
+// 3. Store "year" in a variable, then use it to log the year
+let field = "year";
+console.log(movie[field]);
+
+
+const car = {
+  make: "Toyota",
+  model: "Camry",
+  year: 2020,
+};
+
+// 1. Update the year to 2024
+car.year = 2024;
+
+// 2. Add a color property set to any color you like
+car.color = "blue";
+
+// 3. Delete the model property
+delete car.model;
+
+// 4. Log the full object to see the result
+console.log(car);
+
+// object methods 
+const calculator = {
+  add: function (a, b) {
+    return a + b;
+  },
+  subtract: function (a, b) {
+    return a - b;
+  },
+};
+
+console.log(calculator.add(5, 3)); // 8
+console.log(calculator.subtract(10, 4)); // 6
+
+// modern java script allows us to write methods in a more concise way:
+
+const calculator = {
+  add(a, b) {
+    return a + b;
+  },
+  subtract(a, b) {
+    return a - b;
+  },
+};
+
+//THIS -> refers to the object the method belongs to. it 
+// lets the method access the objects own properties
+
+const person = {
+  name: "Alex",
+  greet() {
+    console.log(`Hello, my name is ${this.name}!`);
+  },
+};
+
+person.greet(); // Hello, my name is Alex!
+
+// THIS -> inside a method, this = the obj
+
+
+// Built in Object Methods
+// Object.keys() -> returns an array of the objects keys
+const person = { name: "alex", age : 22, city: "DC"};
+
+console.log(Object.keys(person)); // ["name", "age", "city"]
+
+//  Object.values() -> returns an array of the objects values
+
+console.log(Object.values(person)); // ["alex", 22, "DC"]
+
+//  Object.entries() -> returns an array of the objects key value pairs as sub arrays
+
+console.log(Object.entries(person)); // [["name", "alex"], ["age", 22], ["city", "DC"]]
+
+// example of using Object.entries to loop through an object
+
+const laptop = {
+  brand: "Apple",
+  model: "MacBook Pro",
+  ram: 16,
+  storage: 512,
+};
+
+// 1. Log all the keys
+console.log(Object.keys(laptop));
+
+// 2. Log all the values
+console.log(Object.values(laptop));
+
+// 3. Log all key-value pairs
+console.log(Object.entries(laptop));
+
+
+
+// Final Exercise: Create an object with properties like title, author, and year. Then, add a method to the book object that returns a string describing the book. Finally, call the method to see the output.
+
+
+
+
 
 </script>
   </body>
