@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Object vs JSON</title>
+  </head>
+  <body>
+    <script>
+
+      const customer = {
+        name: "John Doe",
+        age: 30,
+        married: false,
+        pets: ['dog', 'cat', ,'bird'],
+        siblings: [
+          { name: "Jane Doe", age: 28 , married: true},
+          { name: "Jack Doe", age: 25, married: false}
+        ], 
+      }
+
+      // tonys age
+      console.log(customer.age);
+
+      // tonys pets all of them 
+      for(let i = 0; i < customer.pets.length; i++) {
+        console.log(customer.pets[i]);
+      }
+      // tinys siser marital status
+      console.log(customer.siblings[0].married);
+      // tonys thrid pet
+      console.log(customer.pets[2]);
+
+      console.log(customer);
+
+      // convert and object to a JSON so it can be shared with other appplications
+
+      const customerJSON = JSON.stringify(customer);
+      console.log(coustomerJSON);
+
+      // somtimes we get JSO back from other applications and we need to convert it into an object to use it
+
+      const customerObj = JSON.parse(customerJSON);
+      console.log(customerObj);
+
+
+      // if this was a reg fun -> 
+      // async function logApiResults() {
+      // whenever we yse await, we have to flag that func as async
+      constlogApiResults = async () => {
+        // await = dear js please dont move past this line until it reolves
+
+        const response =await fetch(
+          'https://rickandmortyapi.com/api/character/1'
+      )
+        const result = await response.json();
+        console.log(result.name);
+      }
+
+      logApiResults().then((data) => {
+        // now our return result came in as data because we used .then to add a callback fun
+        // why? so we can chain events without await or sync
+        // use template literals when youu want to insert vars within a string
+
+        const message = `${data.name} is a ${data.status} from ${data.origin.name} and they are ${data.status}`;
+
+        console.log(message);
+
+      }) .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+
+    </script>
+  </body>
+</html>
