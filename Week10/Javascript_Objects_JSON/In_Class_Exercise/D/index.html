@@ -7,7 +7,43 @@
   </head>
   <body>
     <script>
+      // HW 10 code - JS Objects vs JSON
 
+      // 1. creating an object called book
+const book = {
+  title: "You've Reached Sam", 
+  author: "Dustin Thao",
+  pages: 320,
+  isAvialable: true, 
+}
+// 2. Log the book's title using dot notation
+console.log(book.title);
+// 3. log the author using bracket notation
+console.log(book["author"]);
+// 4. add a new property called genre and set it to "Young Adult"
+book.genre = "Young Adult";
+// 5. update the isAvailable property to false
+book.isAvailable = false;
+//  6. add a method called 'desribe' that logs:
+// "title by author - X pages"
+//  Use this. title, this.author, and this.pages
+book.describe = function() {
+  console.log(`${this.title} by ${this.author} - ${this.pages} pages`);
+}
+//  7. call book.desribe()
+book.describe();
+//  8. use Object.keys() to log all the property names
+console.log(Object.keys(book));
+
+
+
+
+
+
+
+
+
+// week 10 code - JS Objects vs JSON Note - 
       const customer = {
         name: "John Doe",
         age: 30,
