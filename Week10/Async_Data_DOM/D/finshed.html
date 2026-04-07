@@ -23,38 +23,6 @@
       https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
     -->
 
-    <script type="text/javascript">
-      // Our handle random number within a range util from week08
-      function randNumRange(min, max) {
-        var rn = Math.round(Math.random() * (max - min) + min)
-        // return a value from our function
-        return rn
-      }
-
-      // flag the function as async, without this we cannot use await within
-      async function logApiResults() {
-        // generate a random number within our know character range
-        const randomIndex = randNumRange(0, 110)
-        // tell JS to pause until this next line resolves
-        // we can use template strings/literals here to insert our random number into the url
-        const response = await fetch(
-          `https://rickandmortyapi.com/api/character/${randomIndex}`
-        )
-        // we also need to tell JS to pause here, since it is dependent on the previous line
-        // forgetting await here will just log a Promise
-        const result = await response.json()
-        // useful methods we have access to at this point:
-        // .json() - returns the result as JSON
-        // .ok = a boolean we can use to check !response.ok means we should throw an erorr or backup message
-        // .blob() - great for fetching an image file
-
-        // More template literals to spit out a human readable sentence
-        const message = `${result.name} is a ${result.species} from ${result.origin.name}, and they are ${result.status}`
-        console.log(message)
-      }
-
-      logApiResults()
-    </script>
     <style type="text/css">
       /* Some custom fonts from google */
       @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
@@ -86,16 +54,110 @@
     </style>
   </head>
   <body>
+    <!-- afterbegin DOM content is loaded -->
     <div id="card">
       <h3 id="characterName"></h3>
       <table id="charInfo"></table>
       <!-- Add this for first function -->
       <div id="message"></div>
+      <!-- before end -->
     </div>
 
     <div id="inspo">
       <p class="fancy"></p>
       <p class="plain"></p>
     </div>
+
+    <script type="text/javascript">
+      // Our handle random number within a range util from week08
+      function randNumRange(min, max) {
+        var rn = Math.round(Math.random() * (max - min) + min)
+        // return a value from our function
+        return rn
+      }
+
+      // flag the function as async, without this we cannot use await within
+      async function logApiResults() {
+        // generate a random number within our know character range
+        const randomIndex = randNumRange(0, 110)
+        // tell JS to pause until this next line resolves
+        // we can use template strings/literals here to insert our random number into the url
+        const response = await fetch(
+          `https://rickandmortyapi.com/api/character/${randomIndex}`
+        )
+        // we also need to tell JS to pause here, since it is dependent on the previous line
+        // forgetting await here will just log a Promise
+        const result = await response.json()
+        // useful methods we have access to at this point:
+        // .json() - returns the result as JSON
+        // .ok = a boolean we can use to check !response.ok means we should throw an erorr or backup message
+        // .blob() - great for fetching an image file
+
+        // More template literals to spit out a human readable sentence
+        const message = `${result.name} is a ${result.species} from ${result.origin.name}, and they are ${result.status}`
+        console.log(message)
+      }
+
+      logApiResults()
+    //   write a func to return our API result
+    // we will use our elper func to get a random index to return a random character
+
+    const fetchCharacterJson = async ()=> {
+        // generate a random number within our know character range
+        const randomIndex = randNumRange(0, 110)
+
+        // ping our api with our random index variable
+        const response = await fetch(
+            `https://rickandmortyapi.com/api/character/${randomIndex}`
+        )
+        //  ince we gave our response we want to format it as usable data with.json()
+
+        const result = await response.json();
+        // cionsole.log(result);
+        return result;
+    }
+
+    const renderCharacterInfro = (data) => {
+        // grab our parent element in html
+        const charactermessage = document.getElementById('message');
+// format our message using templae literals
+// but frist we will destructure our first object
+
+        const {name, species, origin, status} = data;
+        // format our message using template literals
+        const message = `${name} is a ${species} from ${origin.name}, and they are ${status}`;
+        // now we can append this message to out HTML element
+        charactermessage.append(message)
+    }
+
+    // anoher callback function for afrer we fetch our data
+    // this one will poupluate the rest of the card
+    const rendercharacterCard = (data) => {
+        // do some variation on dynamic HTML DOM manipulation to insert our data into the card
+
+        const parentElement = document.getElementByID('card');
+        // use a template literal to inset some html from a string
+
+        const headShot =  ` <img src="${data.image}" alt="Image of ${data.name}"/> `
+// .insertAdjacentHTML() allows us to insert HTML from a string, and we can specify where it goes in relation to the parent element
+        parentElement.insertAdjacentHTML('afterbegin', headShot);
+
+
+    }
+
+
+// as soon as we have a line of code referencing html elemnts on the page,
+// we know we need a DOMcontentLoaded event listener
+
+document.addEventListener('DOMContentLoaded', () => {
+    // we want to call our fetchCharacterJson function to get our data, but we also want to wait until it is done before we try to render the info
+    // this is where .then() comes in, it allows us to add a callback function that will run once our async function has resolved and returned our data
+fetchCharacterJson().then((data) => {
+    renderCharacterInfro(data);
+    rendercharacterCard(data);
+})
+})
+
+    </script>
   </body>
 </html>
