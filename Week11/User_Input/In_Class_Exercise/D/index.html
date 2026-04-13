@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple User Input</title>
+  <style>
+
+    h1{
+      text-transform: uppercase;
+    }
+    .red{
+      color: red;
+    }
+    .blue{
+      color: blue;
+    }
+    .green{
+      color: green;
+    }       
+    .purple{
+      color: purple;
+    }
+
+  </style>
+  
+    
+  </head>
+
+  <body>
+    
+    <h1 id = "changeMe"> Get User Input</h1>
+
+    <form> 
+      <fieldset> <legend> Picks a number between 0 and 3</legend>
+      <lable for="num"> 0,1,2, 3</lable>
+      <input name="num" 
+      id="num" 
+      type="number" 
+      step="1" 
+      min="0" 
+      max="3"
+      placeholder="1" 
+      required/>  
+     <button type ="button" id="changeBtn"class="btnClass">
+      click to change the title color
+     </button> 
+    
+    </fieldset>
+    </form>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function(){
+        //add event listener to the button
+        let myBtn = document.getElementById('changeBtn');
+        // console.log(myBtn.classList);
+        myBtn.addEventListener('click', pickAClass);
+
+      })
+
+      // const pickAClass = (event) => {
+        // get the user input value
+        // let userN = document.getElementById('num').value;
+        // its a string not a number we need to pars it
+        // let n = parseInt(userN);
+        // console.log(typeof n);
+        // console.log(userInput);
+        // get the h1 element
+        // console.log(h1Element);
+
+
+        let h1Element = document.getElementById('changeMe');
+
+
+        switch(n){
+          
+          case 0:
+            h.className = "red";
+            break;
+          case 1:
+            h.className = "blue";
+            break;
+          case 2:
+            h.className = "green";        
+            break;
+          case 3:
+            h.className = "purple";
+            break;
+          default:/
+            break;
+            alert("Please enter a number between 0 and 3");
+        }
+      }
+
+    </script>
+  </body>
+</html>
