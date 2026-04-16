@@ -38,11 +38,9 @@ Snippet code
   z-index: 2000;
 }
 
-
-Link to Web Page [text](https://christinafikru.github.io/Web-dev-midterm1/index.html)
+Link to Web Page [text](https://christinafikru.github.io/WebDev-Midterm1/)
  
-Link to Intial Propopsal: [text](https://drive.google.com/file/d/1KPiyI4ig2VoUJaa3lp75txX0KTEnWd5r/view)
-
+Link to Intial Propopsal: [text](../../Webdev_Midterm_Proposal-2.pdf) 
 
 Comparasent from draft and final drat
 

@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../Documents"
+		},
+		{
+			"path": "../../../OneDrive/Documents/compsci f25/WebDev S26/WebDev_Spring26/WebDev-projects"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "WebDev-projects",
+		"liveServer.settings.port": 5501
+	}
+}
