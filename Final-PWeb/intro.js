@@ -1,6 +1,6 @@
 let systems = [];
 let myGeometry;
-
+// window.currentTheme = "pink"; // default theme
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent(document.body);
@@ -27,6 +27,27 @@ function draw() {
   fill(0, 25); // transparency = trail effect
   rect(0, 0, width, height);
   pop();
+
+// let c;
+
+// switch (window.currentTheme) {
+//   case "green":
+//     c = [10, 40, 30];
+//     break;
+//   case "blue":
+//     c = [10, 20, 50];
+//     break;
+//   default:
+//     c = [30, 10, 40]; // purple
+// }
+
+// push();
+// resetMatrix();
+// translate(-width / 2, -height / 2);
+// noStroke();
+// fill(c[0], c[1], c[2], 25); // fading overlay
+// rect(0, 0, width, height);
+// pop();
 
   let scrollY = window.scrollY;
 
