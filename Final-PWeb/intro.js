@@ -68,10 +68,9 @@ function draw() {
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
 
-  ambientLight(60, 30, 80); // soft purple tone
-  directionalLight(100, 130, 255, 0.25, 0.25, 0);
-  pointLight(120, 255, 300, locX, locY, 250);
-
+    ambientLight(40, 35, 40); 
+  directionalLight(150, 255, 255, 0.25, 0.25, 0);
+  pointLight(120, 155, 300, locX, locY, 250);
   // ===== SCROLL-BASED BEHAVIOR =====
   let rotationSpeed = 0.01;
 
