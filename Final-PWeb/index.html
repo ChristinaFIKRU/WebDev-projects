@@ -412,44 +412,75 @@
     }
     .footer-pill:hover { color: var(--blue-light); border-color: var(--border-hover); }
 
-    /* Sticky bottom  */
-    .sticky-bottom-container {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(247,245,242,0.8);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: center;
-      padding: 12px 0;
-    }
-    .logo-slider { overflow: hidden; width: 100%;}
+    /* Sticky bottom */
+.sticky-bottom-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(247,245,242,0.8);
+  backdrop-filter: blur(10px);
+  border-top: none;
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+}
+.slider-clip {
+  overflow: hidden;
+  width: 100%;
+}
 
-    .logo-track{
-      display: flex;
-      gap: 40px;
-      animation: scroll 20s linear infinite;
-    }
+.logo-slider {
+  overflow: visible;  
+  width: 100%;
+}
 
-    /* individual logo  */
-    .logo-item{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      margin: 0 20px;
-      position: relative;
-      transition: transform 0.3s ease;
-    }
-    .logo-item:hover { height: 40px; transition: filter 0.3s}
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-    /* to hide the description by default */
+.logo-slider {
+  overflow: hidden;
+  width: 100%;
+}
 
-    .description {
+.logo-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 0 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.logo-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.logo-item:hover img {
+  transform: scale(1.1);
+}
+
+.description {
   position: absolute;
-  bottom: 100%; /* Shows above the logo */
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   background: #333;
@@ -458,29 +489,22 @@
   border-radius: 6px;
   font-size: 12px;
   width: 200px;
-  text-align: center;
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  pointer-events: none; /* Prevents flickering */
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: normal;
+  z-index: 10;
 }
 
-/* hover */
-/* this is to sloww down/pause the silder */
-        .logo-slider:hover .logo-track{
-          animation-play-state: paused;
-        }
-/* reavels the description and lift he logo */
-
-.logo-item:hover .description{
+.logo-item:hover .description {
   opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(-10px);
+  transform: translateX(-50%) translateY(0);
 }
-.logo-item:hover img{
-  transform: scale(1.1);
 
+    .logo-track:has(.logo-item:hover) {
+  animation-play-state: paused;
 }
+
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
@@ -849,14 +873,34 @@
 
 <div class="sticky-bottom-container">
   <div class="logo-slider">
+    <div class="slider-clip">    
     <div class="logo-track" id="logo-track">
       <div class="logo-item">
-        <img src="/img/ab-me/m3.jpeg" alt="Company A">
+        <img src="./img/ab-me/m3.jpeg" alt="Company A">
         <div class="description">Affiliated with Company A - providing innovative tech solutions.</div>
       </div>
 
       <div class="logo-item">
-        <img src="/img/ab-me/pl2.jpg" alt="Company B">
+        <img src="./img/ab-me/pl2.jpg" alt="Company B">
+        <div class="description">Affiliated with Company B - experts in sustainable energy.</div>
+      </div>
+
+      <div class="logo-item">
+        <img src="./img/ab-me/pl2.jpg" alt="Company B">
+        <div class="description">Affiliated with Company B - experts in sustainable energy.</div>
+      </div>
+
+      <div class="logo-item">
+        <img src="./img/ab-me/pl2.jpg" alt="Company B">
+        <div class="description">Affiliated with Company B - experts in sustainable energy.</div>
+      </div>
+
+      <div class="logo-item">
+        <img src="./img/ab-me/pl2.jpg" alt="Company B">
+        <div class="description">Affiliated with Company B - experts in sustainable energy.</div>
+      </div>
+      <div class="logo-item">
+        <img src="./img/ab-me/pl2.jpg" alt="Company B">
         <div class="description">Affiliated with Company B - experts in sustainable energy.</div>
       </div>
     </div>
@@ -880,11 +924,14 @@
       }
     }
 
+
     // duplicate logos for seamless scrolling
     const logoTrack = document.getElementById('logo-track');
 const logos = logoTrack.innerHTML;
-// Appending the logos again for a seamless scroll
-logoTrack.innerHTML += logos;
+// to append the logos again for a seamless scroll
+logoTrack.innerHTML += logos + logos + logos;
+
+
 
 
   </script>
