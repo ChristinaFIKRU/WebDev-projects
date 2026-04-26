@@ -49,20 +49,20 @@ function draw() {
 // rect(0, 0, width, height);
 // pop();
 
-  let scrollY = window.scrollY;
+  // let scrollY = window.scrollY;
 
-  // ===== PARTICLES =====
-  push();
-  resetMatrix();
-  translate(-width / 2, -height / 2);
+  // // ===== PARTICLES =====
+  // push();
+  // resetMatrix();
+  // translate(-width / 2, -height / 2);
 
-  for (let sys of systems) {
-    sys.update(scrollY);
-    sys.addParticle();
-    sys.run();
-  }
+  // for (let sys of systems) {
+  //   sys.update(scrollY);
+  //   sys.addParticle();
+  //   sys.run();
+  // }
 
-  pop();
+  // pop();
 
   // ===== LIGHTING (color palette match) =====
   let locX = mouseX - width / 2;
