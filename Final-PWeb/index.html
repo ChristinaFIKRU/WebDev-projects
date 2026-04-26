@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Christina Fikru</title>
 
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -16,7 +15,7 @@
       --bg: #F7F5F2;
       --bg-card: #FFFFFF;
       --text: #1A1916;
-      --text-muted: #090908;
+      --text-muted: #6B6860;
       --border: rgba(26,25,22,0.1);
       --border-hover: rgba(26,25,22,0.25);
       --accent: #3C3489;
@@ -32,9 +31,19 @@
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
-      color: var(--bg);
+      color: var(--text);
       font-size: 15px;
       line-height: 1.6;
+    }
+
+    /* p5 canvas sits behind everything */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100vw;
+      height: 100vh;
     }
 
     /* NAV */
@@ -42,8 +51,8 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      /* background: rgba(247,245,242,0.92); */
       backdrop-filter: blur(12px);
+      background:transparent;
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
@@ -55,7 +64,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-weight: 400;
-      color: var(--text);
+      color: var(--blue-light);
       text-decoration: none;
       letter-spacing: 0.02em;
     }
@@ -66,7 +75,7 @@
     }
     .nav-links a {
       font-size: 13px;
-      color: var(--accent-light);
+      color: var(--blue-light);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -106,7 +115,7 @@
       font-size: 56px;
       font-weight: 300;
       line-height: 1.1;
-      color: var(--text);
+      color: var(--bg);
       margin-bottom: 18px;
     }
     .hero p {
@@ -119,9 +128,9 @@
     .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn-primary {
       padding: 10px 22px;
-      background: var(--text);
+      background: transparent;
       color: var(--bg);
-      border: none;
+      border: 1px solid var(--bg);
       border-radius: 6px;
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
@@ -129,14 +138,14 @@
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
-      transition: opacity 0.2s;
+      transition: border-color 0.2s, background 0.2s;
     }
-    .btn-primary:hover { opacity: 0.8; }
+    .btn-primary:hover { border-color: var(--blue); background: rgba(26,25,22,0.04);}
     .btn-outline {
       padding: 10px 22px;
       background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border-hover);
+      color: var(--bg);
+      border: 1px solid var(--bg);
       border-radius: 6px;
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
@@ -146,7 +155,7 @@
       display: inline-block;
       transition: border-color 0.2s, background 0.2s;
     }
-    .btn-outline:hover { border-color: var(--text); background: rgba(26,25,22,0.04); }
+    .btn-outline:hover { border-color: var(--blue); background: rgba(26,25,22,0.04); }
 
     .hero-avatar {
       width: 180px;
@@ -179,7 +188,7 @@
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--bg);
       margin-bottom: 28px;
     }
 
@@ -276,7 +285,7 @@
     .project-card p { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
     .project-link { font-size: 12px; color: var(--blue); }
 
-    /* LAW SECTION — simple link card */
+    /* LAW SECTION */
     .law-link-card {
       display: flex;
       align-items: center;
@@ -390,26 +399,89 @@
       justify-content: space-between;
       align-items: center;
     }
-    footer p { font-size: 13px; color: var(--bg); }
+    footer p { font-size: 13px; color: var(--blue-light); }
     .footer-links { display: flex; gap: 14px; }
     .footer-pill {
       padding: 7px 16px;
       border: 1px solid var(--border);
       border-radius: 100px;
       font-size: 12px;
-      color: var(--bg);
+      color: var(--bg-card);
       text-decoration: none;
       transition: all 0.15s;
     }
     .footer-pill:hover { color: var(--blue-light); border-color: var(--border-hover); }
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
+
+    /* Sticky bottom  */
+    .sticky-bottom-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(247,245,242,0.8);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+    }
+    .logo-slider { overflow: hidden; width: 100%;}
+
+    .logo-track{
+      display: flex;
+      gap: 40px;
+      animation: scroll 20s linear infinite;
+    }
+
+    /* individual logo  */
+    .logo-item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin: 0 20px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .logo-item:hover { height: 40px; transition: filter 0.3s}
+
+    /* to hide the description by default */
+
+    .description {
+  position: absolute;
+  bottom: 100%; /* Shows above the logo */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  width: 200px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none; /* Prevents flickering */
 }
+
+/* hover */
+/* this is to sloww down/pause the silder */
+        .logo-slider:hover .logo-track{
+          animation-play-state: paused;
+        }
+/* reavels the description and lift he logo */
+
+.logo-item:hover .description{
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-10px);
+}
+.logo-item:hover img{
+  transform: scale(1.1);
+
+}
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav { padding: 0 20px; }
@@ -455,11 +527,13 @@ canvas {
         <a href="#" class="btn-outline">Resume ↓</a>
       </div>
     </div>
-    <!-- UPDATE: replace CF initials with your photo:-->
-         <!-- <img src="./img/ab-me/M3.jpeg" alt="Christina Fikru">  -->
-<div class="hero-avatar">
-  <img src="./img/ab-me/M3.jpeg" alt="Christina Fikru">
-</div>  
+    <div class="hero-avatar">
+      <!-- To use your photo, keep the img tag below. To use initials instead, remove the img tag and type: CF -->
+      <img src="./img/ab-me/M3.jpeg" alt="Christina Fikru">
+    </div>
+  </div>
+  <!-- END HERO -->
+
 
   <!-- EXPERIENCE -->
   <section class="section" id="experience">
@@ -512,6 +586,170 @@ canvas {
         </div>
       </div>
 
+        <div class="exp-row">
+        <div class="exp-header" onclick="toggle(this)">
+          <div class="exp-left">
+            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-meta">
+              <span class="exp-role">Software Engineer Intern</span>
+              <span class="exp-company">Bank of America</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jun – Aug 2022</span>
+            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="exp-row">
+        <div class="exp-header" onclick="toggle(this)">
+          <div class="exp-left">
+            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-meta">
+              <span class="exp-role">Software Engineer Intern</span>
+              <span class="exp-company">Bank of America</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jun – Aug 2022</span>
+            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="exp-row">
+        <div class="exp-header" onclick="toggle(this)">
+          <div class="exp-left">
+            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-meta">
+              <span class="exp-role">Software Engineer Intern</span>
+              <span class="exp-company">Bank of America</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jun – Aug 2022</span>
+            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="exp-row">
+        <div class="exp-header" onclick="toggle(this)">
+          <div class="exp-left">
+            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-meta">
+              <span class="exp-role">Software Engineer Intern</span>
+              <span class="exp-company">Bank of America</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jun – Aug 2022</span>
+            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="exp-row">
+        <div class="exp-header" onclick="toggle(this)">
+          <div class="exp-left">
+            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-meta">
+              <span class="exp-role">Software Engineer Intern</span>
+              <span class="exp-company">Bank of America</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jun – Aug 2022</span>
+            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="exp-row">
+        <div class="exp-header" onclick="toggle(this)">
+          <div class="exp-left">
+            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-meta">
+              <span class="exp-role">Software Engineer Intern</span>
+              <span class="exp-company">Bank of America</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jun – Aug 2022</span>
+            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="exp-row">
+        <div class="exp-header" onclick="toggle(this)">
+          <div class="exp-left">
+            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-meta">
+              <span class="exp-role">Software Engineer Intern</span>
+              <span class="exp-company">Bank of America</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jun – Aug 2022</span>
+            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+          </div>
+        </div>
+      </div>
+
+      
     </div>
   </section>
 
@@ -580,7 +818,6 @@ canvas {
       <div class="law-arrow">↗</div>
     </a>
 
-    <!-- RESUME BANNER sits here too since it's related to credentials -->
     <div class="resume-banner">
       <div class="resume-left">
         <div class="resume-icon">📄</div>
@@ -608,7 +845,27 @@ canvas {
     </div>
   </footer>
 
+  <!--   Sticky wrapper set to the bottom of the page-->
+
+<div class="sticky-bottom-container">
+  <div class="logo-slider">
+    <div class="logo-track" id="logo-track">
+      <div class="logo-item">
+        <img src="/img/ab-me/m3.jpeg" alt="Company A">
+        <div class="description">Affiliated with Company A - providing innovative tech solutions.</div>
+      </div>
+
+      <div class="logo-item">
+        <img src="/img/ab-me/pl2.jpg" alt="Company B">
+        <div class="description">Affiliated with Company B - experts in sustainable energy.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <script>
+
     function toggle(header) {
       const body = header.nextElementSibling;
       const chevron = header.querySelector('.exp-chevron');
@@ -622,6 +879,14 @@ canvas {
         chevron.style.transform = 'rotate(180deg)';
       }
     }
+
+    // duplicate logos for seamless scrolling
+    const logoTrack = document.getElementById('logo-track');
+const logos = logoTrack.innerHTML;
+// Appending the logos again for a seamless scroll
+logoTrack.innerHTML += logos;
+
+
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
