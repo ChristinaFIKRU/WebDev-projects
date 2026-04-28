@@ -1,0 +1,697 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Christina Fikru </title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy:        #000000;
+    --navy-mid:    #e6ecf1;
+    --navy-light:  #6e96cb;
+    --cream:       #f7f5ef;
+    --cream-dark:  #e8e3d7;
+    --gold:        #f5c518;
+    --gold-light:  #ffd740;
+    --gold-dark:   #c9a000;
+    --text:        #2c3a52;
+    --text-light:  #5a6a84;
+    --white:       #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 56px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-brand-text {
+    font-family: 'EB Garamond', serif;
+    color: var(--cream); font-size: 0.92rem; letter-spacing: 0.06em;
+    text-transform: uppercase; line-height: 1.2;
+  }
+
+  nav {
+  height: 100px; /* increase this */
+}
+
+.ls-badge img {
+  width: 100px;
+  height: auto;
+}
+  /* LOGO: fixed size on desktop, shrinks on mobile */
+  /* .ls-badge img {
+    width: 90px;
+    height: 90px;
+    display: block;
+    object-fit: contain;
+  } */
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    color: var(--cream-dark); text-decoration: none;
+    font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 80px 40px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-rule {
+    width: 60px; height: 2px; background: var(--gold);
+    margin: 0 auto 28px; animation: fadeUp 0.8s ease both;
+  }
+  #home h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+    font-weight: 500; color: var(--cream);
+    line-height: 1.1; margin-bottom: 24px;
+    animation: fadeUp 1s ease both;
+  }
+  #home h1 em { color: var(--gold); font-style: italic; }
+  .hero-desc {
+    max-width: 560px; color: #a8b8cc;
+    font-size: 1rem; line-height: 1.7;
+    margin-bottom: 44px; animation: fadeUp 1.1s ease both;
+  }
+  .hero-meta {
+    display: flex; gap: 40px; justify-content: center;
+    animation: fadeUp 1.2s ease both;
+  }
+  .hero-meta-item { text-align: center; }
+  .hero-meta-item .label {
+    font-size: 0.68rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .hero-meta-item .value {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem; color: var(--cream);
+  }
+  .hero-divider {
+    width: 1px; height: 40px; background: rgba(255,255,255,0.15);
+    align-self: center;
+  }
+  .hero-cta {
+    margin-top: 48px; animation: fadeUp 1.3s ease both;
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 12px 28px; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+    font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    padding: 12px 28px; border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: border-color 0.2s, color 0.2s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-corner {
+    position: absolute; width: 100px; height: 100px;
+    border: 1px solid rgba(245,197,24,0.2);
+  }
+  .hero-corner.tl { top: 72px; left: 32px; border-right: none; border-bottom: none; }
+  .hero-corner.br { bottom: 32px; right: 32px; border-left: none; border-top: none; }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 80px 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold-dark); font-weight: 500; margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 500; color: var(--navy); line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .section-subtitle {
+    color: var(--text-light); font-size: 0.95rem;
+    line-height: 1.65; max-width: 560px; margin-bottom: 48px;
+  }
+  .divider-line {
+    width: 48px; height: 2px; background: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  /* ── KEYNOTE ── */
+  #speakers { background: var(--white); scroll-margin-top: 56px; }
+
+  .keynote-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 48px;
+    max-width: 860px;
+  }
+
+  .keynote-photo-col {
+    flex: 0 0 220px;
+  }
+  .keynote-photo-col img {
+    width: 220px;
+    height: 260px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border: 3px solid var(--gold);
+  }
+  .keynote-photo-label {
+    margin-top: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .keynote-info-col {
+    flex: 1;
+    padding-top: 4px;
+  }
+  .keynote-role-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 16px;
+  }
+  .keynote-name {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 500; color: var(--navy);
+    line-height: 1.1; margin-bottom: 8px;
+  }
+  .keynote-institution {
+    font-size: 0.85rem; color: var(--text-light);
+    line-height: 1.5; margin-bottom: 20px;
+  }
+  .keynote-talk-label {
+    font-size: 0.65rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold-dark);
+    font-weight: 500; margin-bottom: 6px;
+  }
+  .keynote-talk-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem; color: var(--navy);
+    font-style: italic; line-height: 1.4;
+    margin-bottom: 24px;
+    border-left: 3px solid var(--gold);
+    padding-left: 14px;
+  }
+  .keynote-bio-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--navy-light); font-size: 0.82rem;
+    text-decoration: none; font-weight: 500;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .keynote-bio-link:hover { color: var(--gold-dark); }
+  .keynote-bio-link svg { width: 12px; height: 12px; }
+
+  /* ── BULLETIN / POSTER SESSION ── */
+  #bulletin { background: var(--cream); scroll-margin-top: 56px; }
+
+  .bulletin-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  .bulletin-table thead tr {
+    border-bottom: 2px solid var(--navy);
+  }
+  .bulletin-table th {
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--navy); padding: 0 16px 12px 0; text-align: left;
+  }
+  .bulletin-table tbody tr {
+    border-bottom: 1px solid var(--cream-dark);
+    transition: background 0.15s;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  .bulletin-table tbody tr:hover { background: rgba(245,197,24,0.07); }
+  .bulletin-table td {
+    padding: 14px 16px 14px 0; vertical-align: top;
+    color: var(--text);
+  }
+  .bulletin-table td:first-child {
+    font-family: 'EB Garamond', serif; font-size: 1rem;
+    color: var(--navy); font-weight: 500;
+  }
+  .cat-badge {
+    display: inline-block; padding: 3px 10px;
+    font-size: 0.7rem; letter-spacing: 0.06em;
+    font-weight: 500; text-transform: uppercase;
+    border-radius: 2px;
+  }
+  .cat-nature   { background: #dbeafe; color: #1e3a8a; }
+  .cat-food     { background: #fef3c7; color: #92400e; }
+  .cat-lit      { background: #e0f2fe; color: #0c4a6e; }
+  .cat-health   { background: #d1fae5; color: #065f46; }
+  .cat-biz      { background: #ede9fe; color: #4c1d95; }
+  .cat-identity { background: #f0fdf4; color: #166534; }
+  .cat-politics { background: #fff1f2; color: #9f1239; }
+  .cat-tech     { background: #fef9c3; color: #713f12; }
+  .cat-econ     { background: #e0f7fa; color: #006064; }
+
+  /* ── ABSTRACT DROPDOWN ROW ── */
+  .abstract-dropdown td {
+    background: #f3f1ec;
+    padding: 20px 24px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .abstract-topic-inline {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .abstract-text-inline {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  /* highlight open row */
+  .abstract-open {
+    background: rgba(245,197,24,0.12) !important;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.4);
+    text-align: center; padding: 32px 40px;
+    font-size: 0.78rem; letter-spacing: 0.04em;
+    border-top: 2px solid var(--gold);
+  }
+  footer span { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes dropIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .abstract-dropdown { animation: dropIn 0.2s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    nav { padding: 0 16px; height: 50px; }
+    .ls-badge img { width: 32px; }           /* logo shrinks on mobile */
+    .nav-brand-text { font-size: 0.75rem; }
+    .nav-links { gap: 10px; }
+    .nav-links a { font-size: 0.7rem; }
+    section { padding: 60px 20px; }
+    .hero-meta { flex-direction: column; gap: 20px; }
+    .hero-divider { display: none; }
+    .keynote-layout { flex-direction: column; gap: 28px; }
+    .keynote-photo-col { flex: unset; width: 100%; }
+    .keynote-photo-col img { width: 100%; height: auto; max-height: 300px; }
+    .bulletin-table th:nth-child(2),
+    .bulletin-table td:nth-child(2) { display: none; } /* hide title col on tiny screens */
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="ls-badge">
+      <img src="img/bglogo.png" alt="Christina Fikru Logo" />
+    </div>
+    <div class="nav-brand-text">Christina Fikru</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">About</a></li>
+    <li><a href="#speakers">Experience</a></li>
+    <li><a href="#bulletin">Research</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-corner tl"></div>
+  <div class="hero-corner br"></div>
+  <div class="hero-rule"></div>
+  <h1>Christina Fikru<br><em>Portfolio</em></h1>
+  <p class="hero-desc">
+   Welcome to my porfolio website! This is Christina Fikru, a student at New York Univeristy concertrating in fintech on a prelaw
+   track - where she spent her first year studying away at NYU DC. This website serves as the equip experience of applying financial and techinical knowledge to applicable 
+   fields to contribute to non-profits. 
+  </p>
+  <!-- <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="label">Date</div>
+      <div class="value">Friday, April 3, 2026</div>
+      <div class="value">9:30 AM – 1:00 PM EST</div>
+    </div> -->
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <div class="label">Location</div>
+      <div class="value">Kimmel Center for University Life</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <div class="label">Presenters</div>
+      <div class="value">27 Students</div>
+    </div>
+  </div>
+  <div class="hero-cta">
+    <a href="#speakers" class="btn-primary">Keynote Speaker</a>
+    <a href="#bulletin" class="btn-outline">Student Presentations</a>
+  </div>
+</section>
+
+<!-- KEYNOTE SPEAKER -->
+<section id="speakers">
+  <div class="section-inner">
+    <div class="divider-line"></div>
+    <p class="section-tag">Keynote Speaker</p>
+    <h2 class="section-title">Featured Speaker</h2>
+
+    <div class="keynote-layout">
+      <div class="keynote-photo-col">
+        <img src="img/Key.png" alt="Dr. Marion Nestle" />
+        <div class="keynote-photo-label">Keynote Speaker</div>
+      </div>
+
+      <div class="keynote-info-col">
+        <div class="keynote-role-tag">Keynote Speaker</div>
+        <div class="keynote-name">Dr. Marion Nestle</div>
+        <div class="keynote-institution">
+          Paulette Goddard Professor Emerita of Nutrition, Food Studies, and Public Health at NYU
+        </div>
+        <div class="keynote-talk-label">Keynote Address</div>
+        <div class="keynote-talk-title">
+          "Food Politics 2026: From Research to Policy Advocacy"
+        </div>
+        <a
+          href="https://steinhardt.nyu.edu/people/marion-nestle"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="keynote-bio-link"
+        >
+          View Faculty Bio
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M2 10L10 2M5 2h5v5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSTER SESSION / BULLETIN -->
+<section id="bulletin">
+  <div class="section-inner">
+    <div class="divider-line"></div>
+    <p class="section-tag">Poster Session</p>
+    <h2 class="section-title">Student Presentations</h2>
+    <p class="section-subtitle">
+      Click any row to expand the abstract.
+    </p>
+
+    <table class="bulletin-table">
+      <thead>
+        <tr>
+          <th style="width:22%">Presenter</th>
+          <th style="width:44%">Project Title</th>
+          <th style="width:20%">Topic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Aidan McCauley</td><td>A-Z Mysteries: Medieval Madness</td><td><span class="cat-badge cat-lit">Literature &amp; Textual Analysis</span></td></tr>
+        <tr><td>Aishwarya Somakandan</td><td>Donors, Doubts, &amp; DMs: Social Media and Peer Influence on High School Students' Blood Donation Attitudes</td><td><span class="cat-badge cat-health">Health</span></td></tr>
+        <tr><td>Annalee Debenport</td><td>Named by Appearance: Investigating Sex Bias in Bird Names</td><td><span class="cat-badge cat-nature">Linguistics &amp; Natural History</span></td></tr>
+        <tr><td>Annika van der Wende and Mia Kimura</td><td>From 1886 to 2022: Avian Nomenclature Through Time</td><td><span class="cat-badge cat-nature">Linguistics &amp; Natural History</span></td></tr>
+        <tr><td>Ann-Mei Sun</td><td>Tracing Branches: Complex Branchhood and Resistance in Humanimal</td><td><span class="cat-badge cat-lit">Literature &amp; Textual Analysis</span></td></tr>
+        <tr><td>Anoushka Vaidya</td><td>Inventing Spain: Competing Nationalism and the Imagined Community in the Spanish Civil War</td><td><span class="cat-badge cat-politics">Politics &amp; Power</span></td></tr>
+        <tr><td>Anya Bhandari, Jack McCormick, and Paulene Tinio</td><td>Proximity as Power: How Education Shapes Political Opportunity</td><td><span class="cat-badge cat-biz">Education</span></td></tr>
+        <tr><td>Chun Ning Andre Lo</td><td>The Enforcer: The Burden of A Dying Breed of Warriors</td><td><span class="cat-badge cat-identity">Identity &amp; Culture</span></td></tr>
+        <tr><td>Claire d'Hont Finn</td><td>Who Controls Your Data?: The Value of Data Privacy to the Future of European Competitiveness on the Global Stage</td><td><span class="cat-badge cat-tech">Technology &amp; Data</span></td></tr>
+        <tr><td>Clara Hagedorn</td><td>Digital Dominos: How US Sanctions Overlooked the Rise of Digital Authoritarianism in Venezuela</td><td><span class="cat-badge cat-politics">Politics &amp; Development</span></td></tr>
+        <tr><td>Devyani Pandey</td><td>What does the use and effectiveness of music therapy in motor rehabilitation reveal about the nature of the mind-body relationship?</td><td><span class="cat-badge cat-health">Health</span></td></tr>
+        <tr><td>Haseeb Haider</td><td>Redemption and Betrayal in The Kite Runner</td><td><span class="cat-badge cat-lit">Literature &amp; Textual Analysis</span></td></tr>
+        <tr><td>Justin Liu</td><td>The Shaky Relationship: A Computational Sentiment Analysis of US Congressional Speeches Respecting Great Britain</td><td><span class="cat-badge cat-politics">Politics &amp; Development</span></td></tr>
+        <tr><td>Makenzie Battle</td><td>The Duality of Me: An Autoethnography about the Complexity of Dual Identities</td><td><span class="cat-badge cat-identity">Identity &amp; Culture</span></td></tr>
+        <tr><td>Matthew De Alba</td><td>'Have You Eaten Today?' The Barriers of Food and Identity for NYU Students Trying to Find Themselves</td><td><span class="cat-badge cat-food">Food Studies</span></td></tr>
+        <tr><td>Maverick Fu</td><td>The Association Between Newly Enrolled Students' Extracurricular Activities Participation and Their Sense of Belonging in International Secondary School in China</td><td><span class="cat-badge cat-biz">Education</span></td></tr>
+        <tr><td>Minkyu Kim</td><td>Cultural Identity in Transit: Negotiating Authentic Selfhood Between Collectivist and Individualistic Frameworks</td><td><span class="cat-badge cat-identity">Identity &amp; Culture</span></td></tr>
+        <tr><td>Nikhil Mallya</td><td>Artificial Intelligence's Advancement on Fragment Decoding</td><td><span class="cat-badge cat-tech">Technology &amp; Data</span></td></tr>
+        <tr><td>Rebecca Tonetti</td><td>Understanding CTE and the Future of its Diagnosis</td><td><span class="cat-badge cat-health">Health</span></td></tr>
+        <tr><td>Saylee Nemade</td><td>Beyond the Violet Pantry: Graduate Students &amp; Food Insecurity</td><td><span class="cat-badge cat-food">Food Studies</span></td></tr>
+        <tr><td>Seema Anjali Sawh</td><td>Developing Beyond Oil: Guyana's Path Between Norway's Prudence and the Gulf's Prosperity</td><td><span class="cat-badge cat-politics">Politics &amp; Development</span></td></tr>
+        <tr><td>Siena Park and Emily Smukler</td><td>Analyzing the Dualities of Womanhood in Antiquity: A Comparative Study of Dido and Sita and their Respective Cultures</td><td><span class="cat-badge cat-lit">Literature &amp; Textual Analysis</span></td></tr>
+        <tr><td>Soleil Protos</td><td>cuerpos tejidos: the language between our bodies</td><td><span class="cat-badge cat-identity">Identity &amp; Culture</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>2026 Liberal Studies Student Research Colloquium</span> &nbsp;·&nbsp; April 3, 2026 &nbsp;·&nbsp; All abstracts are the work of their respective authors.
+</footer>
+
+<script>
+// ── ALL ABSTRACT DATA ─────────────────────────────────────────────────────────
+const data = [
+  {
+    name: "Makenzie Battle",
+    category: "Identity & Culture",
+    topic: "The Duality of Me: An Autoethnography about the Complexity of Dual Identities",
+    text: "Through an autoethnographic study, this project examines the complexities of dual cultural identity within the Black diaspora. By balancing personal narrative and scholarly research, I explore the experience of growing up Black-American and Black-Caribbean and the broader concept of cultural exclusion and inclusion. The narrative elements provide insight into the experience of growing up between two cultures, not fully being accepted by familial figures. This is balanced by studies that address social constructs of generational cultural dissonance and the emergence of intra-diasporic misunderstanding across global communities. This is further emphasized by the dimensionality of first-generation children. Ultimately, this work highlights how individuals with multicultural identities often feel pressure to diminish parts of themselves to fit into a side that is culturally acceptable while advocating for resilience and reconciliation when identity is understood as fluid rather than fixed."
+  },
+  {
+    name: "Minkyu Kim",
+    category: "Identity & Culture",
+    topic: "Cultural Identity in Transit: Negotiating Authentic Selfhood Between Collectivist and Individualistic Frameworks",
+    text: "This paper explores how individuals from collectivist cultural backgrounds negotiate authentic identities within individualistic societies. Drawing from the author's experience navigating Korean and American cultures, the research examines whether the traditional collectivism-individualism binary adequately captures multicultural identity formation. Through a literature review of cross-cultural psychology and developmental theory, surveys of NYU students, interviews with three Korean-American young adults, and analysis of the 2020 film Minari, the research reveals that individuals are not passive recipients of cultural frameworks but active architects of their identities. Findings challenge binary assumptions, showing that young adults employ contextual code-switching and selective integration to forge what Professor Cammie Kim Lin describes as cultural \"alloys\" — identities that draw from multiple traditions to create something entirely new, stronger than the sum of their parts."
+  },
+  {
+    name: "Soleil Protos",
+    category: "Identity & Culture",
+    topic: "Cuerpos tejidos: the language between our bodies",
+    text: "cuerpos tejidos (woven bodies) asks: where does the body remember, what is the language between our bodies, and how do we language memory? In the culmination of my thesis, I developed this movement performance and visual installation to explore and navigate language within fragmentation and loss. My inspiration stemmed from conversations I had with my grandmother pre-stroke and post-stroke, as I witnessed the fragmentation of her language and the loss of our communication through word. Alongside this archival research, I engaged with poetry, essays, textile, and dance pieces to guide my movement. My primary research expanded on these topics as I explored other forms of communicating and storytelling through traditional weaving practices in Mexico."
+  },
+  {
+    name: "Chun Ning Andre Lo",
+    category: "Identity & Culture",
+    topic: "The Enforcer: The Burden of A Dying Breed of Warriors",
+    text: "My research paper examines the archetype of \"The Enforcer\" in hockey, a player that is specifically on the roster to be a fighter and a source of intimidation. I begin by tracing the historical origins of fighting in professional hockey, then analyze the evolution of the enforcer role and how they dictated team construction strategy, before exploring their gradual decline and the circumstances that caused their near extinction in the modern game. I also look into the cultural impact that enforcers had, in particular how their presence shaped public perceptions of hockey merely as a violent sport. This perception has reduced enforcers to simplistic stereotypes of \"goons\". Challenging this narrative, I argue that enforcers bring psychological benefits and off-ice contributions to their team through real world examples, as well as critiquing media and journalistic portrayals that misrepresent their true significance and importance."
+  },
+  {
+    name: "Clara Hagedorn",
+    category: "Politics & Development",
+    topic: "Digital Dominos: How US Sanctions Overlooked the Rise of Digital Authoritarianism in Venezuela",
+    text: "Since 2014, the US has sanctioned Venezuela with the goal of promoting democracy. However, the 2024 election, assessed as illegitimate by observers like the Carter Center, reveals the policy failure. Nicolas Maduro manipulated election results through digital repression before, during, and after the vote. Yet, US policymakers frame Venezuela through the lens of 1959 Cuba as a regional \"domino,\" which is reflected in contemporary US-Venezuela sanctions. President Dwight D. Eisenhower's domino theory fails empirically in geographic terms; I argue it operates in the digital realm as digital dominos: regulatory power, state control of internet infrastructure, and foreign technology transfer. Although Hillary Clinton's 2010 internet freedom speech and US general licenses in Iran sought to enable civilian access to communication technologies, policy in Venezuela lacks comparable language. I propose policy adjustments to prevent the digital descent into authoritarianism."
+  },
+  {
+    name: "Justin Liu",
+    category: "Politics & Development",
+    topic: "The Shaky Relationship: A Computational Sentiment Analysis of US Congressional Speeches Respecting Great Britain",
+    text: "Many know only that America was once bitter rivals with Great Britain, and is now her staunch ally. In this interdisciplinary project, I propose firstly to use computational text analysis to measure the sentiment of references to Great Britain made by members of Congress in the Congressional Record, and then to compose an original historical overview informed by this primary research. Relevant tables and graphs, a timeline and a review of the literature and common narratives will round out my survey."
+  },
+  {
+    name: "Anoushka Vaidya",
+    category: "Politics & Power",
+    topic: "Inventing Spain: Competing Nationalism and the Imagined Community in the Spanish Civil War",
+    text: "This project explores the Spanish Civil War (1936–1939) as a struggle over national identity. Using Benedict Anderson's concept of imagined communities, it examines how Republicans and Nationalists created rival visions of Spain: the Republic as modern, democratic, and secular, the Nationalists as Catholic, hierarchical, and traditional. Both sides used propaganda, visual culture, and rhetoric to define who belonged, mobilize support, and justify exclusion, showing how nationalism can unify and divide. The study also considers how art and collective memory, especially Picasso's Guernica, challenged dominant narratives, highlighting the human cost of political conflict. By analyzing ideology, symbolism, and visual culture, the project demonstrates how imagined nations shape identity, loyalty, and memory, revealing both the power and fragility of nationalism in modern Spain."
+  },
+  {
+    name: "Seema Anjali Sawh",
+    category: "Politics & Development",
+    topic: "Developing Beyond Oil: Guyana's Path Between Norway's Prudence and the Gulf's Prosperity",
+    text: "This thesis examines how Guyana, one of the world's fastest growing economies following the discovery of offshore oil in 2015, can avoid the \"resource curse\" that has undermined long term development in many resource rich states. Drawing on comparative analysis of Norway's sovereign wealth and fiscal governance model and the Gulf States' rent based welfare systems, the project asks whether Guyana can chart a distinct, sustainable development path. Using fiscal evidence from Guyana's National Budget, and original interviews with senior policymakers, including Vice President Bharrat Jagdeo, the research evaluates the country's emerging oil governance framework, diversification, labor market planning, and environmental commitments. The thesis concludes by proposing institutional and fiscal policy recommendations aimed at strengthening diversification, preserving macroeconomic stability, and ensuring that oil revenues translate into long term, broad development for Guyanese citizens."
+  },
+  {
+    name: "Anya Bhandari, Jack McCormick, and Paulene Tinio",
+    category: "Education",
+    topic: "Proximity as Power: How Education Shapes Political Opportunity",
+    text: "This project examines how university satellite campuses in Washington, D.C. (like our own D.C. study-away building) structure access to political institutions and what this reveals about education and power. As more universities establish DC-based programs centered on policy, government, and public services, these schools serve as direct gateways into political networks. Through a comparative case study of select schools with DC programs, we will analyze how these institutional positions place students within political spaces. Rather than evaluating individual outcomes, this project will use a mixed-method approach that focuses on the structural relationships between higher education and political access. We are interested in how proximity shapes representation and elite formation. By looking into these cases, we reveal broader conversations about democratic participation. This research will explore how educational spaces intersect with the production of political power in the U.S."
+  },
+  {
+    name: "Maverick Fu",
+    category: "Education",
+    topic: "The Association Between Newly Enrolled Students' Extracurricular Activities Participation and Their Sense of Belonging in International Secondary School in China",
+    text: "My study explores how participation in extracurricular activities (ECAs) relates to the development of a sense of school belonging among newly enrolled students at an international secondary school in China. I used the survey data from students in Grades 7–12, and this study applies regression analyses to examine whether ECA participation predicts students' sense of school belonging. It also investigates the roles of social support, peer relationships, and boarding experiences in shaping this relationship. My study found that: interestingly, students' participation in extracurricular activities does not significantly affect the sense of school belonging, but those with strong peer support and cross-cultural experience, participating in these activities strengthened their sense of belonging."
+  },
+  {
+    name: "Claire d'Hont Finn",
+    category: "Technology & Data",
+    topic: "Who Controls Your Data?: The Value of Data Privacy to the Future of European Competitiveness on the Global Stage",
+    text: "This thesis argues that the value of the collection, exchange, and use of personal data by companies needs to be recognized by policymakers and consumers and therefore needs to be more heavily regulated by the European Union (EU). Alongside the discussion of value, this thesis also addresses the benefits of data privacy regulation which emphasizes prevention rather than fines and enforcement. Using economic and legal theory on the value of data in the digital economy it examines existing legislation and proposed legislative changes in order to argue that EU policymakers are undervaluing personal data as both a human right and a bearer of economic value. Lastly it includes a comparison between EU, US, and Chinese data privacy legislation and the regulatory culture which supports it."
+  },
+  {
+    name: "Nikhil Mallya",
+    category: "Technology & Data",
+    topic: "Artificial Intelligence's Advancement on Fragment Decoding",
+    text: "My project focuses on researching and analyzing how Artificial Intelligence, specifically the algorithm called Fragmentarium, has affected the decoding of Fragments from the age of Antiquity. This program is cutting-edge technology that allows breakthrough discovery of what cuneiform on Assyrian Clay Tablets means and allows us to piece together Epics from Babylon, like the Gilgamesh. Fragmentarium is a tool that can work much faster and more efficiently than a human to translate the cuneiform, and in addition to completing stories and poems, it can translate other types of text, giving us a new perspective on their culture as well. My goal is to explore how this reconstruction process works in depth and what stories it is able to decipher and complete."
+  },
+  {
+    name: "Saylee Nemade",
+    category: "Food Studies",
+    topic: "Beyond the Violet Pantry: Graduate Students & Food Insecurity",
+    text: "This project covers the importance of the Violet Pantry (VP), as it is the first pantry on campus and is housed within the School of Liberal Studies. This project focuses on the population and visitors that use the pantry as it is for students. While the pantry does not turn any student away, we do primarily cater to LS Students. However, these past three years, the VP has seen an increase of graduate students. The research done through this project showcases first hand accounts of concerns and how the VP has aided graduate students through qualitative study done in Summer 2025."
+  },
+  {
+    name: "Matthew De Alba",
+    category: "Food Studies",
+    topic: "'Have You Eaten Today?' The Barriers of Food and Identity for NYU Students Trying to Find Themselves",
+    text: "With the burning question of \"How does college impact the way that college students eat?,\" this project explores some of the various factors that are impacting how college students (with a focus on NYU students) eat and experience food. With a focus on newfound independence, food security, and commensality, this project explores the findings of several reports and research papers on the college eating experience, as well as primary research on the topic, to begin understanding some current NYU students' relationship with food. This research project began in my Advanced Writing Studio: Food Writing course, and has further developed through an applied research project related to my work with the Liberal Studies Violet Pantry (via my Critical Service Learning course), allowing me to further situate this exploration in the larger topic of food security."
+  },
+  {
+    name: "Rebecca Tonetti",
+    category: "Health",
+    topic: "Understanding CTE and the Future of its Diagnosis",
+    text: "My project discusses Chronic Traumatic Encephalopathy, a degenerative brain disease caused by repeated head injuries and traumas. CTE has been in the public eye since studies done on athletes concluded that the injuries sustained during their career had devastating effects on their brain health and may have even caused them to die prematurely. CTE, however, can only be diagnosed after death due to the nature of detecting abnormal tau proteins in the brain. I did research on a study in Amsterdam that may have found a solution to this problem by detecting blood biomarkers for CTE symptoms and comparing them with other neurodegenerative diseases. Through my poster, I hope to educate people on what CTE is and how this new technique of study may impact the future of neurological study."
+  },
+  {
+    name: "Devyani Pandey",
+    category: "Health",
+    topic: "What does the use and effectiveness of music therapy in motor rehabilitation reveal about the nature of the mind-body relationship?",
+    text: "The goal of the project was to explore what the use and effectiveness of music therapy in motor rehabilitation reveal about the nature of the mind-body relationship, to understand which philosophical framework offers the most coherent account of how musical engagement and neural processes form a necessary, integrated unity. The project demonstrates that music therapy challenges traditional dualist and reductive physicalist theories; instead supporting an embodied model of mental causation. First, this project presents the scientific evidence for music therapy's efficacy to show how external musical stimuli drive physical recovery. Second, it explores the philosophical significance of these findings, the origins of the mind-body problem and the challenge of mental causation. Third, I assess philosophy of mind theories in light of music therapy's evidence, demonstrating their explanatory shortcomings."
+  },
+  {
+    name: "Aishwarya Somakandan",
+    category: "Health",
+    topic: "Donors, Doubts, & DMs: Social Media and Peer Influence on High School Students' Blood Donation Attitudes",
+    text: "This independent research project examines how peer influence and social media shape high school students' attitudes toward blood donation. Using a quantitative survey design, I collected responses from 30 participants at a student-led blood drive and measured attitudes with the Blood Donation Attitude Scale (BDAS) across motivation, barriers, and knowledge. Participants also identified how they learned about the drive (peer-led Instagram campaign, teacher flyers/announcements, school administrative emails, or Red Cross emails). Overall attitudes were positive (M = 3.76/5). Attitudes trended highest among students reached through peer-led Instagram (M = 4.2) and teacher messaging (M = 4.1), compared to administrative emails (M = 3.9) and Red Cross emails (M = 3.7). Although group differences were not statistically significant (ANOVA p = 0.274), the pattern suggests youth-led, platform-native outreach may be especially effective for improving Gen Z donor recruitment."
+  },
+  {
+    name: "Haseeb Haider",
+    category: "Literature & Textual Analysis",
+    topic: "Redemption and Betrayal in The Kite Runner",
+    text: "An exploration on the themes of redemption and betrayal in Khaled Hosseini's \"The Kite Runner\" inquiring on the question: How do themes of betrayal and redemption in Khaled Hosseini's The Kite Runner reflect the complexities of human relationships and moral development in the context of Afghan socio-political history during the Soviet invasion and the rise of the Taliban?"
+  },
+  {
+    name: "Siena Park and Emily Smukler",
+    category: "Literature & Textual Analysis",
+    topic: "Analyzing the Dualities of Womanhood in Antiquity: A Comparative Study of Dido and Sita and their Respective Cultures",
+    text: "Female autonomy has been debated throughout history. Women's role and influence continue to develop as feminist literature enables broader discourse. Exploring the origins of female expectations and behavior through ancient texts offers a unique gateway to cultural censorship of female stories. Both the Aeneid and the Ramayana feature elaborate portrayals of affluent women who face difficulty. Dido and Sita, respectively, reveal the profound societal pressures placed on women in ancient times despite being separated geographically, culturally, and temporally. While they share a similar devotion to love, their contrasting responses to hardship demonstrate the expectations of their respective cultures within Ancient Rome and Hinduism. By comparing these archetypes from antiquity, we can explore how they have evolved under the influence of the feminist movement, thereby redefining the modern woman."
+  },
+  {
+    name: "Aidan McCauley",
+    category: "Literature & Textual Analysis",
+    topic: "A-Z Mysteries: Medieval Madness",
+    text: "Through my ACA class, I was able to break down a medieval manuscript fragment that's held in the library's archives. I was tasked with uncovering what was in front of me using what I learned over the semester. I was given some info to start with and what previous people had made notes of, but ultimately, I was starting from square one. I first examined its material, script, ink, and layout, which helped me determine that it was likely made of sheepskin parchment, and written in Gothic textura script between the 13th and 15th centuries. The red rubrication, marginal notes, and multiple handwriting styles suggested that it was used for generations for scholarly use. Some translated lines did not clearly align with Aristotle's Physics, which the fragment was believed to have come from. I determined that it was something else, leaving it as an open ending. While the full mystery wasn't fully translated, the manuscript ultimately reflected a record of learning and human curiosity over time."
+  },
+  {
+    name: "Ann-Mei Sun",
+    category: "Literature & Textual Analysis",
+    topic: "Tracing Branches: Complex Branchhood and Resistance in Humanimal",
+    text: "This project explores the role of branches in Bhanu Kapil's Humanimal as living, contradictory entities. I mirrored the text and created a concept called complex branchhood. I argue that branches in the text act with agency, memory, and ambivalence. They nurture and suffocate, bear traces and erase them, and blur boundaries between human, animal, and environment. Through close reading, I analyze moments where branches stir like liquid metal, link to the tentacular girl, or suffocate her mouth, revealing tensions between care and coercion, life and fear, visibility and erasure. By considering Kapil's branches as witnesses to colonial and ecological violence, this study examines how vitality and domination coexist in the natural world and asks: if branches can act, remember, and resist, what does it mean to be human?"
+  },
+  {
+    name: "Annalee Debenport",
+    category: "Linguistics & Natural History",
+    topic: "Named by Appearance: Investigating Sex Bias in Bird Names",
+    text: "A majority of the English-language common names of birds include descriptors of their physical features, but the language used to describe the species reveals deeper patterns in how nature has been observed and valued. Of the 5,879 birds named after their physical features, 84% are named after traits in both sexes, 16% are named after traits that only occur in males, and 0.3% are named after traits that only occur in females. Using data from the AvianLexiconAtlas, a database of descriptive categories for the terms used in English-language bird names, this research explores whether naming practices have placed more of an emphasis on male-only physical traits compared to the frequency of their occurrence in nature. Recognizing potential bias in approaches to naming species can encourage a more inclusive approach to describing biodiversity while drawing attention to the often-overlooked traits and ecological roles of female birds."
+  },
+  {
+    name: "Annika van der Wende and Mia Kimura",
+    category: "Linguistics & Natural History",
+    topic: "From 1886 to 2022: Avian Nomenclature Through Time",
+    text: "Avian nomenclature is the practice of assigning English-language common names of birds; however, there is no standard approach or set of rules that guides naming standards. Components such as species habitat, behavior, physical characteristics contribute to the common names of species. Such factors have led us to wonder, how has the use of specific identifiers evolved over time? In order to investigate our question, we categorized a list of North-American bird species from 1886 and 2025 based on the unique identifiers in the species' English-language common names into one of 11 categories: both sexes physical trait, male physical trait, female physical trait, size, geographic location, behavior, natural history, local language, person, miscellaneous, or no unique identifier. By categorizing North American bird species from 1886 and 2022, we are able to examine how naming trends have changed."
+  }
+];
+
+// ── LOOKUP HELPER ─────────────────────────────────────────────────────────────
+function getAbstract(presenterName) {
+  return data.find(d => d.name === presenterName) || null;
+}
+
+// ── ROW CLICK HANDLER ─────────────────────────────────────────────────────────
+document.querySelectorAll('#bulletin tbody tr').forEach(row => {
+  row.addEventListener('click', () => {
+    const presenter = row.cells[0]?.innerText.trim();
+    if (!presenter) return;
+
+    // Toggle closed if already open
+    if (row.classList.contains('abstract-open')) {
+      row.classList.remove('abstract-open');
+      row.nextElementSibling?.remove();
+      return;
+    }
+
+    // Close any previously open rows
+    document.querySelectorAll('.abstract-open').forEach(r => r.classList.remove('abstract-open'));
+    document.querySelectorAll('.abstract-dropdown').forEach(el => el.remove());
+
+    const found = getAbstract(presenter);
+
+    const dropRow = document.createElement('tr');
+    dropRow.className = 'abstract-dropdown';
+    dropRow.innerHTML = `
+      <td colspan="3">
+        ${found
+          ? `<div class="abstract-topic-inline">${found.topic}</div>
+             <div class="abstract-text-inline">${found.text}</div>`
+          : `<div class="abstract-text-inline"><em>Abstract not yet available.</em></div>`
+        }
+      </td>`;
+
+    row.after(dropRow);
+    row.classList.add('abstract-open');
+
+    // Scroll so the row is comfortably in view
+    row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+});
+</script>
+</body>
+</html>
