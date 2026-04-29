@@ -1,0 +1,343 @@
+<!-- UVI Island landing page
+make sure every Island is named correctly!! -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Island Hop</title>
+
+<style>
+
+/* Global Styles */
+/* @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap'); */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+padding-top:100px;
+
+background: url("img/Island-hop/I8.jpeg") no-repeat center center fixed;
+  background-size: cover;
+
+}
+
+/* some generic styles for our div elements so we can see them nest */
+/* FIXED: removed background-image and border from generic div rule —
+   it was applying to every .card div and breaking the polaroid look */
+div{
+border:none;
+background-image:none;
+}
+
+/* generic to specific with our styles */
+.gal1 h1{
+color:rgb(10,1,1);
+padding:1rem;
+}
+
+html{
+font-family:'Times Roman',serif,sans-serif;
+
+/* this is where we would declare and use a full size image background */
+background:url('../img/Island-hop/I7.jpeg') no-repeat center center fixed;
+background-size:cover;
+}
+
+/* MASONRY GALLERY */
+
+.container{
+max-width:1100px;
+margin:0 auto;
+
+/* images stack based on their natural height */
+column-count:3;
+column-gap:20px;
+}
+
+.card{
+break-inside:avoid;
+margin-bottom:20px;
+position:relative;
+}
+
+.card img{
+width:100%;
+height:auto;
+display:block;
+
+/* polaroid border */
+border:10px solid rgb(22,27,34);
+
+/* thicker bottom for caption */
+border-bottom-width:50px;
+}
+
+.card p{
+font-size:1rem;
+color:rgb(200,200,200);
+
+position:absolute;
+bottom:10px;
+left:0;
+
+width:100%;
+text-align:center;
+margin:0;
+
+font-style:italic;
+}
+
+/* HEADER */
+
+.main-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+position:fixed;
+top:0;
+left:0;
+height:100px;
+width:100%;
+
+padding:1rem;
+z-index:1000;
+
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(6px);
+}
+
+.main-header h4{
+font-size:1.2rem;
+color:rgb(8,1,1);
+}
+
+nav{
+display:flex;
+gap:20px;
+}
+
+nav a{
+color:rgb(0,0,0);
+font-size:1.2rem;
+}
+
+/* gal dropped down menu */
+
+.dropdown{
+position:relative;
+display:inline-block;
+}
+
+.dropdown-content{
+display:none;
+position:absolute;
+background-color:#f9f9f9;
+min-width:160px;
+box-shadow:0px 8px 16px rgba(0,0,0,0.2);
+z-index:1;
+}
+
+.dropdown-content a{
+color:black;
+padding:12px 16px;
+text-decoration:none;
+display:block;
+}
+
+.dropdown:hover .dropdown-content{
+display:block;
+}
+
+.dropdown-content{
+background:rgba(17,180,191,0.8);
+}
+
+.dropdown-content a{
+color:rgb(22,27,34);
+}
+
+/* change nav background when scrolling */
+
+.main-header.scrolled{
+background-image:url('img/Island-hop/I8.jpeg');
+background-size:cover;
+background-position:center;
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet */
+@media (max-width:1000px){
+.container{
+column-count:2;
+}
+}
+
+/* Phone */
+@media (max-width:600px){
+.container{
+column-count:1;
+}
+}
+
+footer{
+min-height:100px;
+background-color:rgb(204,156,224);
+padding:20px;
+text-align:center;
+border:2px solid rgb(212,168,67);
+margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="main-header">
+
+<h4>Through my lens  </h4>
+
+<nav>
+
+<a href="index.html"> Home</a>
+<a href="index.html#about-text">About</a>
+<a href="index.html#dest">Destinations</a>
+
+<!-- dropdown gallery menu -->
+<div class="dropdown">
+<a href="#">Gallery</a>
+
+<div class="dropdown-content">
+<a href="island.html">Island</a>
+<a href="sted.html">Christansted</a>
+<a href="East.html">East Side</a>
+</div>
+</div>
+
+<a href="#footer">Contact</a>
+
+</nav>
+</header>
+
+<h1 id="gal1">Island Hop</h1>
+
+<div class="container">
+
+<div class="card">
+<p>Cay Bay Island</p>
+<img src="img/Island-hop/I1.jpeg"/>
+</div>
+
+<div class="card">
+<!-- make sure every Island is named correctly!! -->
+<p>Lagoon Island</p>
+<img src="img/Island-hop/I2.jpeg"/>
+</div>
+
+<div class="card">
+<p>Buck Island</p>
+<img src="img/Island-hop/I3.jpeg"/>
+</div>
+
+<div class="card">
+<p>Big Beard's Island</p>
+<img src="img/Island-hop/I4.jpeg"/>
+</div>
+
+<div class="card">
+<p>Lagoon Island</p>
+<img src="img/Island-hop/I5.jpeg"/>
+</div>
+
+<div class="card">
+<p>Cay Bay Island</p>
+<img src="img/Island-hop/I6.jpeg"/>
+</div>
+
+<div class="card">
+<p>Buck Island</p>
+<img src="img/Island-hop/I8.jpeg"/>
+</div>
+
+<div class="card">
+<p>Big Beard's Island</p>
+<img src="img/Island-hop/I9.jpeg"/>
+</div>
+
+<div class="card">
+<p>Frederiksted Island</p>
+<img src="img/Island-hop/I10.jpeg"/>
+</div>
+
+<div class="card">
+<p>Lagoon Island</p>
+<img src="img/Island-hop/I11.jpeg"/>
+</div>
+
+<div class="card">
+<p>Christiansted Island</p>
+<img src="img/Island-hop/I12.jpeg"/>
+</div>
+
+<div class="card">
+<p>Buck Island</p>
+<img src="img/Island-hop/I13.jpeg"/>
+</div>
+
+<div class="card">
+<p>Big Beard's Island</p>
+<img src="img/Island-hop/I14.jpeg"/>
+</div>
+
+<div class="card">
+<p>Lagoon Island</p>
+<img src="img/Island-hop/I15.jpeg"/>
+</div>
+
+<div class="card">
+<p>Lagoon Island</p>
+<img src="img/Island-hop/I16.jpeg"/>
+</div>
+
+<div class="card">
+<p>Buck Island</p>
+<img src="img/Island-hop/I17.jpeg"/>
+</div>
+
+</div>
+
+<footer id="footer">
+<h4>Designed by Chris</h4>
+<h4>Follow me on social media! Instagram | Facebook | Twitter</h4>
+<h4>Contact: info@throughmylens.com</h4>
+<h5>&copy; 2026 Through my lens. All rights reserved.</h5>
+</footer>
+
+<script>
+
+/* change nav background when scrolling */
+
+window.addEventListener("scroll", function(){
+
+const header=document.querySelector(".main-header");
+
+if(window.scrollY>50){
+header.classList.add("scrolled");
+}else{
+header.classList.remove("scrolled");
+}
+
+});
+
+</script>
+
+</body>
+</html>
