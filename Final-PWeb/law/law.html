@@ -60,7 +60,7 @@
   }
   .nav-links a:hover { color: var(--gold); }
 
-  /* ── COMBINED HERO + ABOUT ── */
+  /* ── HERO ── */
   #home {
     min-height: 100vh;
     background: var(--navy);
@@ -70,7 +70,6 @@
     position: relative; overflow: hidden;
   }
 
-  /* decorative grid */
   .hero-grid {
     position: absolute; inset: 0; pointer-events: none;
     background-image:
@@ -85,7 +84,6 @@
   .hero-corner.tl { top: 88px; left: 32px; border-right: none; border-bottom: none; }
   .hero-corner.br { bottom: 32px; right: 32px; border-left: none; border-top: none; }
 
-  /* inner layout: photo left, text right */
   .hero-inner {
     position: relative; z-index: 1;
     max-width: 1000px; width: 100%;
@@ -100,7 +98,6 @@
     position: relative;
     display: inline-block;
   }
-  /* decorative offset border — desktop only */
   .hero-photo-frame::before {
     content: '';
     position: absolute;
@@ -111,7 +108,6 @@
   }
   .hero-photo-frame img {
     position: relative; z-index: 1;
-    /* clamp makes it fluid: min 160px → responsive → max 260px */
     width:  clamp(160px, 22vw, 260px);
     height: clamp(190px, 27vw, 320px);
     object-fit: cover;
@@ -143,14 +139,16 @@
     font-family: 'EB Garamond', serif;
     font-size: clamp(2.2rem, 4.5vw, 4rem);
     font-weight: 500; color: var(--cream);
-    line-height: 1.1; margin-bottom: 6px;
+    line-height: 1.1; margin-bottom: 12px;
     animation: fadeUp 1s ease both;
   }
   .hero-text-col h1 em { color: var(--gold); font-style: italic; }
   .hero-institution {
     font-size: 0.9rem; color: #a8b8cc;
-    margin-bottom: 20px; line-height: 1.5;
+    margin-bottom: 20px; line-height: 1.6;
     animation: fadeUp 1.05s ease both;
+    border-left: 2px solid rgba(245,197,24,0.3);
+    padding-left: 12px;
   }
   .hero-talk-label {
     font-size: 0.65rem; letter-spacing: 0.14em;
@@ -173,6 +171,7 @@
   .hero-links {
     display: flex; gap: 14px; flex-wrap: wrap;
     animation: fadeUp 1.25s ease both;
+    margin-bottom: 8px;
   }
   .hero-link {
     display: inline-flex; align-items: center; gap: 6px;
@@ -204,6 +203,23 @@
     transition: border-color 0.2s, color 0.2s; display: inline-block;
   }
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── STATS ROW ── */
+  .hero-stats {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    margin-top: 36px; padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    animation: fadeUp 1.35s ease both;
+  }
+  .hero-stat { display: flex; flex-direction: column; gap: 4px; }
+  .hero-stat-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.6rem; color: var(--gold); font-weight: 500; line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.68rem; color: #6a7f99;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
 
   /* ── SECTION SHELL ── */
   section { padding: 80px 40px; }
@@ -324,42 +340,80 @@
     margin-bottom: 12px; font-weight: 500; text-transform: uppercase;
     font-family: 'DM Sans', sans-serif;
   }
+  .abstract-topic-modal a {
+    color: var(--gold-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .abstract-topic-modal a:hover { color: var(--gold); }
   .abstract-text-modal { font-size: 0.92rem; color: var(--text-light); line-height: 1.75; }
 
   /* ── STICKY LOGO BAR ── */
-  .sticky-bottom-container {
-    position: fixed; bottom: 0; left: 0; width: 100%;
-    background: rgba(0,0,0,0.82); backdrop-filter: blur(10px);
-    display: flex; justify-content: center; padding: 10px 0; z-index: 50;
-  }
-  .logo-slider { overflow: hidden; width: 100%; }
-  .logo-track { display: flex; gap: 40px; width: max-content; animation: scroll 20s linear infinite; }
-  .logo-slider:hover .logo-track { animation-play-state: paused; }
-  @keyframes scroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .logo-item {
-    display: flex; flex-direction: column; align-items: center;
-    gap: 8px; margin: 0 20px; position: relative; flex-shrink: 0; transition: transform 0.3s ease;
-  }
-  .logo-item img { width: 44px; height: 44px; object-fit: contain; transition: transform 0.3s; }
-  .logo-item:hover img { transform: scale(1.1); }
-  .description {
-    position: absolute; bottom: 100%; left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: #333; color: #fff; padding: 8px 12px; border-radius: 6px;
-    font-size: 12px; width: 200px; opacity: 0;
-    pointer-events: none; transition: opacity 0.2s, transform 0.2s;
-    white-space: normal; z-index: 10;
-  }
-  .logo-item:hover .description { opacity: 1; transform: translateX(-50%) translateY(0); }
-  .logo-track:has(.logo-item:hover) { animation-play-state: paused; }
+/* ── STICKY LOGO BAR ── */
+.sticky-bottom-container {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+  display: flex; justify-content: center; padding: 10px 0; z-index: 50;
+  border-top: 1px solid rgba(245,197,24,0.2);
+}
+.logo-slider {
+  overflow: hidden;
+  width: 100%;
+}
+.logo-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+  will-change: transform;
+}
+.logo-track:has(.logo-item:hover),
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 0 20px;
+  position: relative;
+  flex-shrink: 0;
+  cursor: default;
+}
+.logo-item img {
+  width: 120px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0.85) grayscale(0.2);
+  transition: filter 0.2s, transform 0.2s;
+}
 
+.logo-item:hover img {
+  filter: brightness(1);
+  transform: scale(1.05);
+}
+/* label always visible under logo — no tooltip needed */
+.description {
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.logo-item:hover .description {
+  color: var(--gold);
+}
   /* ── FOOTER ── */
   footer {
     background: var(--navy); color: rgba(255,255,255,0.4);
-    text-align: center; padding: 32px 40px 80px; /* extra bottom for logo bar */
+    text-align: center; padding: 32px 40px 80px;
     font-size: 0.78rem; letter-spacing: 0.04em;
     border-top: 2px solid var(--gold);
   }
@@ -375,16 +429,16 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── RESPONSIVE — Tablet (≤860px) ── */
+  /* ── RESPONSIVE — Tablet ── */
   @media (max-width: 860px) {
     .hero-inner { flex-direction: column; align-items: center; text-align: center; gap: 36px; }
     .hero-text-col { text-align: center; }
     .hero-rule { margin: 0 auto 20px; }
     .hero-links { justify-content: center; }
     .hero-cta { justify-content: center; }
-    /* keep quote bar left-aligned for readability */
+    .hero-stats { justify-content: center; }
     .hero-talk-title { text-align: left; }
-    /* hide offset border on tablet — too wide */
+    .hero-institution { text-align: left; }
     .hero-photo-frame::before { display: none; }
     .hero-photo-frame img {
       width:  clamp(140px, 40vw, 220px);
@@ -392,7 +446,7 @@
     }
   }
 
-  /* ── RESPONSIVE — Mobile (≤560px) ── */
+  /* ── RESPONSIVE — Mobile ── */
   @media (max-width: 560px) {
     nav { padding: 0 16px; height: 56px; }
     .ls-badge img { width: 40px; }
@@ -407,9 +461,9 @@
     }
     .modal-header, .modal-body { padding: 20px; }
     .categories-grid { grid-template-columns: 1fr; }
-    /* hide position title col on very small screens */
     .bulletin-table th:nth-child(2),
     .bulletin-table td:nth-child(2) { display: none; }
+    .hero-stats { gap: 20px; }
   }
 </style>
 </head>
@@ -421,7 +475,6 @@
     <div class="ls-badge">
       <img src="../img/logo/CFW.png" alt="Christina Fikru Logo" />
     </div>
-    <!-- <div class="nav-brand-text">Christina Fikru</div> -->
   </div>
   <ul class="nav-links">
     <li><a href="#home">About</a></li>
@@ -430,7 +483,7 @@
   </ul>
 </nav>
 
-<!-- ── COMBINED HERO + ABOUT ──────────────────────────────────────────────── -->
+<!-- ── HERO ── -->
 <section id="home">
   <div class="hero-grid"></div>
   <div class="hero-corner tl"></div>
@@ -439,26 +492,21 @@
   <div class="hero-inner">
 
     <!-- Left: photo -->
-    <!-- <div class="hero-photo-col">
+    <div class="hero-photo-col">
       <div class="hero-photo-frame">
         <img src="../img/ab-me/m3.jpeg" alt="Christina Fikru" />
       </div>
-      <div class="hero-photo-label"></div>
-    </div> -->
+      <div class="hero-photo-label">Christina Fikru</div>
+    </div>
 
-    <!-- Right: all text that was previously split across hero + speaker section -->
+    <!-- Right: text -->
     <div class="hero-text-col">
       <div class="hero-rule"></div>
+      <div class="hero-role-tag">NYU Tandon · Pre-law</div>
+
       <h1>Christina Fikru<br><em>Portfolio</em></h1>
-            <div class="hero-role-tag">NYU Tandon · Pre-law</div>
 
       <div class="hero-institution">
-          <div class="hero-photo-col">
-      <div class="hero-photo-frame">
-        <img src="../img/ab-me/m3.jpeg" alt="Christina Fikru" />
-      </div>
-      <div class="hero-photo-label"></div>
-    </div>
         Integrated Design, Media &amp; Finance — New York University<br>
         First year studied away at NYU Washington D.C.
       </div>
@@ -468,11 +516,11 @@
         Integrating Fintech Knowledge to Contribute to Non-profits
       </div>
 
-      <!-- <p class="hero-desc">
-        Welcome! I'm Christina Fikru, a student at NYU concentrating in fintech on a pre-law track.
-        This portfolio showcases how I apply financial and technical knowledge to real-world fields
-        — with a particular focus on contributing to non-profit organisations.
-      </p> -->
+      <p class="hero-desc">
+        I'm Christina Fikru, a student at NYU concentrating in fintech on a pre-law track.
+        This portfolio showcases how I apply financial and technical knowledge to real-world fields —
+        with a particular focus on contributing to non-profit organisations and policy-adjacent work.
+      </p>
 
       <div class="hero-links">
         <a href="https://www.linkedin.com/in/christina-fikru-9b1a2524b/"
@@ -490,17 +538,36 @@
           </svg>
         </a>
       </div>
-<!-- 
+
       <div class="hero-cta">
         <a href="#bulletin" class="btn-primary">Experience</a>
         <a href="#research" class="btn-outline">Research</a>
-      </div> -->
-    </div>
+      </div>
 
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">8+</span>
+          <span class="hero-stat-label">Experiences</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">4</span>
+          <span class="hero-stat-label">Research Projects</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">3+</span>
+          <span class="hero-stat-label">Years Active</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">2</span>
+          <span class="hero-stat-label">NYU Campuses</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- ── PROFESSIONAL EXPERIENCE SECTIOM ─────────────────────────────────────── -->
+<!-- ── EXPERIENCE ── -->
 <section id="bulletin">
   <div class="section-inner">
     <div class="divider-line"></div>
@@ -518,11 +585,6 @@
       </thead>
       <tbody>
 
-        <!-- ── Each <tr> carries its own description via data-topic + data-text.
-             To add a new role: copy a row, update the three <td>s and both data- attributes.
-             Use &amp; for ampersands and <br><br> for paragraph breaks inside data-text.
-             Rows with an empty data-topic are treated as placeholders and skip the dropdown. ── -->
-
         <tr
           data-topic="Project Support Assistance"
           data-text="● Lead event strategy &amp; execution for 30 departmental initiatives, including an annual research abstract conference, enhancing LS Dean's Office visibility &amp; engagement across the university<br><br>● Built and maintain departmental website for the annual research abstract conference; manage Excel-based data systems tracking 1,000+ entries across 40+ departments, improving operational efficiency and data accessibility"
@@ -531,92 +593,76 @@
           <td>Project Support Assistance</td>
           <td>Sept 2025 – Present</td>
         </tr>
-   <tr
+
+        <tr
           data-topic="Neurotechnology and Wearable Devices Research Analyst"
-          data-text="   
-  ● Analyze 50+ global technological advances to drive15% annual growth in neurotechnology & wearable device markets"
+          data-text="● Analyze 50+ global technological advances to drive 15% annual growth in neurotechnology &amp; wearable device markets"
         >
           <td>ThinkNeuro LLC</td>
           <td>Neurotechnology and Wearable Devices Research Analyst</td>
           <td>Aug 2025 – Dec 2025</td>
         </tr>
 
- <tr
+        <tr
           data-topic="Certified Pharmacy Technician"
-          data-text="  ● Managed high-volume transaction workflows 150+ daily, ensuring 100% regulatory compliance 
-          <br><br> ● Improved operational controls and verification protocols, increasing throughput by 30%
-                    <br><br>
-
-          ● Coordinated cross-functional communication to reduce financial discrepancies, process risk and operational errors"
+          data-text="● Managed high-volume transaction workflows 150+ daily, ensuring 100% regulatory compliance<br><br>● Improved operational controls and verification protocols, increasing throughput by 30%<br><br>● Coordinated cross-functional communication to reduce financial discrepancies, process risk and operational errors"
         >
           <td>CVS Pharmacy</td>
           <td>Certified Pharmacy Technician</td>
           <td>March 2024 – August 2025</td>
         </tr>
- <tr
+
+        <tr
           data-topic="Venture Capitalist Extern"
-          data-text="   ● Conducted due diligence on 40+ early-stage startups using Crunchbase, PitchBook, and AI analytics to assess
-investment potential & market viability
-          <br><br>
-          ● Created actionable investment reports & collaborated with senior analysts to identify high-growth sectors opportunities"
+          data-text="● Conducted due diligence on 40+ early-stage startups using Crunchbase, PitchBook, and AI analytics to assess investment potential &amp; market viability<br><br>● Created actionable investment reports &amp; collaborated with senior analysts to identify high-growth sectors opportunities"
         >
           <td>IgniteXL Ventures x Extern</td>
           <td>Venture Capitalist Extern</td>
           <td>June 2024 – July 2024</td>
         </tr>
- <tr
+
+        <tr
           data-topic="Product Manager Intern"
-          data-text=" ● Implemented centralized Excel-based reporting system to track 200+ concurrent operations, improving data
-transparency and decision-making  
-          <br><br>
-● Supported cash-flow-adjacent logistics operations across 45+ global partners, ensuring regulatory alignment
-          <br><br>
-          ● Reduced processing time by 20% through workflow automation and documentation optimization "
+          data-text="● Implemented centralized Excel-based reporting system to track 200+ concurrent operations, improving data transparency and decision-making<br><br>● Supported cash-flow-adjacent logistics operations across 45+ global partners, ensuring regulatory alignment<br><br>● Reduced processing time by 20% through workflow automation and documentation optimization"
         >
-          <td>B&Z Logistics</td>
+          <td>B&amp;Z Logistics</td>
           <td>Product Manager Intern</td>
-          <td>Aug 2023– Feb 2024</td>
+          <td>Aug 2023 – Feb 2024</td>
         </tr>
- <tr
+
+        <tr
           data-topic="International Youth Mobilization Volunteer"
-          data-text="   ● Mobilize youth globally around civil rights, social action, and humanitarian causes including the Palestine Marathon
-          <br><br>
-          ● Develop multilingual outreach strategies and advocacy campaigns to drive awareness and sustained engagement"
+          data-text="● Mobilize youth globally around civil rights, social action, and humanitarian causes including the Palestine Marathon<br><br>● Develop multilingual outreach strategies and advocacy campaigns to drive awareness and sustained engagement"
         >
           <td>United Nations</td>
           <td>International Youth Mobilization Volunteer</td>
-          <td>March - April 2026</td>
+          <td>March – April 2026</td>
         </tr>
- <tr
+
+        <tr
           data-topic="Researcher - Extremism Studies"
-          data-text="  ● Conducting field-based extremism research across the U.S., Europe, Middle East, and West Asia 
-          <br><br>
-          ●Synthesize findings into accessible briefs that bridge academic research and real-world advocacy contexts "
+          data-text="● Conducting field-based extremism research across the U.S., Europe, Middle East, and West Asia<br><br>● Synthesize findings into accessible briefs that bridge academic research and real-world advocacy contexts"
         >
           <td>New York University - Bronfman Center</td>
           <td>Researcher - Extremism Studies</td>
           <td>Jan 2026 – Present</td>
         </tr>
- <tr
+
+        <tr
           data-topic="Fundraising Campaign Developer"
-          data-text="   ● Designed and launched multi-channel fundraising campaigns benefiting underserved youth mental health communities
-          <br><br>
-          ● Applied data-driven storytelling to increase donor engagement and campaign reach"
+          data-text="● Designed and launched multi-channel fundraising campaigns benefiting underserved youth mental health communities<br><br>● Applied data-driven storytelling to increase donor engagement and campaign reach"
         >
           <td>Mekedonia Homeless Shelter</td>
           <td>Fundraising Campaign Developer</td>
           <td>Feb 2026 – Present</td>
         </tr>
- 
-         
-
 
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ── RESEARCH CATEGORIES ────────────────────────────────────────────────── -->
+<!-- ── RESEARCH ── -->
 <section id="research">
   <div class="section-inner">
     <div class="divider-line"></div>
@@ -625,7 +671,6 @@ transparency and decision-making
     <p class="section-subtitle">
       Select a category to read the full abstract or project summary.
     </p>
-    <!-- Cards are built by JS below from researchData -->
     <div class="categories-grid" id="categories-grid"></div>
   </div>
 </section>
@@ -634,10 +679,8 @@ transparency and decision-making
 <footer>
   <p>© Christina Fikru · All rights reserved.</p>
   <p style="margin-top:8px;">
-    <!-- UPDATE: replace with your LinkedIn URL -->
     <a href="https://www.linkedin.com/in/christina-fikru-9b1a2524b/" target="_blank"
        style="color:var(--gold);text-decoration:none;margin-right:16px;">LinkedIn ↗</a>
-    <!-- UPDATE: replace with your email -->
     <a href="mailto:Fikruchristinaa@gmail.com"
        style="color:var(--gold);text-decoration:none;">Email</a>
   </p>
@@ -649,7 +692,7 @@ transparency and decision-making
     <div class="modal-header">
       <div>
         <div class="modal-cat-label" id="modal-cat-label"></div>
-        <div class="modal-title"    id="modal-title"></div>
+        <div class="modal-title" id="modal-title"></div>
       </div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
@@ -661,118 +704,104 @@ transparency and decision-making
 
 <!-- ── STICKY LOGO BAR ── -->
 <div class="sticky-bottom-container">
-  <div class="logo-slider">
-    <div class="logo-track" id="logo-track">
-      <div class="logo-item">
-        <img src="../img/logo/NYU-logo.png" alt="NYU">
-        <div class="description">New York University</div>
+  <!-- <div class="slider-clip"> -->
+    <div class="logo-slider">
+      <div class="logo-track" id="logo-track">
+        <div class="logo-item">
+          <img src="../img/logo/NYU-logo.png" alt="NYU">
+          <div class="description">New York University</div>
+        </div>
+        <div class="logo-item">
+          <img src="../img/logo/Goldman-logo.jpeg" alt="Goldman Sachs">
+          <div class="description">Goldman Sachs</div>
+        </div>
+        <div class="logo-item">
+          <img src="../img/logo/Capital-One-Logo.png" alt="Capital One">
+          <div class="description">Capital One</div>
+        </div>
+        <div class="logo-item">
+          <img src="../img/logo/Nomura-logo.png" alt="Nomura">
+          <div class="description">Nomura</div>
+        </div>
+        <div class="logo-item">
+          <img src="../img/logo/UN-logo.png" alt="United Nations">
+          <div class="description">United Nations</div>
+        </div>
+        <div class="logo-item">
+          <img src="../img/logo/blackventurecapital_logo.jpeg" alt="Black Venture Capital">
+          <div class="description">Black Venture Capital</div>
+        </div>
+        <div class="logo-item">
+          <img src="../img/logo/IgniteXL.png" alt="IgniteXL">
+          <div class="description">IgniteXL</div>
+        </div>
+        <div class="logo-item">
+          <img src="../img/logo/RTC-logo.png" alt="RTC">
+          <div class="description">RTC</div>
+        </div>
+        <div class="logo-item">
+          <img src="../img/logo/ColorStack-logo.png" alt="ColorStack">
+          <div class="description">ColorStack</div>
+        </div>
+        <div class="logo-item">
+          <img src="../img/logo/CodePath-logo.png" alt="CodePath">
+          <div class="description">CodePath</div>
+        </div>
       </div>
-      <div class="logo-item">
-        <img src="../img/logo/Goldman-logo.jpeg" alt="Goldman Sachs">
-        <div class="description">Goldman Sachs</div>
-      </div>
-      <div class="logo-item">
-        <img src="../img/logo/Capital-One-Logo.png" alt="Capital One">
-        <div class="description">Capital One</div>
-      </div>
-      <div class="logo-item">
-        <img src="../img/logo/Nomura-logo.png" alt="Nomura">
-        <div class="description">Nomura</div>
-      </div>
-      <div class="logo-item">
-        <img src="../img/logo/UN-logo.png" alt="United Nations">
-        <div class="description">United Nations</div>
-      </div>
-      <div class="logo-item">
-        <img src="../img/logo/blackventurecapital_logo.jpeg" alt="Black Venture Capital">
-        <div class="description">Black Venture Capital</div>
-      </div>
-      <div class="logo-item">
-        <img src="../img/logo/IgniteXL.png" alt="IgniteXL">
-        <div class="description">IgniteXL</div>
-      </div>
-      <div class="logo-item">
-        <img src="../img/logo/RTC-logo.png" alt="RTC">
-        <div class="description">RTC</div>
-      </div>
-      <div class="logo-item">
-        <img src="../img/logo/ColorStack-logo.png" alt="ColorStack">
-        <div class="description">ColorStack</div>
-      </div>
-      <div class="logo-item">
-        <img src="../img/logo/CodePath-logo.png" alt="CodePath">
-        <div class="description">CodePath</div>
-      </div>
-    </div><!-- end logo-track -->
-  </div><!-- end logo-slider -->
-</div><!-- end sticky-bottom-container -->
+    <!-- </div> -->
+  </div>
+</div>
 
 <script>
-// ── RESEARCH ABSTRACT DATA ────────────────────────────────────────────────────
-// Mirrors the student abstract system from the colloquium page, adapted for your work.
-//
-// HOW TO EDIT:
-//   • Each key (fintech, nonprofit, etc.) = one category card.
-//   • label  = name shown on the card and in the modal header.
-//   • icon   = emoji on the card.
-//   • abstracts = array of your papers/projects. Each entry needs:
-//       name  — your name or co-author(s)
-//       topic — paper/project title
-//       text  — full abstract or description
-//
-// To add a new category: copy one block, give it a new key, fill in label/icon/abstracts.
-// To add a paper to an existing category: push a new { name, topic, text } into its abstracts array.
+// ── RESEARCH DATA ──────────────────────────────────────────────────────
 const researchData = {
   fintech: {
-    label: "Fintech & Finance",
+    label: "Fintech",
     icon: "💳",
     abstracts: [
       {
-        name: "Christina Fikru",
-        topic: "Your Paper Title Here",
-        text: "Add your abstract or project description here. Describe the research question, methodology, findings, and significance of your work.",
-        link: `<a href="https://drive.google.com/file/d/1B3KV0BnKGJuagcABZh1_7b5sSEQ-mLd_/view" target="_blank" class="btn-outline">View full paper ↗</a>`
+        topic: "AI Issues and Broader Impacts in Fintech: Interviews, Discriminatory Bias, and Loss of Human Connection",
+        link: "https://drive.google.com/file/d/1hsXPoJEkksGVmoY-IL-fczEriwnyb-iy/view?usp=sharing",
+        abstract: "The intervention of artificial intelligence has sparked considerable interest among citizens globally. This innovation has evolved so dramatically that it has gone from being a mere assistive tool to something people heavily rely on, which might have quite significant impacts, especially upon the upcoming young generations. The normalization of artificial intelligence integration within workplaces results in lost connections with one another in terms of integration during the interview process, bias, and the dehumanization of human connection, mainly in the technology and finance industry. AI-driven models often filter applicants during the interview process by analyzing tone, confidence, facial expressions, and articulation. These systems attempt to match candidates to job descriptions through automated summaries and pattern recognition."
       }
     ]
   },
-
   nonprofit: {
-    label: "Non-profit & Policy",
-    icon: "🤝",
+    label: "Neural Computing",
+    icon: "💡",
     abstracts: [
       {
-        name: "Christina Fikru",
-        topic: "Add your paper or project title here",
-        text: "Add your abstract or project description here."
+        topic: "Neural Technology, Affective Computing",
+        link: "https://drive.google.com/file/d/1Z7u5auozEAfun8Z9qI4aCAc8pCy6zXzY/view?usp=sharing",
+        abstract: "Wearable EEG devices are increasingly used to monitor cognitive and emotional states in natural environments. Studies investigating emotional valence, mental fatigue, and lightweight EEG-based classification have expanded rapidly, producing diverse findings on optimal electrode placement, feature extraction, and deep-learning architectures. Despite this growing body of work, a comprehensive mapping of influential research, methodology trends, and key contributors in this area has been limited."
       }
     ]
   },
-
   law: {
-    label: "Law & Ethics",
-    icon: "⚖️",
+    label: "Biomimicry & Technology",
+    icon: "🧐",
     abstracts: [
       {
-        name: "Christina Fikru",
-        topic: "Add your paper or project title here",
-        text: "Add your abstract or project description here."
+        topic: "Biomimicry Assessment In the Lens of Technology",
+        link: "https://drive.google.com/file/d/1wF1YwcqbABV-WNyu7x-T1ksDRiL1IdOK/view?usp=sharing",
+        abstract: "The research by Shashikumar et al. and Raman et al. represents two distinct approaches to biomimicry that, when examined through critical lenses from Whitehead, Sismondo, and Harding, reveal fundamental relation between the correlated appropriation of nature and genuine ecological integration."
       }
     ]
   },
-
   tech: {
-    label: "Technology & Design",
-    icon: "🖥️",
+    label: "Technology Assessment",
+    icon: "📑",
     abstracts: [
       {
-        name: "Christina Fikru",
-        topic: "Add your paper or project title here",
-        text: "Add your abstract or project description here."
+        topic: "AI Article Assessment in the Lens of Whitehead and Harding",
+        link: "https://drive.google.com/file/d/1F2bh60VwLjNd0DeXR0HTf_kntjO6fODs/view?usp=sharing",
+        abstract: "The AI articles by Soomoro et al., and Thomas Gilbert underscores the main ethical core values of use of AI in the lens of Whitehead and Harding. The articles correlates the importance of ethical consideration and the change within our rapid technological environment."
       }
     ]
   }
 };
-// ── BUILD CATEGORY CARDS ──────────────────────────────────────────────────────
+
+// ── BUILD CARDS ────────────────────────────────────────────────────────
 function renderCategoryCards() {
   const grid = document.getElementById('categories-grid');
   grid.innerHTML = Object.entries(researchData).map(([key, cat]) => `
@@ -786,20 +815,22 @@ function renderCategoryCards() {
 }
 renderCategoryCards();
 
-// ── OPEN MODAL FOR CATEGORY ───────────────────────────────────────────────────
+// ── MODAL ──────────────────────────────────────────────────────────────
 function openModal(key) {
   const cat = researchData[key];
   document.getElementById('modal-cat-label').textContent = cat.label;
   document.getElementById('modal-title').textContent = 'Research Abstracts';
-  document.getElementById('modal-abstracts').innerHTML = cat.abstracts.map(a => `
-  <div class="abstract-item">
-    <div class="abstract-presenter">${a.name}</div>
-    <div class="abstract-topic-modal">${a.topic || ""}</div>
-    <div class="abstract-text-modal">${a.text}</div>
-    ${a.link ? `<div style="margin-top:12px;">${a.link}</div>` : ""}
-  </div>
-`).join('');
-  
+  document.getElementById('modal-abstracts').innerHTML =
+    cat.abstracts.map(a => `
+      <div class="abstract-item">
+        <div class="abstract-topic-modal">
+          ${a.link
+            ? `<a href="${a.link}" target="_blank">${a.topic}</a>`
+            : a.topic}
+        </div>
+        <div class="abstract-text-modal">${a.abstract}</div>
+      </div>
+    `).join('');
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -808,34 +839,31 @@ function closeModal() {
   document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
+
 function closeModalOutside(e) {
   if (e.target === document.getElementById('modal-overlay')) closeModal();
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// ── EXPERIENCE TABLE DROPDOWN ─────────────────────────────────────────────────
-// Reads data-topic and data-text directly from each <tr> in the HTML above.
-// No separate JS data array needed — edit job descriptions in the HTML table.
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ── EXPERIENCE DROPDOWN ────────────────────────────────────────────────
 document.querySelectorAll('#bulletin tbody tr').forEach(row => {
   row.addEventListener('click', () => {
     const topic = row.dataset.topic;
     const text  = row.dataset.text;
-
-    // Skip blank placeholder rows
     if (!topic) return;
 
-    // Toggle closed if already open
     if (row.classList.contains('abstract-open')) {
       row.classList.remove('abstract-open');
       row.nextElementSibling?.remove();
       return;
     }
 
-    // Close any previously open rows
     document.querySelectorAll('.abstract-open').forEach(r => r.classList.remove('abstract-open'));
     document.querySelectorAll('.abstract-dropdown').forEach(el => el.remove());
 
-    // Build and insert the dropdown row
     const dropRow = document.createElement('tr');
     dropRow.className = 'abstract-dropdown';
     dropRow.innerHTML = `
@@ -845,13 +873,12 @@ document.querySelectorAll('#bulletin tbody tr').forEach(row => {
       </td>`;
     row.after(dropRow);
     row.classList.add('abstract-open');
-    row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 });
 
-// ── LOGO SLIDER — duplicate for seamless infinite scroll ─────────────────────
+// ── LOGO SCROLLER ──────────────────────────────────────────────────────
 const logoTrack = document.getElementById('logo-track');
-logoTrack.innerHTML += logoTrack.innerHTML + logoTrack.innerHTML + logoTrack.innerHTML;
+logoTrack.innerHTML += logoTrack.innerHTML; // duplicate exactly once for seamless -50% loop
 </script>
 </body>
 </html>

@@ -68,6 +68,11 @@
       text-decoration: none;
       letter-spacing: 0.02em;
     }
+    .nav-logo img{
+      height: 32px;
+      width: auto;
+      display: block;
+    }
     .nav-links {
       display: flex;
       align-items: center;
@@ -79,7 +84,7 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: pink }
     .nav-resume {
       padding: 7px 16px;
       background: var(--text);
@@ -424,9 +429,10 @@
   display: flex;
   justify-content: center;
   padding: 12px 0;
+  z-index: 999;
 }
 .slider-clip {
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
 }
 
@@ -510,7 +516,7 @@
     @media (max-width: 768px) {
       .nav { padding: 0 20px; }
       .nav-links { gap: 16px; }
-      .nav-links a:not(.nav-resume):not(:last-child) { display: none; }
+      /* .nav-links a:not(.nav-resume):not(:last-child) { display: none; } */
       .hero { flex-direction: column-reverse; gap: 32px; padding: 48px 20px 40px; text-align: center; }
       .hero p { margin-left: auto; margin-right: auto; }
       .hero-ctas { justify-content: center; }
@@ -526,16 +532,17 @@
 <body>
 
   <!-- NAV -->
-  <nav class="nav">
+  <nav>
+    <div class = "nav">
     <div class="nav-logo">
-      <img src="../img/logo/CFW.png" alt="Christina Fikru Logo" />
+      <img src="./img/logo/CFW.png" alt="Christina Fikru Logo" />
     </div>
     <div class="nav-links">
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="./law/law.html">Law</a>
-      <!-- UPDATE: replace # with your resume PDF path e.g. ./resume.pdf -->
       <a href="https://drive.google.com/file/d/1S6AFIwLZCWrv_oe7gLActlA7JtL_1KGf/view?usp=sharing" class="nav-resume">Resume ↓</a>
+    </div>
     </div>
   </nav>
 
@@ -544,7 +551,7 @@
     <div class="hero-text">
       <div class="hero-eyebrow">Portfolio</div>
       <h1>Welcome to<br>my portfolio.</h1>
-      <p>I'm Christina Fikru — a coder applying financial knowledge to build meaningful projects, working toward a double concentration in tech &amp; finance with a future pivot to fintech law.</p>
+      <p>I'm Christina Fikru - a coder applying financial knowledge to build meaningful projects, working toward a double concentration in tech &amp; finance with a future pivot to fintech law.</p>
       <div class="hero-ctas">
         <a href="#projects" class="btn-primary">View projects</a>
         <!-- UPDATE: replace with your LinkedIn URL -->
@@ -569,14 +576,14 @@
       <div class="exp-row">
         <div class="exp-header" onclick="toggle(this)">
           <div class="exp-left">
-            <div class="exp-badge badge-jp">JP</div>
+            <div class="exp-badge badge-jp">NYU</div>
             <div class="exp-meta">
-              <span class="exp-role">Software Engineer Intern</span>
-              <span class="exp-company">JP Morgan Chase</span>
+              <span class="exp-role">Project Support Assistant</span>
+              <span class="exp-company">New York University – Dean's Office</span>
             </div>
           </div>
           <div class="exp-right">
-            <span class="exp-date">Jun – Aug 2023</span>
+            <span class="exp-date">Sept 2025 – Present</span>
             <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 6l4 4 4-4"/>
             </svg>
@@ -584,7 +591,16 @@
         </div>
         <div class="exp-body">
           <div class="exp-body-inner">
-            <p>Worked on internal software used by trading desks to manage portfolios and risk, contributing to tools that support real-time decision-making.</p>
+            <p> • Lead strategy & execution for 8 departmental initiatives, managing stakeholder communication, timelines, and deliverables
+using structured PM frameworks
+<br>
+• Organize and maintained records for 1,000+ entries across 100+ departments, streamlining data management and improving
+operational efficiency<br>
+
+• Lead archival initiatives to systematize departmental documentation, ensuring accurate and accessible records across the office
+<br>
+• Coordinate ross-functional promotional campaigns, improving department visibility and engagement across the university
+</p>
           </div>
         </div>
       </div>
@@ -592,14 +608,14 @@
       <div class="exp-row">
         <div class="exp-header" onclick="toggle(this)">
           <div class="exp-left">
-            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-badge badge-ba">TN</div>
             <div class="exp-meta">
-              <span class="exp-role">Software Engineer Intern</span>
-              <span class="exp-company">Bank of America</span>
+              <span class="exp-role">Neurotechnology Research Analyst</span>
+              <span class="exp-company">ThinkNeuro LLC</span>
             </div>
           </div>
           <div class="exp-right">
-            <span class="exp-date">Jun – Aug 2022</span>
+            <span class="exp-date"> Aug – Dec 2025</span>
             <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 6l4 4 4-4"/>
             </svg>
@@ -607,22 +623,26 @@
         </div>
         <div class="exp-body">
           <div class="exp-body-inner">
-            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+            <p> • Synthesized 50+ global research reports to identify product and market trends, projecting 15% annual sector growth across 10+
+consumer segments
+<br>
+• Translated complex technical findings into stakeholder-ready presentations to guide product and go-to-market decisions</p>
           </div>
         </div>
       </div>
 
-        <div class="exp-row">
+   
+      <div class="exp-row">
         <div class="exp-header" onclick="toggle(this)">
           <div class="exp-left">
-            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-badge badge-ba"> IXL </div>
             <div class="exp-meta">
-              <span class="exp-role">Software Engineer Intern</span>
-              <span class="exp-company">Bank of America</span>
+              <span class="exp-role"> Venture Capital Extern </span>
+              <span class="exp-company"> IgniteXL Ventures × Extern</span>
             </div>
           </div>
           <div class="exp-right">
-            <span class="exp-date">Jun – Aug 2022</span>
+            <span class="exp-date"> June – July 2024</span>
             <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 6l4 4 4-4"/>
             </svg>
@@ -630,22 +650,25 @@
         </div>
         <div class="exp-body">
           <div class="exp-body-inner">
-            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+            <p> • Conducted due diligence on 40+ early-stage startups using Crunchbase, PitchBook, and AI analytics, evaluating product-market
+fit and investment viability <br>
+• Produced actionable investment reports, assessing startup product roadmaps and competitive positioning across verticals</p>
           </div>
         </div>
       </div>
 
-        <div class="exp-row">
+
+      <div class="exp-row">
         <div class="exp-header" onclick="toggle(this)">
           <div class="exp-left">
-            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-badge badge-ba"> CV</div>
             <div class="exp-meta">
-              <span class="exp-role">Software Engineer Intern</span>
-              <span class="exp-company">Bank of America</span>
+              <span class="exp-role"> Certified Pharmacy Technician</span>
+              <span class="exp-company"> CVS Pharmacy </span>
             </div>
           </div>
           <div class="exp-right">
-            <span class="exp-date">Jun – Aug 2022</span>
+            <span class="exp-date"> March 2024 - Aug 2025</span>
             <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 6l4 4 4-4"/>
             </svg>
@@ -653,22 +676,25 @@
         </div>
         <div class="exp-body">
           <div class="exp-body-inner">
-            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+            <p> • Managed 150+ daily transactions with 100% regulatory compliance; improved throughput by 30% through workflow and
+process optimization <br>
+• Identified operational inefficiencies & implemented verification protocols, reducing financial discrepancies & processing errors</p>
           </div>
         </div>
       </div>
 
-        <div class="exp-row">
+
+      <div class="exp-row">
         <div class="exp-header" onclick="toggle(this)">
           <div class="exp-left">
-            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-badge badge-ba"> B&Z </div>
             <div class="exp-meta">
-              <span class="exp-role">Software Engineer Intern</span>
-              <span class="exp-company">Bank of America</span>
+              <span class="exp-role"> Product Manager Intern </span>
+              <span class="exp-company"> B&Z Logistics </span>
             </div>
           </div>
           <div class="exp-right">
-            <span class="exp-date">Jun – Aug 2022</span>
+            <span class="exp-date"> Aug 2023 - Feb 2024</span>
             <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 6l4 4 4-4"/>
             </svg>
@@ -676,22 +702,27 @@
         </div>
         <div class="exp-body">
           <div class="exp-body-inner">
-            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+            <p> • Built centralized Excel reporting system tracking 200+ concurrent global operations, improving data transparency and
+decision-making speed <br>
+
+• Reduced processing time by 20% via workflow automation across 45+ global partners, ensuring regulatory alignment</p>
           </div>
         </div>
       </div>
 
-        <div class="exp-row">
+
+
+      <div class="exp-row">
         <div class="exp-header" onclick="toggle(this)">
           <div class="exp-left">
-            <div class="exp-badge badge-ba">BA</div>
+            <div class="exp-badge badge-ba"> MIT </div>
             <div class="exp-meta">
-              <span class="exp-role">Software Engineer Intern</span>
-              <span class="exp-company">Bank of America</span>
+              <span class="exp-role"> Fellow Software Programmer </span>
+              <span class="exp-company"> MIT Beaver Works Summer Institute </span>
             </div>
           </div>
           <div class="exp-right">
-            <span class="exp-date">Jun – Aug 2022</span>
+            <span class="exp-date"> Feb 2023 - July 2024</span>
             <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 6l4 4 4-4"/>
             </svg>
@@ -699,81 +730,15 @@
         </div>
         <div class="exp-body">
           <div class="exp-body-inner">
-            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
-          </div>
-        </div>
-      </div>
-
-        <div class="exp-row">
-        <div class="exp-header" onclick="toggle(this)">
-          <div class="exp-left">
-            <div class="exp-badge badge-ba">BA</div>
-            <div class="exp-meta">
-              <span class="exp-role">Software Engineer Intern</span>
-              <span class="exp-company">Bank of America</span>
-            </div>
-          </div>
-          <div class="exp-right">
-            <span class="exp-date">Jun – Aug 2022</span>
-            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 6l4 4 4-4"/>
-            </svg>
-          </div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-body-inner">
-            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
+            <p> • Developed ML algorithms for disaster response in Python/NumPy; translated complex technical requirements into
+implementable solutions for multidisciplinary teams</p>
           </div>
         </div>
       </div>
 
 
-        <div class="exp-row">
-        <div class="exp-header" onclick="toggle(this)">
-          <div class="exp-left">
-            <div class="exp-badge badge-ba">BA</div>
-            <div class="exp-meta">
-              <span class="exp-role">Software Engineer Intern</span>
-              <span class="exp-company">Bank of America</span>
-            </div>
-          </div>
-          <div class="exp-right">
-            <span class="exp-date">Jun – Aug 2022</span>
-            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 6l4 4 4-4"/>
-            </svg>
-          </div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-body-inner">
-            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
-          </div>
-        </div>
-      </div>
 
-
-        <div class="exp-row">
-        <div class="exp-header" onclick="toggle(this)">
-          <div class="exp-left">
-            <div class="exp-badge badge-ba">BA</div>
-            <div class="exp-meta">
-              <span class="exp-role">Software Engineer Intern</span>
-              <span class="exp-company">Bank of America</span>
-            </div>
-          </div>
-          <div class="exp-right">
-            <span class="exp-date">Jun – Aug 2022</span>
-            <svg class="exp-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 6l4 4 4-4"/>
-            </svg>
-          </div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-body-inner">
-            <p>Worked on internal software used by trading desks to manage portfolios and risk. Contributed to back-end services supporting financial operations.</p>
-          </div>
-        </div>
-      </div>
+   
 
       
     </div>
@@ -798,7 +763,7 @@
         <span class="project-link">View project ↗</span>
       </a>
 
-      <a href="east.html" class="project-card">
+      <a href="../CreativeCoding/index.html" class="project-card">
         <div class="project-icon" style="background:#FAEEDA;">🎨</div>
         <h3>Creative Coding</h3>
         <p>A walk through the streets — generative and creative coding explorations.</p>
@@ -814,15 +779,15 @@
 
       <a href="#" class="project-card">
         <div class="project-icon" style="background:#FAECE7;">🔗</div>
-        <h3>Project Five</h3>
-        <p>Coming soon — a new project at the intersection of law and technology.</p>
+        <h3>Mekedonia</h3>
+        <p>Non-profit organization focused on community development and education.</p>
         <span class="project-link">View project ↗</span>
       </a>
 
       <a href="#" class="project-card">
         <div class="project-icon" style="background:#EAF3DE;">💡</div>
-        <h3>Project Six</h3>
-        <p>Add your own project description and link it here.</p>
+        <h3>Facial Recognition</h3>
+        <p>Developing and testing facial recognition algorithms for security and identification purposes.</p>
         <span class="project-link">View project ↗</span>
       </a>
 
