@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Walk Through the Streets — Creative Coding</title>
+<title>Creative Coding Projects</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
     --black: #0a0a0a;
     --off-white: #f2ede6;
     --warm-gray: #c8c0b4;
-    --gold: #d4a843;
-    --gold-dim: rgba(212,168,67,0.15);
+    --gold: #4ac9f7;
+    --gold-dim: rgba(13, 44, 138, 0.15);
     --rust: #c45c2e;
     --text: #e8e2d8;
-    --text-dim: #8a8278;
+    --text-dim: #f3eee7;
     --code-bg: #111111;
     --mono: 'DM Mono', monospace;
     --serif: 'Cormorant Garamond', serif;
@@ -42,7 +42,7 @@
     transition: transform 0.1s ease;
     transform: translate(-50%, -50%);
   }
-  .cursor-ring {
+  /* .cursor-ring {
     width: 32px; height: 32px;
     border: 1px solid rgba(212,168,67,0.4);
     border-radius: 50%;
@@ -50,12 +50,12 @@
     pointer-events: none;
     transform: translate(-50%, -50%);
     transition: transform 0.15s ease, width 0.2s, height 0.2s, border-color 0.2s;
-  }
-  body:has(a:hover) .cursor-ring,
+  } */
+  /* body:has(a:hover) .cursor-ring,
   body:has(button:hover) .cursor-ring {
     width: 48px; height: 48px;
     border-color: var(--gold);
-  }
+  } */
 
   /* ── NAV ── */
   nav {
@@ -503,22 +503,22 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-back">
+  <a href="../index.html" class="nav-back">
     <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
       <path d="M10 7H4M4 7l3-3M4 7l3 3"/>
     </svg>
     Back to Portfolio
   </a>
-  <div class="nav-title">Walk Through the Streets</div>
+  <div class="nav-title">Walk Through of Current Projects</div>
   <div class="nav-tag">p5.js / Creative Coding</div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-grid"></div>
-  <div class="hero-number">Project 03 — Generative Art</div>
-  <h1>A Walk Through<br>the <em>Streets</em></h1>
-  <p class="hero-sub">Exploring urban movement, rhythm, and density through generative systems — translating the chaos and order of city life into visual code.</p>
+  <div class="hero-number">Creative Generative Sketch</div>
+  <h1>Showcasing Creative<br>Coding <em>Projects</em></h1>
+  <p class="hero-sub"> </p>
   <div class="hero-meta">
     <div class="meta-item">
       <span class="meta-label">Built with</span>
@@ -530,11 +530,11 @@
     </div>
     <div class="meta-item">
       <span class="meta-label">Technique</span>
-      <span class="meta-value">Generative Systems</span>
+      <span class="meta-value">ml5.js Generative Sketches</span>
     </div>
     <div class="meta-item">
       <span class="meta-label">Year</span>
-      <span class="meta-value">2024</span>
+      <span class="meta-value">2026</span>
     </div>
   </div>
   <div class="hero-scroll">
@@ -554,21 +554,14 @@
     <div class="about-grid">
       <div class="about-text reveal reveal-delay-2">
         <p>
-          <strong>Walk Through the Streets</strong> is a generative visual study of urban movement — an attempt to capture what it feels like to move through a city: the overlapping paths, the density of bodies, the rhythm of footsteps on concrete.
+          <strong>Piano Hand Control</strong> Visual showcase of creative coding projects built with p5.js.
         </p>
-        <p>
-          Each run of the sketch produces something unique. Particles emerge, drift, collide, and leave traces — mimicking the way a city leaves marks on the people who pass through it. The longer you watch, the more patterns emerge from what first appears to be noise.
-        </p>
-        <p>
-          The color palette draws from golden-hour light hitting asphalt — that specific amber glow that makes even the most ordinary street feel cinematic. Distance, density, and direction all influence how each particle behaves.
-        </p>
+       
         <div class="about-tags">
-          <span class="tag">Generative</span>
           <span class="tag">Particle Systems</span>
           <span class="tag">Noise Fields</span>
-          <span class="tag">Emergence</span>
-          <span class="tag">Urban Study</span>
-          <span class="tag">Flow Fields</span>
+          <span class="tag">ml5.js control</span>
+      
         </div>
       </div>
 
@@ -576,28 +569,28 @@
         <div class="concept-list">
           <div class="concept-item">
             <span class="concept-num">01</span>
-            <span class="concept-name">Perlin Noise Flow Fields</span>
+            <span class="concept-name">Sound Control</span>
             <div class="concept-bar"></div>
           </div>
           <div class="concept-item">
             <span class="concept-num">02</span>
-            <span class="concept-name">Particle Lifecycle Systems</span>
+            <span class="concept-name">Instrument Control</span>
             <div class="concept-bar"></div>
           </div>
           <div class="concept-item">
             <span class="concept-num">03</span>
-            <span class="concept-name">Layered Alpha Trails</span>
+            <span class="concept-name">Hand Tracking with ml5.js</span>
             <div class="concept-bar"></div>
           </div>
           <div class="concept-item">
             <span class="concept-num">04</span>
-            <span class="concept-name">Emergent Urban Patterns</span>
+            <span class="concept-name">Background Control</span>
             <div class="concept-bar"></div>
           </div>
-          <div class="concept-item">
+          <!-- <div class="concept-item">
             <span class="concept-num">05</span>
             <span class="concept-name">Colour & Distance Mapping</span>
-            <div class="concept-bar"></div>
+            <div class="concept-bar"></div> -->
           </div>
         </div>
       </div>
@@ -611,27 +604,28 @@
 <section id="demo">
   <div class="section-inner">
     <div class="section-eyebrow reveal">Demo</div>
-    <h2 class="section-title reveal reveal-delay-1">Watch it <em>run</em></h2>
 
-    <div class="video-wrapper reveal reveal-delay-2">
-      <div class="video-placeholder" id="video-placeholder">
-        <!-- Replace the src below with your actual video embed URL -->
-        <!-- e.g. src="https://www.youtube.com/embed/YOUR_VIDEO_ID" -->
-        <!-- or use an mp4: <video src="./demo.mp4" controls style="position:absolute;inset:0;width:100%;height:100%;"></video> -->
-        <div class="play-btn" id="play-btn" onclick="loadVideo()">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="video-caption">Click to play demo · ~2 min</div>
-      </div>
-      <div class="video-label">
-        <span>walk_through_streets_demo.mp4</span>
-        <span>p5.js sketch recording</span>
+    <h2 class="section-title reveal reveal-delay-1">
+      Watch it <em>run</em>
+    </h2>
+
+   <div class="video-wrapper reveal reveal-delay-2">
+  <div class="video-placeholder" id="video-placeholder" style="position:relative; padding-top:56.25%;">
+    <iframe
+      src="https://drive.google.com/file/d/1Zv4SiZnZzbyGVs8M6qEUhW-QnB2qE2VP/preview"
+      style="position:absolute; inset:0; width:100%; height:100%; border:none;"
+      allow="autoplay"
+    ></iframe>
+  </div>
+</div>
+
       </div>
     </div>
 
     <p style="margin-top:20px; font-family:var(--mono); font-size:0.68rem; color:var(--text-dim); letter-spacing:0.06em;">
-      ↑ Replace the placeholder above with your actual video. See the HTML comment inside <code style="color:var(--gold)">#video-placeholder</code> for instructions.
+      Face-detection-demo.mov → p5.js sketch recording
     </p>
+
   </div>
 </section>
 
@@ -645,26 +639,25 @@
 
     <div class="code-layout">
       <div class="code-explain reveal reveal-delay-2">
-        <h3>The Core Idea</h3>
-        <p>The sketch uses a <strong>Perlin noise flow field</strong> to give each particle a direction at every point in space. Particles follow these invisible currents, leaving semi-transparent trails that accumulate over time.</p>
-        <p>The result feels organic because Perlin noise produces smooth, continuous variation — unlike random noise, it changes gradually, the same way wind or water currents shift.</p>
+        <h3>The Core Idea and Thought Process in Creating This Sketch</h3>
+        <p>The sketch uses <strong>Ml5.js</strong> face mesh to detect and track facial features in real-time to move the trees around.</p>
 
         <div class="code-steps">
           <div class="code-step">
             <span class="step-num">01</span>
-            <div class="step-text"><strong>Spawn</strong> particles at random positions along the canvas edges, simulating pedestrians entering the city frame.</div>
+            <div class="step-text">Identify the hand notes using ml5.js </div>
           </div>
           <div class="code-step">
             <span class="step-num">02</span>
-            <div class="step-text"><strong>Sample</strong> the noise field at each particle's position to get a direction angle, then move the particle along that vector.</div>
+            <div class="step-text">Map the tracked facial features to control the sound and background.</div>
           </div>
           <div class="code-step">
             <span class="step-num">03</span>
-            <div class="step-text"><strong>Draw</strong> a small semi-transparent stroke between the particle's previous and current position, building up trail density over time.</div>
+            <div class="step-text"><strong>Worked on matching the notes  </div>
           </div>
           <div class="code-step">
             <span class="step-num">04</span>
-            <div class="step-text"><strong>Age</strong> each particle — older particles fade and eventually die, replaced by fresh ones. The city is always in motion.</div>
+            <div class="step-text">Finally worked on implementing the hand tracking notes to match it with the piano pad sketchs.  </div>
           </div>
         </div>
       </div>
@@ -679,90 +672,302 @@
           <div class="code-filename">sketch.js</div>
           <button class="copy-btn" id="copy-btn" onclick="copyCode()">Copy</button>
         </div>
-        <pre id="code-content"><span class="cm">// Walk Through the Streets — p5.js sketch</span>
-<span class="cm">// Perlin noise flow field + particle trails</span>
+        <pre id="code-content"><span class="cm">// face and hand tracking for bg— p5.js sketch</span>
+<span class="cm">// ml5.js and fractals </span>
 
-<span class="kw">let</span> <span class="var">particles</span> = [];
-<span class="kw">let</span> <span class="var">noiseScale</span> = <span class="num">0.003</span>;
-<span class="kw">let</span> <span class="var">noiseStrength</span> = <span class="num">2.0</span>;
-<span class="kw">let</span> <span class="var">particleCount</span> = <span class="num">600</span>;
-<span class="kw">let</span> <span class="var">zOffset</span> = <span class="num">0</span>;
+<pre id="code-content"><span class="cm">// zoom out and after 10sec rotate screen/sketch</span>
+<span class="kw">let</span> <span class="var">video</span>;
+<span class="kw">let</span> <span class="var">handPose</span>;
+<span class="kw">let</span> <span class="var">hands</span> = [];
+
+<span class="kw">let</span> <span class="var">handReady</span> = <span class="kw">false</span>;
+
+<span class="kw">let</span> <span class="var">fft</span>;
+<span class="kw">let</span> <span class="var">audioStarted</span> = <span class="kw">false</span>;
+
+<span class="kw">let</span> <span class="var">pieces</span> = <span class="num">12</span>;
+<span class="kw">let</span> <span class="var">radius</span> = <span class="num">220</span>;
+
+<span class="kw">let</span> <span class="var">bgColor</span> = <span class="str">"#070814"</span>;
+
+<span class="kw">let</span> <span class="var">bassColor</span> = [<span class="str">"#4f6cff"</span>, <span class="str">"#1900ff"</span>];
+<span class="kw">let</span> <span class="var">midColor</span> = <span class="str">"#ff3b30"</span>;
+<span class="kw">let</span> <span class="var">trebleColor</span> = <span class="str">"#c3ff00"</span>;
+
+<span class="kw">let</span> <span class="var">keys</span> = [];
+<span class="kw">let</span> <span class="var">keySounds</span> = [];
+
+<span class="kw">let</span> <span class="var">notes</span> = [
+  <span class="str">'C4.wav'</span>, <span class="str">'D4.wav'</span>, <span class="str">'E4.wav'</span>, <span class="str">'F4.wav'</span>,
+  <span class="str">'G4.wav'</span>, <span class="str">'A4.wav'</span>, <span class="str">'B4.wav'</span>, <span class="str">'C5.wav'</span>
+];
+
+<span class="kw">let</span> <span class="var">lastPlayed</span> = <span class="num">-1</span>;
+
+<span class="kw">let</span> <span class="var">loadingOverlay</span>;
+
+
+<span class="cm">// LOAD</span>
+
+<span class="fn">function</span> <span class="fn">preload</span>() {
+  soundFormats(<span class="str">'wav'</span>);
+  <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; notes.length; i++) {
+    keySounds.push(loadSound(notes[i]));
+  }
+}
+
+<span class="cm">// HAND CALLBACKS</span>
+
+<span class="fn">function</span> <span class="fn">gotHands</span>(results) {
+  hands = results;
+}
+
+<span class="fn">function</span> <span class="fn">handModelReady</span>() {
+  console.log(<span class="str">"HandPose ready"</span>);
+  handPose.detectStart(video, gotHands);
+  handReady = <span class="kw">true</span>;
+
+  <span class="cm">// Fade out and remove the overlay</span>
+  loadingOverlay.style(<span class="str">'opacity'</span>, <span class="str">'0'</span>);
+  setTimeout(() =&gt; loadingOverlay.remove(), <span class="num">600</span>);
+}
+
+<span class="cm">// SETUP</span>
 
 <span class="fn">function</span> <span class="fn">setup</span>() {
-  createCanvas(windowWidth, windowHeight);
-  background(<span class="num">10</span>, <span class="num">10</span>, <span class="num">10</span>);
-  colorMode(HSB, <span class="num">360</span>, <span class="num">100</span>, <span class="num">100</span>, <span class="num">100</span>);
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  angleMode(DEGREES);
 
-  <span class="cm">// spawn initial particles</span>
-  <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; particleCount; i++) {
-    particles.push(<span class="kw">new</span> <span class="fn">Particle</span>());
+  fft = <span class="kw">new</span> p5.FFT(<span class="num">0.9</span>, <span class="num">256</span>);
+
+  video = createCapture(VIDEO);
+  video.size(<span class="num">640</span>, <span class="num">480</span>);
+  video.hide();
+
+  handPose = ml5.handPose(
+    { flipped: <span class="kw">true</span> },
+    handModelReady
+  );
+
+  <span class="cm">// Loading overlay — styled div instead of a raw &lt;p&gt; block</span>
+  loadingOverlay = createDiv(`
+    &lt;div class="pv-spinner"&gt;&lt;/div&gt;
+    &lt;div class="pv-label"&gt;Piano Vision&lt;/div&gt;
+    &lt;div class="pv-sub"&gt;Initialising hand tracking…&lt;/div&gt;
+  `);
+
+  loadingOverlay.style(<span class="str">'position'</span>, <span class="str">'fixed'</span>);
+  loadingOverlay.style(<span class="str">'inset'</span>, <span class="str">'0'</span>);
+  loadingOverlay.style(<span class="str">'display'</span>, <span class="str">'flex'</span>);
+  loadingOverlay.style(<span class="str">'flex-direction'</span>, <span class="str">'column'</span>);
+  loadingOverlay.style(<span class="str">'align-items'</span>, <span class="str">'center'</span>);
+  loadingOverlay.style(<span class="str">'justify-content'</span>, <span class="str">'center'</span>);
+  loadingOverlay.style(<span class="str">'gap'</span>, <span class="str">'16px'</span>);
+  loadingOverlay.style(<span class="str">'background'</span>, <span class="str">'#070814'</span>);
+  loadingOverlay.style(<span class="str">'z-index'</span>, <span class="str">'999'</span>);
+  loadingOverlay.style(<span class="str">'transition'</span>, <span class="str">'opacity 0.6s ease'</span>);
+  loadingOverlay.style(<span class="str">'pointer-events'</span>, <span class="str">'none'</span>);
+
+  <span class="cm">// Inject spinner + label styles once</span>
+  <span class="kw">let</span> <span class="var">styleTag</span> = createElement(<span class="str">'style'</span>, `
+    .pv-spinner {
+      width: <span class="num">50</span>px; height: <span class="num">50</span>px;
+      border: <span class="num">2</span>px solid rgba(<span class="num">79</span>,<span class="num">108</span>,<span class="num">255</span>,<span class="num">0.15</span>);
+      border-top-color: #4f6cff;
+      border-radius: <span class="num">50</span>%;
+      animation: pv-spin <span class="num">1</span>s linear infinite;
+    }
+    @keyframes pv-spin { to { transform: rotate(<span class="num">360</span>deg); } }
+    .pv-label {
+      font-family: <span class="str">'Courier New'</span>, monospace;
+      font-size: <span class="num">22</span>px;
+      letter-spacing: <span class="num">0.18</span>em;
+      color: #4f6cff;
+      text-transform: uppercase;
+    }
+    .pv-sub {
+      font-family: <span class="str">'Courier New'</span>, monospace;
+      font-size: <span class="num">12</span>px;
+      letter-spacing: <span class="num">0.12</span>em;
+      color: rgba(<span class="num">255</span>,<span class="num">255</span>,<span class="num">255</span>,<span class="num">0.35</span>);
+    }
+  `);
+  styleTag.parent(document.head);
+
+  <span class="cm">// Piano keys</span>
+  <span class="kw">let</span> <span class="var">startX</span> = <span class="num">-220</span>;
+  <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; <span class="num">8</span>; i++) {
+    keys.push({ x: startX + i * <span class="num">60</span>, active: <span class="kw">false</span> });
   }
 }
+
+
+<span class="cm">// DRAW</span>
+
 
 <span class="fn">function</span> <span class="fn">draw</span>() {
-  <span class="cm">// ghost trail — don't clear fully</span>
-  background(<span class="num">0</span>, <span class="num">0</span>, <span class="num">4</span>, <span class="num">8</span>);
+  background(bgColor);
+  orbitControl();
 
-  <span class="kw">for</span> (<span class="kw">let</span> p <span class="kw">of</span> particles) {
-    p.update();
-    p.draw();
-    <span class="kw">if</span> (p.isDead()) p.reset();
+  fft.analyze();
+
+  <span class="kw">let</span> <span class="var">bass</span>   = fft.getEnergy(<span class="str">"bass"</span>);
+  <span class="kw">let</span> <span class="var">mid</span>    = fft.getEnergy(<span class="str">"mid"</span>);
+  <span class="kw">let</span> <span class="var">treble</span> = fft.getEnergy(<span class="num">2000</span>, <span class="num">6000</span>);
+
+  <span class="kw">let</span> <span class="var">mapBass</span>     = map(bass,   <span class="num">0</span>, <span class="num">255</span>, <span class="num">0</span>, <span class="num">250</span>);
+  <span class="kw">let</span> <span class="var">scaleBass</span>   = map(bass,   <span class="num">0</span>, <span class="num">255</span>, <span class="num">1</span>, <span class="num">1.8</span>);
+  <span class="kw">let</span> <span class="var">mapMid</span>      = map(mid,    <span class="num">0</span>, <span class="num">255</span>, -radius, radius);
+  <span class="kw">let</span> <span class="var">scaleTreble</span> = map(treble, <span class="num">0</span>, <span class="num">255</span>, <span class="num">0.7</span>, <span class="num">2</span>);
+
+  <span class="cm">// AMBIENT GLOW</span>
+
+  push();
+  noStroke();
+  <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; <span class="num">15</span>; i++) {
+    fill(<span class="num">30</span>, <span class="num">40</span>, <span class="num">100</span> + bass, <span class="num">12</span>);
+    ellipse(<span class="num">0</span>, <span class="num">0</span>, <span class="num">700</span> + i * <span class="num">70</span> + bass, <span class="num">700</span> + i * <span class="num">70</span> + bass);
+  }
+  pop();
+
+  <span class="cm">// RADIAL MUSIC VISUALIZER</span>
+
+  translate(<span class="num">-50</span>, <span class="num">-50</span>);
+
+  <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; pieces; i++) {
+    rotate(TWO_PI / pieces);
+    noFill();
+
+    <span class="cm">// BASS</span>
+    <span class="cm">// push();</span>
+    <span class="cm">// strokeWeight(8);</span>
+    <span class="cm">// stroke(bassColor[0]);</span>
+    <span class="cm">// scale(scaleBass);</span>
+    <span class="cm">// rotate(frameCount * 0.3);</span>
+    <span class="cm">// point(mapBass, radius);</span>
+    <span class="cm">// stroke(bassColor[1]);</span>
+    <span class="cm">// strokeWeight(2);</span>
+    <span class="cm">// line(0, 0, radius, radius);</span>
+    <span class="cm">// pop();</span>
+
+    <span class="cm">// MID</span>
+    <span class="cm">// push();</span>
+    <span class="cm">// stroke(midColor);</span>
+    <span class="cm">// strokeWeight(4);</span>
+    <span class="cm">// rotate(-frameCount * 0.15);</span>
+    <span class="cm">// point(mapMid, radius * 0.8);</span>
+    <span class="cm">// pop();</span>
+
+    <span class="cm">// TREBLE</span>
+  <span class="cm">//   push();</span>
+  <span class="cm">//   stroke(trebleColor);</span>
+  <span class="cm">//   strokeWeight(3);</span>
+  <span class="cm">//   scale(scaleTreble);</span>
+  <span class="cm">//   rotate(frameCount * 0.4);</span>
+  <span class="cm">//   point(-120, radius / 2);</span>
+  <span class="cm">//   point(120, radius / 2);</span>
+  <span class="cm">//   pop();</span>
+   }
+
+  <span class="cm">// WAVEFORM</span>
+
+  <span class="kw">let</span> <span class="var">waveform</span> = fft.waveform();
+
+  push();
+  translate(<span class="num">0</span>, <span class="num">260</span>);
+  noFill();
+  stroke(<span class="num">255</span>);
+  strokeWeight(<span class="num">3</span>);
+  beginShape();
+  <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; waveform.length; i++) {
+    <span class="kw">let</span> <span class="var">x</span> = map(i, <span class="num">0</span>, waveform.length, -width / <span class="num">2</span>, width / <span class="num">2</span>);
+    <span class="kw">let</span> <span class="var">y</span> = map(waveform[i], <span class="num">-1</span>, <span class="num">1</span>, <span class="num">-80</span>, <span class="num">80</span>);
+    vertex(x, y);
+  }
+  endShape();
+  pop();
+
+
+  <span class="cm">// PIANO FLOOR</span>
+
+
+  push();
+  <span class="cm">// rotateX(85);</span>
+  translate(<span class="num">0</span>, <span class="num">350</span>, <span class="num">-100</span>);
+  noStroke();
+  fill(<span class="num">15</span>, <span class="num">15</span>, <span class="num">25</span>);
+  <span class="cm">// plane(1800, 800);</span>
+  pop();
+
+  <span class="cm">// PIANO KEYS</span>
+
+  <span class="kw">for</span> (<span class="kw">let</span> key <span class="kw">of</span> keys) {
+    push();
+    translate(key.x, <span class="num">240</span>, <span class="num">0</span>);
+    <span class="kw">if</span> (key.active) {
+      emissiveMaterial(<span class="num">255</span>, <span class="num">240</span>, <span class="num">120</span>);
+    } <span class="kw">else</span> {
+      ambientMaterial(<span class="num">255</span>);
+    }
+    stroke(<span class="num">0</span>);
+    box(<span class="num">55</span>, <span class="num">220</span>, <span class="num">25</span>);
+    pop();
+    key.active = <span class="kw">false</span>;
   }
 
-  zOffset += <span class="num">0.001</span>; <span class="cm">// slow time drift</span>
+  <span class="cm">// HAND TRACKING</span>
+
+  <span class="kw">if</span> (hands.length &gt; <span class="num">0</span>) {
+    <span class="kw">let</span> <span class="var">hand</span>   = hands[<span class="num">0</span>];
+    <span class="kw">let</span> <span class="var">finger</span> = hand.keypoints[<span class="num">8</span>];
+    <span class="kw">let</span> <span class="var">thumb</span>  = hand.keypoints[<span class="num">4</span>];
+
+    <span class="kw">let</span> <span class="var">pinch</span> = dist(finger.x, finger.y, thumb.x, thumb.y);
+
+    <span class="kw">let</span> <span class="var">keyIndex</span> = constrain(
+      floor(map(finger.x, <span class="num">0</span>, video.width, <span class="num">0</span>, keys.length)),
+      <span class="num">0</span>,
+      keys.length - <span class="num">1</span>
+    );
+
+    keys[keyIndex].active = <span class="kw">true</span>;
+
+    <span class="kw">if</span> (pinch &lt; <span class="num">40</span> &amp;&amp; keyIndex !== lastPlayed) {
+      keySounds[keyIndex].play();
+      lastPlayed = keyIndex;
+    }
+    <span class="kw">if</span> (pinch &gt; <span class="num">50</span>) lastPlayed = <span class="num">-1</span>;
+
+    <span class="cm">// HAND ORB</span>
+    push();
+    translate(
+      map(finger.x, <span class="num">0</span>, video.width,  -width / <span class="num">2</span>,  width / <span class="num">2</span>),
+      map(finger.y, <span class="num">0</span>, video.height, -height / <span class="num">2</span>, height / <span class="num">2</span>),
+      <span class="num">120</span>
+    );
+    noStroke();
+    emissiveMaterial(<span class="num">255</span>, <span class="num">100</span> + bass, <span class="num">100</span>);
+    sphere(<span class="num">18</span> + bass * <span class="num">0.05</span>);
+    pop();
+  }
 }
 
-<span class="kw">class</span> <span class="fn">Particle</span> {
-  <span class="fn">constructor</span>() { <span class="kw">this</span>.reset(); }
+<span class="cm">// START AUDIO ON CLICK</span>
 
-  <span class="fn">reset</span>() {
-    <span class="kw">this</span>.x  = random(width);
-    <span class="kw">this</span>.y  = random(height);
-    <span class="kw">this</span>.px = <span class="kw">this</span>.x;
-    <span class="kw">this</span>.py = <span class="kw">this</span>.y;
-    <span class="kw">this</span>.age = <span class="num">0</span>;
-    <span class="kw">this</span>.maxAge = random(<span class="num">80</span>, <span class="num">300</span>);
-    <span class="kw">this</span>.speed = random(<span class="num">1.2</span>, <span class="num">2.8</span>);
-    <span class="kw">this</span>.hue = random(<span class="num">30</span>, <span class="num">50</span>); <span class="cm">// amber-gold range</span>
-  }
-
-  <span class="fn">update</span>() {
-    <span class="kw">let</span> angle = noise(
-      <span class="kw">this</span>.x * noiseScale,
-      <span class="kw">this</span>.y * noiseScale,
-      zOffset
-    ) * TWO_PI * noiseStrength;
-
-    <span class="kw">this</span>.px = <span class="kw">this</span>.x;
-    <span class="kw">this</span>.py = <span class="kw">this</span>.y;
-    <span class="kw">this</span>.x += cos(angle) * <span class="kw">this</span>.speed;
-    <span class="kw">this</span>.y += sin(angle) * <span class="kw">this</span>.speed;
-    <span class="kw">this</span>.age++;
-  }
-
-  <span class="fn">draw</span>() {
-    <span class="kw">let</span> alpha = map(
-      <span class="kw">this</span>.age, <span class="num">0</span>, <span class="kw">this</span>.maxAge, <span class="num">60</span>, <span class="num">0</span>
-    );
-    stroke(<span class="kw">this</span>.hue, <span class="num">60</span>, <span class="num">90</span>, alpha);
-    strokeWeight(<span class="num">0.8</span>);
-    line(<span class="kw">this</span>.px, <span class="kw">this</span>.py, <span class="kw">this</span>.x, <span class="kw">this</span>.y);
-  }
-
-  <span class="fn">isDead</span>() {
-    <span class="kw">return</span> (
-      <span class="kw">this</span>.age > <span class="kw">this</span>.maxAge ||
-      <span class="kw">this</span>.x &lt; <span class="num">0</span> || <span class="kw">this</span>.x > width ||
-      <span class="kw">this</span>.y &lt; <span class="num">0</span> || <span class="kw">this</span>.y > height
-    );
+<span class="fn">function</span> <span class="fn">mousePressed</span>() {
+  <span class="kw">if</span> (!audioStarted) {
+    userStartAudio();
+    audioStarted = <span class="kw">true</span>;
   }
 }
+
+<span class="cm">// RESIZE</span>
 
 <span class="fn">function</span> <span class="fn">windowResized</span>() {
   resizeCanvas(windowWidth, windowHeight);
-  background(<span class="num">0</span>, <span class="num">0</span>, <span class="num">4</span>);
 }</pre>
       </div>
+
     </div>
   </div>
 </section>
@@ -773,8 +978,8 @@
 <section id="sketch" style="padding-bottom:0;">
   <div class="sketch-intro section-inner">
     <div class="section-eyebrow reveal">Live Sketch</div>
-    <h2 class="section-title reveal reveal-delay-1">Watch it <em>breathe</em></h2>
-    <p class="reveal reveal-delay-2">The sketch runs live below — every load is unique. Resize the window to see it adapt. The trails accumulate in real time, just like footprints on pavement.</p>
+    <h2 class="section-title reveal reveal-delay-1">Try it <em>yourself</em></h2>
+    <p class="reveal reveal-delay-2"> Have fun with the live sketch below!</p>
   </div>
   <div class="sketch-container">
     <div class="sketch-overlay-label">Live · p5.js</div>
@@ -782,17 +987,28 @@
   </div>
 </section>
 
+<!-- p5.js -->
+ <iframe 
+  src="https://editor.p5js.org/ChristinaFIKRU/full/j0uJ8uW-8"
+  width="800" 
+  height="600">
+</iframe>
+ 
+
+
 <!-- FOOTER -->
 <footer>
-  <p>© Christina Fikru · Walk Through the Streets</p>
-  <a href="index.html" class="footer-link">← Back to Portfolio</a>
+  <p>© Christina Fikru · Walk Through of Creative Coding Sketch</p>
+  <a href="../index.html" class="footer-link">← Back to Portfolio</a>
 </footer>
 
-<!-- p5.js -->
-<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
+ <!-- https://editor.p5js.org/ChristinaFIKRU/full/T1iznVpfK -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script> -->
+<!-- <iframe src="https://editor.p5js.org/ChristinaFIKRU/full/T1iznVpfK"></iframe> -->
+
 
 <script>
-// ── CURSOR ────────────────────────────────────────────────────────────
 const cursor = document.getElementById('cursor');
 const ring   = document.getElementById('cursor-ring');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -807,7 +1023,7 @@ document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; })
   requestAnimationFrame(animCursor);
 })();
 
-// ── SCROLL REVEAL ─────────────────────────────────────────────────────
+//  SCROLL REVEAL 
 const revealEls = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -819,7 +1035,6 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 revealEls.forEach(el => observer.observe(el));
 
-// ── COPY CODE ─────────────────────────────────────────────────────────
 function copyCode() {
   const code = document.getElementById('code-content').innerText;
   navigator.clipboard.writeText(code).then(() => {
@@ -833,14 +1048,14 @@ function copyCode() {
   });
 }
 
-// ── VIDEO PLACEHOLDER ─────────────────────────────────────────────────
+// ── VIDEO PLACEHOLDER 
 function loadVideo() {
   // Replace the alert below with your actual video embed logic
   // e.g. for YouTube: document.getElementById('video-placeholder').innerHTML = '<iframe src="https://www.youtube.com/embed/YOUR_ID?autoplay=1" ...>';
   alert('Add your video URL in the loadVideo() function or replace the placeholder with an <iframe> or <video> tag.');
 }
 
-// ── P5 SKETCH ─────────────────────────────────────────────────────────
+// ── P5 SKETCH 
 new p5(function(p) {
   let particles = [];
   const PARTICLE_COUNT = 500;

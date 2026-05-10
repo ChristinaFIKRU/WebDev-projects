@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,8 @@
     --black: #0a0a0a;
     --off-white: #f2ede6;
     --warm-gray: #c8c0b4;
-    --gold: #d4a843;
-    --gold-dim: rgba(212,168,67,0.15);
+    --gold: #4ac9f7;
+    --gold-dim: rgba(13, 44, 138, 0.15);
     --rust: #c45c2e;
     --text: #e8e2d8;
     --text-dim: #f3eee7;
@@ -42,20 +43,6 @@
     transition: transform 0.1s ease;
     transform: translate(-50%, -50%);
   }
-  /* .cursor-ring {
-    width: 32px; height: 32px;
-    border: 1px solid rgba(212,168,67,0.4);
-    border-radius: 50%;
-    position: fixed; z-index: 9998;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease, width 0.2s, height 0.2s, border-color 0.2s;
-  } */
-  /* body:has(a:hover) .cursor-ring,
-  body:has(button:hover) .cursor-ring {
-    width: 48px; height: 48px;
-    border-color: var(--gold);
-  } */
 
   /* ── NAV ── */
   nav {
@@ -94,7 +81,6 @@
     position: relative; overflow: hidden;
   }
 
-  /* animated grain */
   .hero::before {
     content: '';
     position: absolute; inset: 0;
@@ -294,31 +280,6 @@
     width: 100%; height: 100%;
     border: none;
   }
-  .play-btn {
-    width: 72px; height: 72px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-    background: rgba(212,168,67,0.1);
-    position: relative; z-index: 1;
-  }
-  .play-btn:hover { background: rgba(212,168,67,0.25); transform: scale(1.08); }
-  .play-btn svg { width: 24px; height: 24px; fill: var(--gold); margin-left: 4px; }
-  .video-caption {
-    font-family: var(--mono); font-size: 0.68rem;
-    color: var(--text-dim); letter-spacing: 0.08em;
-    position: relative; z-index: 1;
-  }
-  .video-label {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 20px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    font-family: var(--mono); font-size: 0.68rem;
-    color: var(--text-dim); letter-spacing: 0.06em;
-  }
-  .video-label span { color: var(--gold); }
 
   /* ── CODE SECTION ── */
   #code { background: var(--black); border-top: 1px solid rgba(255,255,255,0.04); }
@@ -356,7 +317,9 @@
   .code-block {
     background: var(--code-bg);
     border: 1px solid rgba(255,255,255,0.08);
-    position: relative; overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    height: fit-content;
   }
   .code-header {
     display: flex; align-items: center; justify-content: space-between;
@@ -365,9 +328,7 @@
     background: rgba(255,255,255,0.02);
   }
   .code-dots { display: flex; gap: 6px; }
-  .code-dot {
-    width: 10px; height: 10px; border-radius: 50%;
-  }
+  .code-dot { width: 10px; height: 10px; border-radius: 50%; }
   .code-dot:nth-child(1) { background: #ff5f57; }
   .code-dot:nth-child(2) { background: #febc2e; }
   .code-dot:nth-child(3) { background: #28c840; }
@@ -389,17 +350,17 @@
     padding: 24px; overflow-x: auto;
     font-family: var(--mono); font-size: 0.78rem;
     line-height: 1.8; color: #c8c0b4;
-    max-height: 480px; overflow-y: auto;
+    max-height: 340px; overflow-y: auto;
   }
   pre::-webkit-scrollbar { width: 4px; height: 4px; }
   pre::-webkit-scrollbar-track { background: transparent; }
   pre::-webkit-scrollbar-thumb { background: rgba(212,168,67,0.3); border-radius: 2px; }
 
   /* syntax colors */
-  .kw { color: #c45c2e; }
-  .fn { color: #d4a843; }
+  .kw  { color: #c45c2e; }
+  .fn  { color: #d4a843; }
   .str { color: #7fba6a; }
-  .cm { color: #5a5a5a; font-style: italic; }
+  .cm  { color: #5a5a5a; font-style: italic; }
   .num { color: #6eb5d4; }
   .var { color: #c8c0b4; }
 
@@ -482,7 +443,7 @@
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   /* ── RESPONSIVE ── */
@@ -499,7 +460,6 @@
 <body>
 
 <div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
 
 <!-- NAV -->
 <nav>
@@ -556,13 +516,11 @@
         <p>
           <strong>Walk Through of Projects</strong> Visual showcase of creative coding projects built with p5.js.
         </p>
-       
         <div class="about-tags">
           <span class="tag">Lerp</span>
           <span class="tag">Particle Systems</span>
           <span class="tag">Noise Fields</span>
           <span class="tag">ml5.js control</span>
-      
         </div>
       </div>
 
@@ -588,11 +546,6 @@
             <span class="concept-name">Background Control</span>
             <div class="concept-bar"></div>
           </div>
-          <!-- <div class="concept-item">
-            <span class="concept-num">05</span>
-            <span class="concept-name">Colour & Distance Mapping</span>
-            <div class="concept-bar"></div> -->
-          </div>
         </div>
       </div>
     </div>
@@ -608,22 +561,18 @@
     <h2 class="section-title reveal reveal-delay-1">Watch it <em>run</em></h2>
 
     <div class="video-wrapper reveal reveal-delay-2">
-      <div class="video-placeholder" id="video-placeholder">
-         <video src="../img/vid/Face-detection-demo.mov" controls style="position:absolute;inset:0;width:100%;height:100%;"></video> 
-    
-        <!-- <div class="play-btn" id="play-btn" onclick="loadVideo()">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="video-caption">Click to play demo · ~26 sec</div>
-      </div> -->
-      <!-- <div class="video-label">
-        <span>Face-detection-demo.mov</span>
-        <span>p5.js sketch recording</span>
+      <div class="video-placeholder" id="video-placeholder" style="position:relative; padding-top:56.25%;">
+        <iframe
+          src="https://drive.google.com/file/d/1xBByD4UNRjtYzET1pxmBFnP0YVF3LGKG/preview"
+          style="position:absolute; inset:0; width:100%; height:100%; border:none;"
+          allow="autoplay"
+        ></iframe>
       </div>
-    </div> -->
+    </div>
 
     <p style="margin-top:20px; font-family:var(--mono); font-size:0.68rem; color:var(--text-dim); letter-spacing:0.06em;">
-Face-detection-demo.mov      ->      p5.js sketch recording    </p>
+      Face-detection-demo.mov → p5.js sketch recording
+    </p>
   </div>
 </section>
 
@@ -651,11 +600,11 @@ Face-detection-demo.mov      ->      p5.js sketch recording    </p>
           </div>
           <div class="code-step">
             <span class="step-num">03</span>
-            <div class="step-text"><strong>Worked on drawing the trees. </div>
+            <div class="step-text"><strong>Worked on drawing the trees.</strong></div>
           </div>
           <div class="code-step">
             <span class="step-num">04</span>
-            <div class="step-text">Finally worked on implementing the hand tracking notes to match it with the end of the tree branches. </div>
+            <div class="step-text">Finally worked on implementing the hand tracking notes to match it with the end of the tree branches.</div>
           </div>
         </div>
       </div>
@@ -670,91 +619,186 @@ Face-detection-demo.mov      ->      p5.js sketch recording    </p>
           <div class="code-filename">sketch.js</div>
           <button class="copy-btn" id="copy-btn" onclick="copyCode()">Copy</button>
         </div>
-        <pre id="code-content"><span class="cm">// face and hand tracking for bg— p5.js sketch</span>
-<span class="cm">// ml5.js and fractals </span>
-
-<span class="kw">let</span> <span class="var">let hand</span> = [];
-<span class="kw">let</span> <span class="var">let face</span> = [];
-<span class="kw">let</span> <span class="var">let video</span> = [];
-<!-- <span class="kw">let</span> <span class="var">let </span> = <span class="num">0.003</span>; -->
-<span class="kw">let</span> <span class="var">noiseStrength</span> = <span class="num">2.0</span>;
-<span class="kw">let</span> <span class="var">particleCount</span> = <span class="num">600</span>;
-<span class="kw">let</span> <span class="var">zOffset</span> = <span class="num">0</span>;
+        <pre id="code-content"><span class="cm">// face and hand tracking for bg — p5.js sketch</span>
+<span class="cm">// ml5.js and fractals</span>
+<span class="kw">let</span> <span class="var">video</span>;
+<span class="kw">let</span> <span class="var">faceMesh</span>, <span class="var">handPose</span>;
+<span class="kw">let</span> <span class="var">faces</span> = [], <span class="var">hands</span> = [];
+<span class="kw">let</span> <span class="var">triangles</span>;
+<span class="kw">let</span> <span class="var">osc1</span>, <span class="var">osc2</span>;
+<span class="kw">let</span> <span class="var">notes</span> = [<span class="num">68</span>, <span class="num">70</span>, <span class="num">71</span>, <span class="num">73</span>, <span class="num">75</span>, <span class="num">76</span>, <span class="num">78</span>, <span class="num">80</span>];
+<span class="kw">let</span> <span class="var">posterizeAmount</span> = <span class="num">3</span>;
+<span class="kw">let</span> <span class="var">freq</span> = <span class="num">440</span>;
+<span class="kw">let</span> <span class="var">vibe</span> = <span class="num">0</span>;
+<span class="kw">let</span> <span class="var">vol</span> = <span class="num">0</span>;
+<span class="kw">let</span> <span class="var">treeAngle</span> = <span class="num">0.4</span>;
+<span class="kw">let</span> <span class="var">branchLen</span> = <span class="num">80</span>;
+<span class="kw">let</span> <span class="var">faceReady</span> = <span class="kw">false</span>;
+<span class="kw">let</span> <span class="var">handReady</span> = <span class="kw">false</span>;
+<span class="kw">let</span> <span class="var">bgParticles</span> = [];
+<span class="kw">const</span> <span class="var">NUM_BG</span> = <span class="num">180</span>;
+<span class="kw">let</span> <span class="var">noiseScale</span> = <span class="num">0.0025</span>;
+<span class="kw">let</span> <span class="var">noiseZ</span> = <span class="num">0</span>;
+<span class="kw">let</span> <span class="var">palette</span> = [
+  [<span class="num">80</span>, <span class="num">160</span>, <span class="num">255</span>],
+  [<span class="num">160</span>, <span class="num">80</span>, <span class="num">255</span>],
+  [<span class="num">40</span>, <span class="num">220</span>, <span class="num">220</span>],
+  [<span class="num">220</span>, <span class="num">60</span>, <span class="num">220</span>],
+  [<span class="num">100</span>, <span class="num">220</span>, <span class="num">255</span>],
+];
 
 <span class="fn">function</span> <span class="fn">setup</span>() {
-  createCanvas(windowWidth, windowHeight);
-  background(<span class="num">10</span>, <span class="num">10</span>, <span class="num">10</span>);
-  colorMode(HSB, <span class="num">360</span>, <span class="num">100</span>, <span class="num">100</span>, <span class="num">100</span>);
-
-  <span class="cm">// spawn initial particles</span>
-  <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; particleCount; i++) {
-    particles.push(<span class="kw">new</span> <span class="fn">Particle</span>());
-  }
+  createCanvas(<span class="num">640</span>, <span class="num">480</span>);
+  video = createCapture(VIDEO, { flipped: <span class="kw">true</span> });
+  video.size(<span class="num">640</span>, <span class="num">480</span>);
+  video.hide();
+  faceMesh = ml5.faceMesh({ maxFaces: <span class="num">1</span>, flipped: <span class="kw">true</span> }, faceModelReady);
+  handPose = ml5.handPose({ flipped: <span class="kw">true</span> }, handModelReady);
+  osc1 = <span class="kw">new</span> p5.Oscillator(<span class="str">"sine"</span>);
+  osc2 = <span class="kw">new</span> p5.Oscillator(<span class="str">"sine"</span>);
+  osc1.start(); osc2.start();
+  osc1.amp(<span class="num">0</span>); osc2.amp(<span class="num">0</span>);
+  initParticles();
 }
 
 <span class="fn">function</span> <span class="fn">draw</span>() {
-  <span class="cm">// ghost trail — don't clear fully</span>
-  background(<span class="num">0</span>, <span class="num">0</span>, <span class="num">4</span>, <span class="num">8</span>);
-
-  <span class="kw">for</span> (<span class="kw">let</span> p <span class="kw">of</span> particles) {
-    p.update();
-    p.draw();
-    <span class="kw">if</span> (p.isDead()) p.reset();
+  background(<span class="num">10</span>, <span class="num">100</span>);
+  <span class="kw">if</span> (!faceReady || !handReady) {
+    fill(<span class="num">255</span>); noStroke();
+    textSize(<span class="num">18</span>); textAlign(CENTER, CENTER);
+    text(
+      <span class="str">"Loading models... "</span> +
+      (faceReady ? <span class="str">"✓ face"</span> : <span class="str">"… face"</span>) +
+      <span class="str">" | "</span> +
+      (handReady ? <span class="str">"✓ hands"</span> : <span class="str">"… hands"</span>),
+      width / <span class="num">2</span>, height / <span class="num">2</span>
+    );
+    <span class="kw">return</span>;
   }
-
-  zOffset += <span class="num">0.001</span>; <span class="cm">// slow time drift</span>
+  noiseZ += <span class="num">0.005</span>;
+  <span class="kw">let</span> attractors = hands.map(h => {
+    <span class="kw">let</span> pinch = dist(
+      h.keypoints[<span class="num">4</span>].x, h.keypoints[<span class="num">4</span>].y,
+      h.keypoints[<span class="num">8</span>].x, h.keypoints[<span class="num">8</span>].y
+    );
+    <span class="kw">return</span> { x: h.keypoints[<span class="num">0</span>].x, y: h.keypoints[<span class="num">0</span>].y,
+      strength: map(pinch, <span class="num">15</span>, <span class="num">220</span>, <span class="num">6.5</span>, <span class="num">0.3</span>, <span class="kw">true</span>) };
+  });
+  <span class="kw">for</span> (<span class="kw">let</span> p <span class="kw">of</span> bgParticles) {
+    <span class="kw">let</span> flowAngle = noise(p.x * noiseScale, p.y * noiseScale, noiseZ) * TWO_PI * <span class="num">2.5</span>;
+    <span class="kw">let</span> axTotal = <span class="num">0</span>, ayTotal = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="kw">let</span> att <span class="kw">of</span> attractors) {
+      <span class="kw">let</span> dx = att.x - p.x, dy = att.y - p.y;
+      <span class="kw">let</span> d = max(sqrt(dx*dx + dy*dy), <span class="num">1</span>);
+      <span class="kw">let</span> perpX = -dy/d, perpY = dx/d, inX = dx/d, inY = dy/d;
+      <span class="kw">let</span> falloff = att.strength * (<span class="num">300</span> / (d + <span class="num">80</span>));
+      axTotal += (perpX * <span class="num">0.75</span> + inX * <span class="num">0.25</span>) * falloff;
+      ayTotal += (perpY * <span class="num">0.75</span> + inY * <span class="num">0.25</span>) * falloff;
+    }
+    <span class="kw">let</span> vx = cos(flowAngle) * p.speed + axTotal;
+    <span class="kw">let</span> vy = sin(flowAngle) * p.speed + ayTotal;
+    strokeWeight(p.size);
+    <span class="kw">let</span> alpha = attractors.length > <span class="num">0</span> ? <span class="num">200</span> : <span class="num">130</span>;
+    stroke(p.r, p.g, p.b, alpha);
+    line(p.px, p.py, p.x, p.y);
+    <span class="kw">if</span> (random() &lt; <span class="num">0.06</span> && attractors.length > <span class="num">0</span>) {
+      noStroke(); fill(p.r, p.g, p.b, <span class="num">160</span>);
+      circle(p.x, p.y, p.size * <span class="num">3.5</span>);
+    }
+    p.px = p.x; p.py = p.y;
+    p.x += vx; p.y += vy;
+    <span class="kw">if</span> (p.x &lt; <span class="num">0</span>)     { p.x = width;  p.px = p.x; }
+    <span class="kw">if</span> (p.x > width)  { p.x = <span class="num">0</span>;      p.px = p.x; }
+    <span class="kw">if</span> (p.y &lt; <span class="num">0</span>)     { p.y = height; p.py = p.y; }
+    <span class="kw">if</span> (p.y > height) { p.y = <span class="num">0</span>;      p.py = p.y; }
+  }
+  <span class="kw">if</span> (faces.length > <span class="num">0</span> && triangles) {
+    <span class="kw">let</span> face = faces[<span class="num">0</span>];
+    randomSeed(<span class="num">0</span>); noStroke();
+    beginShape(TRIANGLES);
+    <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; triangles.length; i++) {
+      <span class="kw">let</span> [a, b, c] = triangles[i];
+      <span class="kw">let</span> pA = face.keypoints[a], pB = face.keypoints[b], pC = face.keypoints[c];
+      fill(random(<span class="num">255</span>), random(<span class="num">255</span>), random(<span class="num">255</span>));
+      vertex(pA.x, pA.y); vertex(pB.x, pB.y); vertex(pC.x, pC.y);
+    }
+    endShape();
+  }
+  <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; hands.length; i++) {
+    <span class="kw">let</span> hand = hands[i];
+    <span class="kw">let</span> pinch = dist(hand.keypoints[<span class="num">4</span>].x, hand.keypoints[<span class="num">4</span>].y,
+      hand.keypoints[<span class="num">8</span>].x, hand.keypoints[<span class="num">8</span>].y);
+    <span class="kw">let</span> wrist = hand.keypoints[<span class="num">0</span>];
+    <span class="kw">if</span> (i === <span class="num">0</span>) {
+      vibe = map(pinch, <span class="num">15</span>, <span class="num">250</span>, <span class="num">0</span>, <span class="num">10</span>);
+      treeAngle = map(wrist.x, <span class="num">0</span>, width, <span class="num">0.05</span>, HALF_PI);
+      stroke(<span class="num">255</span>, <span class="num">255</span>, <span class="num">0</span>); strokeWeight(<span class="num">2</span>);
+      line(hand.keypoints[<span class="num">4</span>].x, hand.keypoints[<span class="num">4</span>].y,
+           hand.keypoints[<span class="num">8</span>].x, hand.keypoints[<span class="num">8</span>].y);
+    }
+    <span class="kw">if</span> (i === <span class="num">1</span>) {
+      <span class="kw">let</span> noteIndex = constrain(
+        floor(map(pinch, <span class="num">15</span>, <span class="num">200</span>, <span class="num">0</span>, notes.length - <span class="num">1</span>)),
+        <span class="num">0</span>, notes.length - <span class="num">1</span>);
+      freq = midiToFreq(notes[noteIndex]);
+      branchLen = map(wrist.y, <span class="num">0</span>, height, <span class="num">120</span>, <span class="num">20</span>);
+      stroke(<span class="num">0</span>, <span class="num">255</span>, <span class="num">255</span>); strokeWeight(<span class="num">2</span>);
+      line(hand.keypoints[<span class="num">4</span>].x, hand.keypoints[<span class="num">4</span>].y,
+           hand.keypoints[<span class="num">8</span>].x, hand.keypoints[<span class="num">8</span>].y);
+    }
+    noStroke();
+    <span class="kw">for</span> (<span class="kw">let</span> kp <span class="kw">of</span> hand.keypoints) {
+      fill(<span class="num">0</span>, <span class="num">255</span>, <span class="num">0</span>); circle(kp.x, kp.y, <span class="num">10</span>);
+    }
+  }
+  osc1.freq(freq - vibe); osc2.freq(freq + vibe);
+  vol = lerp(vol, hands.length > <span class="num">0</span> ? <span class="num">0.4</span> : <span class="num">0</span>, <span class="num">0.05</span>);
+  osc1.amp(vol); osc2.amp(vol);
+  <span class="kw">for</span> (<span class="kw">let</span> x = <span class="num">50</span>; x &lt; width; x += <span class="num">80</span>) {
+    push(); translate(x, height); branch(branchLen); pop();
+  }
+  push(); translate(width / <span class="num">2</span>, height); branch(branchLen); pop();
+  filter(POSTERIZE, posterizeAmount);
 }
 
-<span class="kw">class</span> <span class="fn">Particle</span> {
-  <span class="fn">constructor</span>() { <span class="kw">this</span>.reset(); }
-
-  <span class="fn">reset</span>() {
-    <span class="kw">this</span>.x  = random(width);
-    <span class="kw">this</span>.y  = random(height);
-    <span class="kw">this</span>.px = <span class="kw">this</span>.x;
-    <span class="kw">this</span>.py = <span class="kw">this</span>.y;
-    <span class="kw">this</span>.age = <span class="num">0</span>;
-    <span class="kw">this</span>.maxAge = random(<span class="num">80</span>, <span class="num">300</span>);
-    <span class="kw">this</span>.speed = random(<span class="num">1.2</span>, <span class="num">2.8</span>);
-    <span class="kw">this</span>.hue = random(<span class="num">30</span>, <span class="num">50</span>); <span class="cm">// amber-gold range</span>
+<span class="fn">function</span> <span class="fn">initParticles</span>() {
+  bgParticles = [];
+  <span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; NUM_BG; i++) {
+    <span class="kw">let</span> c = palette[floor(random(palette.length))];
+    bgParticles.push({ x: random(width), y: random(height),
+      px: <span class="num">0</span>, py: <span class="num">0</span>, r: c[<span class="num">0</span>], g: c[<span class="num">1</span>], b: c[<span class="num">2</span>],
+      size: random(<span class="num">1.2</span>, <span class="num">3.5</span>), speed: random(<span class="num">0.8</span>, <span class="num">2.2</span>) });
   }
+  <span class="kw">for</span> (<span class="kw">let</span> p <span class="kw">of</span> bgParticles) { p.px = p.x; p.py = p.y; }
+}
 
-  <span class="fn">update</span>() {
-    <span class="kw">let</span> angle = noise(
-      <span class="kw">this</span>.x * noiseScale,
-      <span class="kw">this</span>.y * noiseScale,
-      zOffset
-    ) * TWO_PI * noiseStrength;
+<span class="fn">function</span> <span class="fn">gotFaces</span>(results) { faces = results; }
+<span class="fn">function</span> <span class="fn">gotHands</span>(results) { hands = results; }
 
-    <span class="kw">this</span>.px = <span class="kw">this</span>.x;
-    <span class="kw">this</span>.py = <span class="kw">this</span>.y;
-    <span class="kw">this</span>.x += cos(angle) * <span class="kw">this</span>.speed;
-    <span class="kw">this</span>.y += sin(angle) * <span class="kw">this</span>.speed;
-    <span class="kw">this</span>.age++;
-  }
+<span class="fn">function</span> <span class="fn">faceModelReady</span>() {
+  faceMesh.detectStart(video, gotFaces);
+  triangles = faceMesh.getTriangles();
+  faceReady = <span class="kw">true</span>;
+}
 
-  <span class="fn">draw</span>() {
-    <span class="kw">let</span> alpha = map(
-      <span class="kw">this</span>.age, <span class="num">0</span>, <span class="kw">this</span>.maxAge, <span class="num">60</span>, <span class="num">0</span>
-    );
-    stroke(<span class="kw">this</span>.hue, <span class="num">60</span>, <span class="num">90</span>, alpha);
-    strokeWeight(<span class="num">0.8</span>);
-    line(<span class="kw">this</span>.px, <span class="kw">this</span>.py, <span class="kw">this</span>.x, <span class="kw">this</span>.y);
-  }
+<span class="fn">function</span> <span class="fn">handModelReady</span>() {
+  handPose.detectStart(video, gotHands);
+  handReady = <span class="kw">true</span>;
+}
 
-  <span class="fn">isDead</span>() {
-    <span class="kw">return</span> (
-      <span class="kw">this</span>.age > <span class="kw">this</span>.maxAge ||
-      <span class="kw">this</span>.x &lt; <span class="num">0</span> || <span class="kw">this</span>.x > width ||
-      <span class="kw">this</span>.y &lt; <span class="num">0</span> || <span class="kw">this</span>.y > height
-    );
+<span class="fn">function</span> <span class="fn">branch</span>(len) {
+  strokeWeight(map(len, <span class="num">2</span>, <span class="num">120</span>, <span class="num">1</span>, <span class="num">10</span>));
+  stroke(<span class="num">219</span>, <span class="num">181</span>, <span class="num">55</span>);
+  line(<span class="num">0</span>, <span class="num">0</span>, <span class="num">0</span>, -len);
+  translate(<span class="num">0</span>, -len);
+  len *= <span class="num">0.67</span>;
+  <span class="kw">if</span> (len > <span class="num">4</span>) {
+    push(); rotate(-treeAngle); branch(len); pop();
+    push(); rotate(treeAngle);  branch(len); pop();
   }
 }
 
-<span class="fn">function</span> <span class="fn">windowResized</span>() {
-  resizeCanvas(windowWidth, windowHeight);
-  background(<span class="num">0</span>, <span class="num">0</span>, <span class="num">4</span>);
-}</pre>
+<span class="fn">function</span> <span class="fn">mousePressed</span>() { userStartAudio(); }</pre>
       </div>
     </div>
   </div>
@@ -767,7 +811,7 @@ Face-detection-demo.mov      ->      p5.js sketch recording    </p>
   <div class="sketch-intro section-inner">
     <div class="section-eyebrow reveal">Live Sketch</div>
     <h2 class="section-title reveal reveal-delay-1">Try it <em>yourself</em></h2>
-    <p class="reveal reveal-delay-2"> Have fun with the live sketch below!</p>
+    <p class="reveal reveal-delay-2">Have fun with the live sketch below!</p>
   </div>
   <div class="sketch-container">
     <div class="sketch-overlay-label">Live · p5.js</div>
@@ -775,14 +819,12 @@ Face-detection-demo.mov      ->      p5.js sketch recording    </p>
   </div>
 </section>
 
-<!-- p5.js -->
- <iframe 
+<!-- p5.js iframe -->
+<iframe
   src="https://editor.p5js.org/ChristinaFIKRU/full/T1iznVpfK"
-  width="800" 
+  width="800"
   height="600">
 </iframe>
- 
-
 
 <!-- FOOTER -->
 <footer>
@@ -790,29 +832,18 @@ Face-detection-demo.mov      ->      p5.js sketch recording    </p>
   <a href="../index.html" class="footer-link">← Back to Portfolio</a>
 </footer>
 
-
- <!-- https://editor.p5js.org/ChristinaFIKRU/full/T1iznVpfK -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script> -->
-<!-- <iframe src="https://editor.p5js.org/ChristinaFIKRU/full/T1iznVpfK"></iframe> -->
-
-
 <script>
-// ── CURSOR ────────────────────────────────────────────────────────────
+// ── CURSOR
 const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
+let mx = 0, my = 0;
 document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 (function animCursor() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
   cursor.style.left = mx + 'px';
   cursor.style.top  = my + 'px';
-  ring.style.left   = rx + 'px';
-  ring.style.top    = ry + 'px';
   requestAnimationFrame(animCursor);
 })();
 
-// ── SCROLL REVEAL ─────────────────────────────────────────────────────
+// ── SCROLL REVEAL
 const revealEls = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -824,7 +855,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 revealEls.forEach(el => observer.observe(el));
 
-// ── COPY CODE ─────────────────────────────────────────────────────────
+// ── COPY BUTTON
 function copyCode() {
   const code = document.getElementById('code-content').innerText;
   navigator.clipboard.writeText(code).then(() => {
@@ -838,20 +869,13 @@ function copyCode() {
   });
 }
 
-// ── VIDEO PLACEHOLDER ─────────────────────────────────────────────────
-function loadVideo() {
-  // Replace the alert below with your actual video embed logic
-  // e.g. for YouTube: document.getElementById('video-placeholder').innerHTML = '<iframe src="https://www.youtube.com/embed/YOUR_ID?autoplay=1" ...>';
-  alert('Add your video URL in the loadVideo() function or replace the placeholder with an <iframe> or <video> tag.');
-}
-
-// ── P5 SKETCH ─────────────────────────────────────────────────────────
+// ── P5 SKETCH
 new p5(function(p) {
   let particles = [];
   const PARTICLE_COUNT = 500;
-  let noiseScale  = 0.0025;
-  let noiseStr    = 2.2;
-  let zOff        = 0;
+  let noiseScale = 0.0025;
+  let noiseStr   = 2.2;
+  let zOff       = 0;
   let container;
 
   p.setup = function() {
@@ -883,12 +907,11 @@ new p5(function(p) {
   class Particle {
     constructor() { this.reset(); }
     reset() {
-      // spawn along edges for "entering the city" feel
       const edge = Math.floor(p.random(4));
-      if (edge === 0) { this.x = p.random(p.width); this.y = 0; }
-      else if (edge === 1) { this.x = p.width; this.y = p.random(p.height); }
-      else if (edge === 2) { this.x = p.random(p.width); this.y = p.height; }
-      else { this.x = 0; this.y = p.random(p.height); }
+      if      (edge === 0) { this.x = p.random(p.width);  this.y = 0; }
+      else if (edge === 1) { this.x = p.width;             this.y = p.random(p.height); }
+      else if (edge === 2) { this.x = p.random(p.width);  this.y = p.height; }
+      else                 { this.x = 0;                   this.y = p.random(p.height); }
       this.px     = this.x;
       this.py     = this.y;
       this.age    = 0;
@@ -898,13 +921,8 @@ new p5(function(p) {
       this.sat    = p.random(50, 80);
     }
     update() {
-      let angle = p.noise(
-        this.x * noiseScale,
-        this.y * noiseScale,
-        zOff
-      ) * p.TWO_PI * noiseStr;
-      this.px = this.x;
-      this.py = this.y;
+      let angle = p.noise(this.x * noiseScale, this.y * noiseScale, zOff) * p.TWO_PI * noiseStr;
+      this.px = this.x; this.py = this.y;
       this.x += p.cos(angle) * this.spd;
       this.y += p.sin(angle) * this.spd;
       this.age++;
@@ -919,7 +937,7 @@ new p5(function(p) {
     dead() {
       return (
         this.age > this.maxAge ||
-        this.x < -2 || this.x > p.width + 2 ||
+        this.x < -2 || this.x > p.width  + 2 ||
         this.y < -2 || this.y > p.height + 2
       );
     }
